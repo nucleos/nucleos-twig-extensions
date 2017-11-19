@@ -1,0 +1,52 @@
+{
+  "name": "core23/twig-extensions",
+  "type": "library",
+  "description": "Useful extensions for twig.",
+  "keywords": [
+    "symfony",
+    "bundle",
+    "twig",
+    "extensions",
+    "bridge"
+  ],
+  "homepage": "https://core23.de",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Christian Gripp",
+      "email": "mail@core23.de"
+    }
+  ],
+  "require": {
+    "php": "^7.1",
+    "sonata-project/datagrid-bundle": "^2.2",
+    "sonata-project/intl-bundle": "^2.0",
+    "twig/twig": "^1.35 || ^2.0"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^2.0",
+    "matthiasnoback/symfony-dependency-injection-test": "^1.1",
+    "phpunit/phpunit": "^5.7",
+    "sllh/php-cs-fixer-styleci-bridge": "^2.0",
+    "symfony/framework-bundle": "^2.8 || ^3.3",
+    "symfony/phpunit-bridge": "^3.3.12"
+  },
+  "autoload": {
+    "psr-4": {
+      "Core23\\TwigExtensions\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Core23\\TwigExtensions\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.x-dev"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  }
+}

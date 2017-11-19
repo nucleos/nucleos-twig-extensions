@@ -1,0 +1,65 @@
+{% macro pageLink(urlPath, urlParams, i) %}
+    {% spaceless %}
+        {% if i > 1 %}
+            {{ path(urlPath, urlParams|merge( { 'page': i }) ) }}
+        {% else %}
+            {{ path(urlPath, urlParams) }}
+        {% endif %}
+    {% endspaceless %}
+{% endmacro %}
+
+{% if urlParams is not defined %}
+    {% set urlParams = {} %}
+{% endif %}
+
+{% if routeParams is not defined %}
+    {% set routeParams = {} %}
+{% endif %}
+
+{% if lastPage > 1 %}
+    <div class="row">
+        <nav class="col-sm-12">
+            <ul class="pagination pagination-sm">
+                {% if currentPage > 1 %}
+                    <li><a href="{{ path(route, routeParams|merge({page: currentPage-1})) }}">{{ "pagination.navigation_previous"|trans({}, 'Core23TwigExtensionBundle') }}</a></li>
+                {% endif %}
+
+                {% for i in range(1, extremeLimit) %}
+                    {% if ( i < currentPage-nearbyLimit ) %}
+                        <li><a href="{{ path(route, routeParams|merge({page: i})) }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if extremeLimit + 1 < currentPage - nearbyLimit %}
+                    <li class="disabled"><span class="sep-dots">...</span></li>
+                {% endif %}
+
+                {% for i in range(currentPage-nearbyLimit, currentPage-1) if ( i > 0 ) %}
+                    <li><a href="{{ path(route, routeParams|merge({page: i})) }}">{{ i }}</a></li>
+                {% endfor %}
+
+                <li class="active"><a href="{{ path(route, routeParams|merge({ page: currentPage })) }}">{{ currentPage }}</a></li>
+
+                {% if currentPage < lastPage %}
+                    {% for i in range(currentPage+1, lastPage) %}
+                        {% if ( loop.index <= nearbyLimit and i <= lastPage ) %}
+                            <li><a href="{{ path(route, routeParams|merge({page: i})) }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if  (lastPage - extremeLimit) > (currentPage + nearbyLimit ) %}
+                        <li class="disabled"><span class="sep-dots">...</span></li>
+                    {% endif %}
+
+                    {% for i in range(lastPage-extremeLimit+1, lastPage) if ( i > currentPage+nearbyLimit ) %}
+                        <li><a href="{{ path(route, routeParams|merge({page: i})) }}">{{ i }}</a></li>
+                    {% endfor %}
+                {% endif %}
+
+                {% if currentPage < lastPage %}
+                    <li><a href="{{ path(route, routeParams|merge({page: currentPage+1})) }}">{{ "pagination.navigation_next"|trans({}, 'Core23TwigExtensionBundle') }}</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+{% endif %}
