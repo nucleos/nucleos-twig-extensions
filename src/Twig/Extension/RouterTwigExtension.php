@@ -95,7 +95,7 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
      */
     public function routeExists(string $name): bool
     {
-        return $this->router->getRouteCollection()->get($name) !== null;
+        return null !== $this->router->getRouteCollection()->get($name);
     }
 
     /**
