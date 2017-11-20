@@ -11,7 +11,7 @@ namespace Core23\TwigExtensions\Tests\Twig\Extension;
 
 use Core23\TwigExtensions\Twig\Extension\RouterTwigExtension;
 use PHPUnit\Framework\TestCase;
-use Sonata\DatagridBundle\Pager\Doctrine\Pager;
+use Sonata\DatagridBundle\Pager\BasePager;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\Routing\RouterInterface;
@@ -94,8 +94,8 @@ class RouterTwigExtensionTest extends TestCase
 
     public function testGeneratePager()
     {
-        /** @var \PHPUnit_Framework_MockObject_MockObject|Pager $pager */
-        $pager = $this->createMock(Pager::class);
+        /** @var \PHPUnit_Framework_MockObject_MockObject|BasePager $pager */
+        $pager = $this->createMock(BasePager::class);
         $pager->expects($this->any())->method('count')->will($this->returnValue('100'));
         $pager->expects($this->any())->method('getMaxPerPage')->will($this->returnValue('20'));
         $pager->expects($this->any())->method('getPage')->will($this->returnValue('2'));
