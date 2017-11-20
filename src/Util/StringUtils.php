@@ -33,7 +33,7 @@ class StringUtils
         }
         $end = min($end, $len - 1);
 
-        if ($len === 0 || $len === $start + 1 || $len === $end + 1 || $len <= $start + $end) {
+        if (0 === $len || $len === $start + 1 || $len === $end + 1 || $len <= $start + $end) {
             return $string;
         }
 
