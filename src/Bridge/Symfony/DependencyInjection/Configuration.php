@@ -21,6 +21,8 @@ final class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
+
+        /** @var ArrayNodeDefinition $node */
         $node        = $treeBuilder->root('core23_twig');
 
         $this->addMailSection($node);

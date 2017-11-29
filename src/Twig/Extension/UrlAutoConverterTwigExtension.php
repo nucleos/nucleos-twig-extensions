@@ -110,13 +110,13 @@ final class UrlAutoConverterTwigExtension extends AbstractExtension
     }
 
     /**
-     * @param $matches
+     * @param string[] $matches
      *
      * @return string
      */
-    protected function encryptMail($matches): string
+    protected function encryptMail(array $matches): string
     {
-        list(, , $email, , $text) = $matches;
+        [$part1, $part2, $email, $part4, $text] = $matches;
 
         if ($text === $email) {
             $text = '';

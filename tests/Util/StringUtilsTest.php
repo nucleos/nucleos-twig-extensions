@@ -31,7 +31,7 @@ class StringUtilsTest extends TestCase
     /**
      * @return array
      */
-    public function getObfuscatedStrings()
+    public function getObfuscatedStrings(): array
     {
         return array(
             array('Foo Bar Baz', 'start' => 1, 'end' => 1, 'replacement' => ' ', 'F         z'),

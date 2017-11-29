@@ -24,10 +24,10 @@ class UrlAutoConverterTwigExtensionTest extends TestCase
     /**
      * @dataProvider getLinkText
      *
-     * @param $input
-     * @param $output
+     * @param string $input
+     * @param string $output
      */
-    public function testAutoConvertUrlsWithLinks($input, $output)
+    public function testAutoConvertUrlsWithLinks(string $input, string $output)
     {
         $extension = new UrlAutoConverterTwigExtension(true, '[DOT]', 'spam', '[AT]');
 
@@ -37,10 +37,10 @@ class UrlAutoConverterTwigExtensionTest extends TestCase
     /**
      * @dataProvider getMailText
      *
-     * @param $input
-     * @param $output
+     * @param string $input
+     * @param string $output
      */
-    public function testAutoConvertUrlsWithMails($input, $output)
+    public function testAutoConvertUrlsWithMails(string $input, string $output)
     {
         $extension = new UrlAutoConverterTwigExtension(false, '[DOT]', 'spam', '[AT]');
 
@@ -50,10 +50,10 @@ class UrlAutoConverterTwigExtensionTest extends TestCase
     /**
      * @dataProvider getSecureMailText
      *
-     * @param $input
-     * @param $output
+     * @param string $input
+     * @param string $output
      */
-    public function testAutoConvertUrlsWithSecureMails($input, $output)
+    public function testAutoConvertUrlsWithSecureMails(string $input, string $output)
     {
         $extension = new UrlAutoConverterTwigExtension(true, '[DOT]', 'spam', '[AT]');
 

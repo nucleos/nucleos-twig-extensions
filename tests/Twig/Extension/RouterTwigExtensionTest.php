@@ -73,7 +73,7 @@ class RouterTwigExtensionTest extends TestCase
      * @param string $tag
      * @param array  $output
      */
-    public function testSplitTag($input, $tag, array $output)
+    public function testSplitTag(string $input, string $tag, array $output)
     {
         $this->assertSame($output, $this->extension->splitTag($input, $tag));
     }
