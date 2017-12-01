@@ -31,9 +31,9 @@ class StringTwigExtensionTest extends TestCase
     /**
      * @dataProvider getBase10
      *
-     * @param int|double $bits
-     * @param int|double $number
-     * @param string     $unit
+     * @param int|float $bits
+     * @param int|float $number
+     * @param string    $unit
      */
     public function testFormatBytesBase10($bits, $number, string $unit)
     {
@@ -49,9 +49,9 @@ class StringTwigExtensionTest extends TestCase
     /**
      * @dataProvider getBase2
      *
-     * @param int|double $bits
-     * @param int|double $number
-     * @param string     $unit
+     * @param int|float $bits
+     * @param int|float $number
+     * @param string    $unit
      */
     public function testFormatBytesBase2($bits, $number, string $unit)
     {
