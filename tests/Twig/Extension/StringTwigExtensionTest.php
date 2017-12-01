@@ -31,11 +31,11 @@ class StringTwigExtensionTest extends TestCase
     /**
      * @dataProvider getBase10
      *
-     * @param int    $bits
-     * @param int    $number
-     * @param string $unit
+     * @param int|double $bits
+     * @param int|double $number
+     * @param string     $unit
      */
-    public function testFormatBytesBase10(int $bits, int $number, string $unit)
+    public function testFormatBytesBase10($bits, $number, string $unit)
     {
         $extension = new StringTwigExtension($this->numberHelper);
 
@@ -49,11 +49,11 @@ class StringTwigExtensionTest extends TestCase
     /**
      * @dataProvider getBase2
      *
-     * @param int    $bits
-     * @param int    $number
-     * @param string $unit
+     * @param int|double $bits
+     * @param int|double $number
+     * @param string     $unit
      */
-    public function testFormatBytesBase2(int $bits, int $number, string $unit)
+    public function testFormatBytesBase2($bits, $number, string $unit)
     {
         $extension = new StringTwigExtension($this->numberHelper);
 
