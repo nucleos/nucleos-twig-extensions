@@ -21,4 +21,12 @@ final class Core23TwigExtensionsBundle extends Bundle
     {
         return Core23TwigExtensionsExtension::class;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPath()
+    {
+        return __DIR__.'/..';
+    }
 }
