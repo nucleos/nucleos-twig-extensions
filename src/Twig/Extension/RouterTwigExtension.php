@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -41,7 +43,7 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
      *
      * @throws LoaderError
      */
-    public function __construct(RouterInterface $router, array $options = array())
+    public function __construct(RouterInterface $router, array $options = [])
     {
         $this->router  = $router;
         $this->options = $options;
@@ -60,7 +62,7 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
     /**
      * {@inheritdoc}
      */
-    public function initRuntime(\Twig_Environment $environment)
+    public function initRuntime(\Twig_Environment $environment): void
     {
         $this->environment = $environment;
     }
@@ -70,12 +72,12 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
      */
     public function getFunctions()
     {
-        return array(
-            new TwigFunction('routeExists', array($this, 'routeExists')),
-            new TwigFunction('page_pager', array($this, 'generatePager'), array(
-                'is_safe' => array('html'),
-            )),
-        );
+        return [
+            new TwigFunction('routeExists', [$this, 'routeExists']),
+            new TwigFunction('page_pager', [$this, 'generatePager'], [
+                'is_safe' => ['html'],
+            ]),
+        ];
     }
 
     /**
@@ -83,9 +85,9 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
      */
     public function getFilters()
     {
-        return array(
-            new TwigFilter('splitTag', array($this, 'splitTag')),
-        );
+        return [
+            new TwigFilter('splitTag', [$this, 'splitTag']),
+        ];
     }
 
     /**
@@ -107,7 +109,7 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
     public function splitTag(string $text, string $tag): array
     {
         if (!$tag) {
-            return array($text);
+            return [$text];
         }
 
         return preg_split('/(?=<'.$tag.'([^>])*>)/', $text, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
@@ -117,19 +119,19 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
      * @param BasePager $pager
      * @param array     $options
      *
-     * @return string
-     *
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
+     *
+     * @return string
      */
-    public function generatePager(BasePager $pager, array $options = array()): string
+    public function generatePager(BasePager $pager, array $options = []): string
     {
-        $data = array_merge(array_merge($this->options, $options), array(
+        $data = array_merge(array_merge($this->options, $options), [
             'itemsCount'  => $pager->count(),
             'limit'       => $pager->getMaxPerPage(),
             'currentPage' => $pager->getPage(),
-        ));
+        ]);
 
         $data['lastPage'] = $this->getNumPages($data['limit'], $data['itemsCount']);
 

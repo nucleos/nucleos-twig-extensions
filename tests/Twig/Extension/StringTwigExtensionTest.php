@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -23,7 +25,7 @@ class StringTwigExtensionTest extends TestCase
     /**
      * {@inheritdoc}
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->numberHelper = $this->createMock(NumberHelper::class);
     }
@@ -35,12 +37,12 @@ class StringTwigExtensionTest extends TestCase
      * @param int|float $number
      * @param string    $unit
      */
-    public function testFormatBytesBase10($bits, $number, string $unit)
+    public function testFormatBytesBase10($bits, $number, string $unit): void
     {
         $extension = new StringTwigExtension($this->numberHelper);
 
         $this->numberHelper->expects($this->once())->method('formatDecimal')
-            ->with($this->equalTo($number), $this->equalTo(array('fraction_digits' => 1)))
+            ->with($this->equalTo($number), $this->equalTo(['fraction_digits' => 1]))
             ->will($this->returnValue($number));
 
         $this->assertStringEndsWith($unit, $extension->formatBytes($bits, true, 1));
@@ -53,12 +55,12 @@ class StringTwigExtensionTest extends TestCase
      * @param int|float $number
      * @param string    $unit
      */
-    public function testFormatBytesBase2($bits, $number, string $unit)
+    public function testFormatBytesBase2($bits, $number, string $unit): void
     {
         $extension = new StringTwigExtension($this->numberHelper);
 
         $this->numberHelper->expects($this->once())->method('formatDecimal')
-            ->with($this->equalTo($number), $this->equalTo(array('fraction_digits' => 1)))
+            ->with($this->equalTo($number), $this->equalTo(['fraction_digits' => 1]))
             ->will($this->returnValue($number));
 
         $this->assertStringEndsWith($unit, $extension->formatBytes($bits, false, 1));
@@ -69,17 +71,17 @@ class StringTwigExtensionTest extends TestCase
      */
     public function getBase10(): array
     {
-        return array(
-            array(500, 500, 'B'),
-            array(1000, 1, 'kB'),
-            array(1500, 1.5, 'kB'),
-            array(2000, 2, 'kB'),
-            array(1000 ** 2, 1, 'MB'),
-            array(1000 ** 3, 1, 'GB'),
-            array(1000 ** 4, 1, 'TB'),
-            array(1000 ** 5, 1, 'PB'),
-            array(1000 ** 6, 1, 'EB'),
-        );
+        return [
+            [500, 500, 'B'],
+            [1000, 1, 'kB'],
+            [1500, 1.5, 'kB'],
+            [2000, 2, 'kB'],
+            [1000 ** 2, 1, 'MB'],
+            [1000 ** 3, 1, 'GB'],
+            [1000 ** 4, 1, 'TB'],
+            [1000 ** 5, 1, 'PB'],
+            [1000 ** 6, 1, 'EB'],
+        ];
     }
 
     /**
@@ -87,30 +89,30 @@ class StringTwigExtensionTest extends TestCase
      */
     public function getBase2(): array
     {
-        return array(
-            array(512, 512, 'B'),
-            array(1024, 1, 'KiB'),
-            array(1536, 1.5, 'KiB'),
-            array(2048, 2, 'KiB'),
-            array(1024 ** 2, 1, 'MiB'),
-            array(1024 ** 3, 1, 'GiB'),
-            array(1024 ** 4, 1, 'TiB'),
-            array(1024 ** 5, 1, 'PiB'),
-            array(1024 ** 6, 1, 'EiB'),
-        );
+        return [
+            [512, 512, 'B'],
+            [1024, 1, 'KiB'],
+            [1536, 1.5, 'KiB'],
+            [2048, 2, 'KiB'],
+            [1024 ** 2, 1, 'MiB'],
+            [1024 ** 3, 1, 'GiB'],
+            [1024 ** 4, 1, 'TiB'],
+            [1024 ** 5, 1, 'PiB'],
+            [1024 ** 6, 1, 'EiB'],
+        ];
     }
 
-    public function testObfuscate()
+    public function testObfuscate(): void
     {
         $extension = new StringTwigExtension($this->numberHelper);
 
         $this->assertSame('T***', $extension->obfuscate(
             'Test',
-            array(
+            [
                 'start'       => 1,
                 'end'         => 0,
                 'replacement' => '*',
-            )
+            ]
         ));
     }
 }

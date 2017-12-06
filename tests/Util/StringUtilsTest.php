@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -23,7 +25,7 @@ class StringUtilsTest extends TestCase
      * @param string $replacement
      * @param string $output
      */
-    public function testObfuscate($input, $start, $end, $replacement, $output)
+    public function testObfuscate($input, $start, $end, $replacement, $output): void
     {
         $this->assertSame($output, StringUtils::obfuscate($input, $start, $end, $replacement));
     }
@@ -33,17 +35,17 @@ class StringUtilsTest extends TestCase
      */
     public function getObfuscatedStrings(): array
     {
-        return array(
-            array('Foo Bar Baz', 'start' => 1, 'end' => 1, 'replacement' => ' ', 'F         z'),
-            array('Foo Bar Baz', 'start' => 1, 'end' => 1, 'replacement' => '#', 'F#########z'),
-            array('Foo Bar Baz', 'start' => 0, 'end' => 3, 'replacement' => '#', '########Baz'),
-            array('Foo Bar Baz', 'start' => 2, 'end' => 0, 'replacement' => '#', 'Fo#########'),
-            array('Foobar', 'start' => 5, 'end' => 0, 'replacement' => '#', 'Foobar'),
-            array('Foobar', 'start' => 6, 'end' => 0, 'replacement' => '#', 'Foobar'),
-            array('Foobar', 'start' => 4, 'end' => 2, 'replacement' => '#', 'Foobar'),
-            array('Foobar', 'start' => 4, 'end' => 3, 'replacement' => '#', 'Foobar'),
-            array('Foobar', 'start' => 0, 'end' => 5, 'replacement' => '#', 'Foobar'),
-            array('Foobar', 'start' => 0, 'end' => 6, 'replacement' => '#', 'Foobar'),
-        );
+        return [
+            ['Foo Bar Baz', 'start' => 1, 'end' => 1, 'replacement' => ' ', 'F         z'],
+            ['Foo Bar Baz', 'start' => 1, 'end' => 1, 'replacement' => '#', 'F#########z'],
+            ['Foo Bar Baz', 'start' => 0, 'end' => 3, 'replacement' => '#', '########Baz'],
+            ['Foo Bar Baz', 'start' => 2, 'end' => 0, 'replacement' => '#', 'Fo#########'],
+            ['Foobar', 'start' => 5, 'end' => 0, 'replacement' => '#', 'Foobar'],
+            ['Foobar', 'start' => 6, 'end' => 0, 'replacement' => '#', 'Foobar'],
+            ['Foobar', 'start' => 4, 'end' => 2, 'replacement' => '#', 'Foobar'],
+            ['Foobar', 'start' => 4, 'end' => 3, 'replacement' => '#', 'Foobar'],
+            ['Foobar', 'start' => 0, 'end' => 5, 'replacement' => '#', 'Foobar'],
+            ['Foobar', 'start' => 0, 'end' => 6, 'replacement' => '#', 'Foobar'],
+        ];
     }
 }

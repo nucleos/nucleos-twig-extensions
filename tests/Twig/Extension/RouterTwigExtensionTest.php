@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -37,22 +39,22 @@ class RouterTwigExtensionTest extends TestCase
     /**
      * {@inheritdoc}
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->router      = $this->createMock(RouterInterface::class);
         $this->environment = $this->createMock(Environment::class);
 
         $this->extension = new RouterTwigExtension(
-            $this->router, array(
+            $this->router, [
                 'template'     => 'template.html.twig',
                 'extremeLimit' => 10,
                 'nearbyLimit'  => 2,
-            )
+            ]
         );
         $this->extension->initRuntime($this->environment);
     }
 
-    public function testRouteExists()
+    public function testRouteExists(): void
     {
         $route = $this->createMock(Route::class);
 
@@ -73,7 +75,7 @@ class RouterTwigExtensionTest extends TestCase
      * @param string $tag
      * @param array  $output
      */
-    public function testSplitTag(string $input, string $tag, array $output)
+    public function testSplitTag(string $input, string $tag, array $output): void
     {
         $this->assertSame($output, $this->extension->splitTag($input, $tag));
     }
@@ -83,16 +85,16 @@ class RouterTwigExtensionTest extends TestCase
      */
     public function getSplitList()
     {
-        return array(
-            array('<h1>Foo</h1><p>Bar</p><h1>Baz</h1>Bar', 'h1', array('<h1>Foo</h1><p>Bar</p>', '<h1>Baz</h1>Bar')),
-            array('<h1>Foo</h1><p>Bar</p><h1>Baz</h1>Bar', '', array('<h1>Foo</h1><p>Bar</p><h1>Baz</h1>Bar')),
-            array('<h1>Foo</h1><p>Bar</p><h1>Baz</h1>Bar', 'img', array('<h1>Foo</h1><p>Bar</p><h1>Baz</h1>Bar')),
-            array('<h1>Foo</h1><p>Bar</p><h1>Baz</h1>Bar', 'h2', array('<h1>Foo</h1><p>Bar</p><h1>Baz</h1>Bar')),
-            array('<h1>Foo</h1><p>Bar</p><h1>Baz</h1>Bar', 'p', array('<h1>Foo</h1>', '<p>Bar</p><h1>Baz</h1>Bar')),
-        );
+        return [
+            ['<h1>Foo</h1><p>Bar</p><h1>Baz</h1>Bar', 'h1', ['<h1>Foo</h1><p>Bar</p>', '<h1>Baz</h1>Bar']],
+            ['<h1>Foo</h1><p>Bar</p><h1>Baz</h1>Bar', '', ['<h1>Foo</h1><p>Bar</p><h1>Baz</h1>Bar']],
+            ['<h1>Foo</h1><p>Bar</p><h1>Baz</h1>Bar', 'img', ['<h1>Foo</h1><p>Bar</p><h1>Baz</h1>Bar']],
+            ['<h1>Foo</h1><p>Bar</p><h1>Baz</h1>Bar', 'h2', ['<h1>Foo</h1><p>Bar</p><h1>Baz</h1>Bar']],
+            ['<h1>Foo</h1><p>Bar</p><h1>Baz</h1>Bar', 'p', ['<h1>Foo</h1>', '<p>Bar</p><h1>Baz</h1>Bar']],
+        ];
     }
 
-    public function testGeneratePager()
+    public function testGeneratePager(): void
     {
         /** @var \PHPUnit_Framework_MockObject_MockObject|BasePager $pager */
         $pager = $this->createMock(BasePager::class);
@@ -100,7 +102,7 @@ class RouterTwigExtensionTest extends TestCase
         $pager->expects($this->any())->method('getMaxPerPage')->will($this->returnValue('20'));
         $pager->expects($this->any())->method('getPage')->will($this->returnValue('2'));
 
-        $expectedData = array(
+        $expectedData = [
             'template'     => 'pager.html.twig',
             'extremeLimit' => 10,
             'nearbyLimit'  => 2,
@@ -108,12 +110,12 @@ class RouterTwigExtensionTest extends TestCase
             'limit'        => 20,
             'currentPage'  => 2,
             'lastPage'     => 5,
-        );
+        ];
 
         $this->environment->expects($this->once())->method('render')
             ->with($this->equalTo('pager.html.twig'), $this->equalTo($expectedData))
             ->willReturn('Pager Content');
 
-        $this->extension->generatePager($pager, array('template' => 'pager.html.twig'));
+        $this->extension->generatePager($pager, ['template' => 'pager.html.twig']);
     }
 }

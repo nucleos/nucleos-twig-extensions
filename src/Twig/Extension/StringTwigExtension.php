@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -36,10 +38,10 @@ final class StringTwigExtension extends AbstractExtension
      */
     public function getFilters()
     {
-        return array(
-            new TwigFilter('format_bytes', array($this, 'formatBytes')),
-            new TwigFilter('obfuscate', array($this, 'obfuscate')),
-        );
+        return [
+            new TwigFilter('format_bytes', [$this, 'formatBytes']),
+            new TwigFilter('obfuscate', [$this, 'obfuscate']),
+        ];
     }
 
     /**
@@ -64,9 +66,9 @@ final class StringTwigExtension extends AbstractExtension
             $num = $bytes / ($unit ** $exp);
         }
 
-        return sprintf('%s %sB', $this->numberHelper->formatDecimal($num, array(
+        return sprintf('%s %sB', $this->numberHelper->formatDecimal($num, [
             'fraction_digits' => $fractionDigits,
-        )), $pre);
+        ]), $pre);
     }
 
     /**
@@ -75,13 +77,13 @@ final class StringTwigExtension extends AbstractExtension
      *
      * @return string
      */
-    public function obfuscate(string $string, array $options = array())
+    public function obfuscate(string $string, array $options = [])
     {
-        $options = array_merge(array(
+        $options = array_merge([
             'start'       => 0,
             'end'         => 3,
             'replacement' => '*',
-        ), $options);
+        ], $options);
 
         return StringUtils::obfuscate($string, $options['start'], $options['end'], $options['replacement']);
     }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -14,7 +16,7 @@ use PHPUnit\Framework\TestCase;
 
 class UrlAutoConverterTwigExtensionTest extends TestCase
 {
-    public function testAutoConvertUrlsWithPlanText()
+    public function testAutoConvertUrlsWithPlanText(): void
     {
         $extension = new UrlAutoConverterTwigExtension(false, '[DOT]', 'spam', '[AT]');
 
@@ -27,7 +29,7 @@ class UrlAutoConverterTwigExtensionTest extends TestCase
      * @param string $input
      * @param string $output
      */
-    public function testAutoConvertUrlsWithLinks(string $input, string $output)
+    public function testAutoConvertUrlsWithLinks(string $input, string $output): void
     {
         $extension = new UrlAutoConverterTwigExtension(true, '[DOT]', 'spam', '[AT]');
 
@@ -40,7 +42,7 @@ class UrlAutoConverterTwigExtensionTest extends TestCase
      * @param string $input
      * @param string $output
      */
-    public function testAutoConvertUrlsWithMails(string $input, string $output)
+    public function testAutoConvertUrlsWithMails(string $input, string $output): void
     {
         $extension = new UrlAutoConverterTwigExtension(false, '[DOT]', 'spam', '[AT]');
 
@@ -53,7 +55,7 @@ class UrlAutoConverterTwigExtensionTest extends TestCase
      * @param string $input
      * @param string $output
      */
-    public function testAutoConvertUrlsWithSecureMails(string $input, string $output)
+    public function testAutoConvertUrlsWithSecureMails(string $input, string $output): void
     {
         $extension = new UrlAutoConverterTwigExtension(true, '[DOT]', 'spam', '[AT]');
 
@@ -65,32 +67,32 @@ class UrlAutoConverterTwigExtensionTest extends TestCase
      */
     public function getLinkText()
     {
-        return array(
-            array(
+        return [
+            [
                 'Lorem Ipsum http://test.de Sit Amet',
                 'Lorem Ipsum <a href="http://test.de">http://test.de</a> Sit Amet',
-            ),
-            array(
+            ],
+            [
                 'Lorem Ipsum <a href="http://test.de">http://test.de</a> Sit Amet',
                 'Lorem Ipsum <a href="http://test.de">http://test.de</a> Sit Amet',
-            ),
-            array(
+            ],
+            [
                 'Lorem Ipsum www.test.de/foo Sit Amet',
                 'Lorem Ipsum <a href="http://www.test.de/foo">www.test.de/foo</a> Sit Amet',
-            ),
-            array(
+            ],
+            [
                 'Lorem Ipsum www.test.de/foo/bar.html Sit Amet',
                 'Lorem Ipsum <a href="http://www.test.de/foo/bar.html">www.test.de/foo/bar.html</a> Sit Amet',
-            ),
-            array(
+            ],
+            [
                 'Lorem Ipsum <script>var link = "http://test.de"; </script> Sit Amet',
                 'Lorem Ipsum <script>var link = "http://test.de"; </script> Sit Amet',
-            ),
-            array(
+            ],
+            [
                 'Lorem Ipsum <script>var link = "www.test.de"; </script> Sit Amet',
                 'Lorem Ipsum <script>var link = "www.test.de"; </script> Sit Amet',
-            ),
-        );
+            ],
+        ];
     }
 
     /**
@@ -98,20 +100,20 @@ class UrlAutoConverterTwigExtensionTest extends TestCase
      */
     public function getMailText()
     {
-        return array(
-            array(
+        return [
+            [
                 'Lorem Ipsum foo.sub@bar.baz.tld Sit Amet',
                 'Lorem Ipsum <a href="mailto:foo.sub@bar.baz.tld">foo.sub@bar.baz.tld</a> Sit Amet',
-            ),
-            array(
+            ],
+            [
                 'Lorem Ipsum <a href="mailto:foo.sub@bar.baz.tld">foo.sub@bar.baz.tld</a> Sit Amet',
                 'Lorem Ipsum <a href="mailto:foo.sub@bar.baz.tld">foo.sub@bar.baz.tld</a> Sit Amet',
-            ),
-            array(
+            ],
+            [
                 'Lorem Ipsum <script>var link = "foo@bar.baz"; </script> Sit Amet',
                 'Lorem Ipsum <script>var link = "foo@bar.baz"; </script> Sit Amet',
-            ),
-        );
+            ],
+        ];
     }
 
     /**
@@ -119,19 +121,19 @@ class UrlAutoConverterTwigExtensionTest extends TestCase
      */
     public function getSecureMailText()
     {
-        return array(
-            array(
+        return [
+            [
                 'Lorem Ipsum <script>var link = "foo@bar.baz"; </script> Sit Amet',
                 'Lorem Ipsum <script>var link = "foo@bar.baz"; </script> Sit Amet',
-            ),
-            array(
+            ],
+            [
                 'Lorem Ipsum foo.sub@bar.baz.tld Sit Amet',
                 'Lorem Ipsum <span class="spam"><span>foo[DOT]sub</span>[AT]<span>bar[DOT]baz[DOT]tld</span></span> Sit Amet',
-            ),
-            array(
+            ],
+            [
                 'Lorem Ipsum <span class="spam"><span>foo[DOT]sub</span>[AT]<span>bar[DOT]baz[DOT]tld</span></span> Sit Amet',
                 'Lorem Ipsum <span class="spam"><span>foo[DOT]sub</span>[AT]<span>bar[DOT]baz[DOT]tld</span></span> Sit Amet',
-            ),
-        );
+            ],
+        ];
     }
 }

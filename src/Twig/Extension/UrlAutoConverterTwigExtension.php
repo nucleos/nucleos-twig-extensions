@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -53,11 +55,11 @@ final class UrlAutoConverterTwigExtension extends AbstractExtension
      */
     public function getFilters()
     {
-        return array(
-            new TwigFilter('converturls', array($this, 'autoConvertUrls'), array(
-                'is_safe' => array('html'),
-            )),
-        );
+        return [
+            new TwigFilter('converturls', [$this, 'autoConvertUrls'], [
+                'is_safe' => ['html'],
+            ]),
+        ];
     }
 
     /**
@@ -68,13 +70,13 @@ final class UrlAutoConverterTwigExtension extends AbstractExtension
      *
      * @return string with replaced links
      */
-    public function autoConvertUrls(string $string, array $options = array()): string
+    public function autoConvertUrls(string $string, array $options = []): string
     {
         $string = $this->convertLinks($string, $options);
 
         if ($this->secureMail) {
             $pattern = '/\<a([^>]+)href\=\"mailto\:([^">]+)\"([^>]*)\>(.*?)\<\/a\>/ism';
-            $string  = preg_replace_callback($pattern, array($this, 'encryptMail'), $string);
+            $string  = preg_replace_callback($pattern, [$this, 'encryptMail'], $string);
         }
 
         return $string;
@@ -86,7 +88,7 @@ final class UrlAutoConverterTwigExtension extends AbstractExtension
      *
      * @return string
      */
-    protected function convertLinks(string $text, array $options = array()): string
+    protected function convertLinks(string $text, array $options = []): string
     {
         // https://bitbucket.org/kwi/urllinker/
         $text = preg_replace('#(script|about|applet|activex|chrome):#is', '\\1:', $text);
