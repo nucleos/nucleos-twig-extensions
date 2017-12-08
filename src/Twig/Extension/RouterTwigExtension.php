@@ -133,7 +133,7 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
             'currentPage' => $pager->getPage(),
         ]);
 
-        $data['lastPage'] = $this->getNumPages($data['limit'], $data['itemsCount']);
+        $data['lastPage'] = $this->getNumPages((int) $data['limit'], (int) $data['itemsCount']);
 
         return $this->environment->render($data['template'], $data);
     }
@@ -150,6 +150,6 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
             return 1;
         }
 
-        return ceil($count / $limit);
+        return (int) ceil($count / $limit);
     }
 }
