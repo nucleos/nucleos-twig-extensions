@@ -6,7 +6,6 @@ What is the Twig Extensions PHP library?
 
 [![Build Status](https://travis-ci.org/core23/twig-extensions.svg)](http://travis-ci.org/core23/twig-extensions)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/core23/twig-extensions/badges/quality-score.png)](https://scrutinizer-ci.com/g/core23/twig-extensions/)
-[![Code Climate](https://codeclimate.com/github/core23/twig-extensions/badges/gpa.svg)](https://codeclimate.com/github/core23/twig-extensions)
 [![Coverage Status](https://coveralls.io/repos/core23/twig-extensions/badge.svg)](https://coveralls.io/r/core23/twig-extensions)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/2b7b70c7-98fd-4dcb-95ed-8d271f46eda6/mini.png)](https://insight.sensiolabs.com/projects/51aa4b42-d229-4994-bb3a-156da22a1375)
 
