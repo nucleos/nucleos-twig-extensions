@@ -76,7 +76,7 @@ final class UrlAutoConverterTwigExtension extends AbstractExtension
 
         if ($this->secureMail) {
             $pattern = '/\<a([^>]+)href\=\"mailto\:([^">]+)\"([^>]*)\>(.*?)\<\/a\>/ism';
-            $string  = preg_replace_callback($pattern, [$this, 'encryptMail'], $string);
+            $string  = (string) preg_replace_callback($pattern, [$this, 'encryptMail'], $string);
         }
 
         return $string;
@@ -91,7 +91,7 @@ final class UrlAutoConverterTwigExtension extends AbstractExtension
     protected function convertLinks(string $text, array $options = []): string
     {
         // https://bitbucket.org/kwi/urllinker/
-        $text = preg_replace('#(script|about|applet|activex|chrome):#is', '\\1:', $text);
+        $text = (string) preg_replace('#(script|about|applet|activex|chrome):#is', '\\1:', $text);
         $ret  = ' '.$text;
 
         $attr = '';
@@ -147,9 +147,9 @@ final class UrlAutoConverterTwigExtension extends AbstractExtension
         }
 
         if ($isDomain) {
-            $name = substr($name, $index + 1);
+            $name = (string) substr($name, $index + 1);
         } else {
-            $name = substr($name, 0, $index);
+            $name = (string) substr($name, 0, $index);
         }
 
         return str_replace('.', $this->mailDotText, $name);
