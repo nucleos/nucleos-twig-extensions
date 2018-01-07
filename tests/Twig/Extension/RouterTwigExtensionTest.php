@@ -21,14 +21,8 @@ use Twig\Environment;
 
 class RouterTwigExtensionTest extends TestCase
 {
-    /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|RouterInterface
-     */
     private $router;
 
-    /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|Environment
-     */
     private $environment;
 
     /**
@@ -96,7 +90,6 @@ class RouterTwigExtensionTest extends TestCase
 
     public function testGeneratePager(): void
     {
-        /** @var \PHPUnit_Framework_MockObject_MockObject|BasePager $pager */
         $pager = $this->createMock(BasePager::class);
         $pager->expects($this->any())->method('count')->will($this->returnValue('100'));
         $pager->expects($this->any())->method('getMaxPerPage')->will($this->returnValue('20'));

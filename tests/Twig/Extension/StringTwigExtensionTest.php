@@ -17,9 +17,6 @@ use Sonata\IntlBundle\Templating\Helper\NumberHelper;
 
 class StringTwigExtensionTest extends TestCase
 {
-    /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|NumberHelper
-     */
     private $numberHelper;
 
     /**
