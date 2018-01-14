@@ -45,13 +45,13 @@ final class StringTwigExtension extends AbstractExtension
     }
 
     /**
-     * @param int       $bytes
-     * @param bool|true $si
-     * @param int       $fractionDigits
+     * @param float $bytes
+     * @param bool  $si
+     * @param int   $fractionDigits
      *
      * @return string
      */
-    public function formatBytes(int $bytes, bool $si = true, int $fractionDigits = 0): string
+    public function formatBytes(float $bytes, bool $si = true, int $fractionDigits = 0): string
     {
         $unit = $si ? 1000 : 1024;
 
