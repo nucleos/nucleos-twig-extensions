@@ -1,9 +1,10 @@
 parameters:
-    reportUnmatchedIgnoredErrors: false
     ignoreErrors:
+        # PHPUnit
+        - '#Parameter \#1 \$router of class Core23\\TwigExtensions\\Twig\\Extension\\RouterTwigExtension constructor expects Symfony\\Component\\Routing\\RouterInterface, PHPUnit\\Framework\\MockObject\\MockObject given.#'
+        - '#Parameter \#1 \$environment of method Core23\\TwigExtensions\\Twig\\Extension\\RouterTwigExtension::initRuntime\(\) expects Twig_Environment, PHPUnit\\Framework\\MockObject\\MockObject given.#'
+        - '#Parameter \#1 \$pager of method Core23\\TwigExtensions\\Twig\\Extension\\RouterTwigExtension::generatePager\(\) expects Sonata\\DatagridBundle\\Pager\\BasePager, PHPUnit\\Framework\\MockObject\\MockObject given.#'
+
         # Symfony DI
-        - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition::fixXmlConfig\(\).#'
-        - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition::addDefaultsIfNotSet\(\).#'
-        - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition::children\(\).#'
-        - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeParentInterface::arrayNode\(\).#'
         - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeParentInterface::scalarNode\(\).#'
+        - '#Calling method scalarNode\(\) on possibly null value of type Symfony\\Component\\Config\\Definition\\Builder\\NodeParentInterface\|null.#'
