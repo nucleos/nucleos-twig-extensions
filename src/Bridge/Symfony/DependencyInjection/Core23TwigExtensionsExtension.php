@@ -29,7 +29,7 @@ final class Core23TwigExtensionsExtension extends Extension
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
 
-        $container->getDefinition('core23.twig.router.extension')
+        $container->getDefinition('core23_twig.router.extension')
             ->replaceArgument(1, $config['pagination']);
 
         $this->configureMail($config, $container);
@@ -41,9 +41,9 @@ final class Core23TwigExtensionsExtension extends Extension
      */
     private function configureMail($config, ContainerBuilder $container): void
     {
-        $container->setParameter('core23.twig.urlautoconverter.secure_mail', $config['mail']['spam']['protect']);
-        $container->setParameter('core23.twig.urlautoconverter.mail_css_class', $config['mail']['spam']['css_class']);
-        $container->setParameter('core23.twig.urlautoconverter.mail_at_text', $config['mail']['spam']['at_text']);
-        $container->setParameter('core23.twig.urlautoconverter.mail_dot_text', $config['mail']['spam']['dot_text']);
+        $container->setParameter('core23_twig.urlautoconverter.secure_mail', $config['mail']['spam']['protect']);
+        $container->setParameter('core23_twig.urlautoconverter.mail_css_class', $config['mail']['spam']['css_class']);
+        $container->setParameter('core23_twig.urlautoconverter.mail_at_text', $config['mail']['spam']['at_text']);
+        $container->setParameter('core23_twig.urlautoconverter.mail_dot_text', $config['mail']['spam']['dot_text']);
     }
 }

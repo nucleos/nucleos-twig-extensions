@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <services>
-    <service id="core23.twig.urlautoconverter.extension" class="Core23\TwigExtensions\Twig\Extension\UrlAutoConverterTwigExtension" public="false">
+    <service id="core23_twig.urlautoconverter.extension" class="Core23\TwigExtensions\Twig\Extension\UrlAutoConverterTwigExtension" public="false">
       <tag name="twig.extension"/>
-      <argument>%core23.twig.urlautoconverter.secure_mail%</argument>
-      <argument>%core23.twig.urlautoconverter.mail_dot_text%</argument>
-      <argument>%core23.twig.urlautoconverter.mail_css_class%</argument>
-      <argument>%core23.twig.urlautoconverter.mail_at_text%</argument>
+      <argument>%core23_twig.urlautoconverter.secure_mail%</argument>
+      <argument>%core23_twig.urlautoconverter.mail_dot_text%</argument>
+      <argument>%core23_twig.urlautoconverter.mail_css_class%</argument>
+      <argument>%core23_twig.urlautoconverter.mail_at_text%</argument>
     </service>
-    <service id="core23.twig.string.extension" class="Core23\TwigExtensions\Twig\Extension\StringTwigExtension" public="false">
+    <service id="core23_twig.string.extension" class="Core23\TwigExtensions\Twig\Extension\StringTwigExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="sonata.intl.templating.helper.number"/>
     </service>
-    <service id="core23.twig.router.extension" class="Core23\TwigExtensions\Twig\Extension\RouterTwigExtension" public="false">
+    <service id="core23_twig.router.extension" class="Core23\TwigExtensions\Twig\Extension\RouterTwigExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="router"/>
       <argument/>
