@@ -118,7 +118,7 @@ final class UrlAutoConverterTwigExtension extends AbstractExtension
      */
     protected function encryptMail(array $matches): string
     {
-        [$part1, $part2, $email, $part4, $text] = $matches;
+        [, , $email, , $text] = $matches;
 
         if ($text === $email) {
             $text = '';
