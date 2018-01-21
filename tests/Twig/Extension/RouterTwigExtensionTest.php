@@ -19,7 +19,7 @@ use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
 
-class RouterTwigExtensionTest extends TestCase
+final class RouterTwigExtensionTest extends TestCase
 {
     private $router;
 

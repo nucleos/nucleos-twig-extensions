@@ -15,7 +15,7 @@ use Core23\TwigExtensions\Twig\Extension\StringTwigExtension;
 use PHPUnit\Framework\TestCase;
 use Sonata\IntlBundle\Templating\Helper\NumberHelper;
 
-class StringTwigExtensionTest extends TestCase
+final class StringTwigExtensionTest extends TestCase
 {
     private $numberHelper;
 

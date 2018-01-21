@@ -14,7 +14,7 @@ namespace Core23\TwigExtensions\Tests\Util;
 use Core23\TwigExtensions\Util\StringUtils;
 use PHPUnit\Framework\TestCase;
 
-class StringUtilsTest extends TestCase
+final class StringUtilsTest extends TestCase
 {
     /**
      * @dataProvider getObfuscatedStrings

@@ -14,7 +14,7 @@ namespace Core23\TwigExtensions\Tests\Twig\Extension;
 use Core23\TwigExtensions\Twig\Extension\UrlAutoConverterTwigExtension;
 use PHPUnit\Framework\TestCase;
 
-class UrlAutoConverterTwigExtensionTest extends TestCase
+final class UrlAutoConverterTwigExtensionTest extends TestCase
 {
     public function testAutoConvertUrlsWithPlanText(): void
     {
