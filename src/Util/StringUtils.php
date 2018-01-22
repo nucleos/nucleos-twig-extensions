@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace Core23\TwigExtensions\Util;
 
-class StringUtils
+final class StringUtils
 {
     /**
      * @param string $string
