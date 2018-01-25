@@ -17,7 +17,7 @@ This library provides a wrapper for using the [Setlist.fm API] inside PHP and a 
 ### Installation
 
 ```
-php composer.phar require core23/twig-extensions
+composer require core23/twig-extensions
 ```
 
 ### Symfony usage
