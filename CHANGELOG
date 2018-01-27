@@ -1,1 +1,50 @@
+27/01/2018 10:06  0.2.0  Changed service bundle prefix
+8591f98 Improved documentation
+4ef96d6 Adding stages to travis build
+3ae3171 Replaced composer.phar with composer in docs
+a9916d3 Closing API
+be2b57d Make tests final
+c551326 Removed unused variables
+c3e5161 Use correct bundle prefix for serivices and parameters
+684e4ae Ignore vendor-bin when calling lint
+e74b814 Use weak vendors mode
+154f9c2 Added rmt tool
+b756aa8 Normalize composer.json file
+e05c9c2 Cleanup PHPStan ignores
+b14c4fd Allow floats for format_bytes filter
+852b380 Added dev tools via composer-bin plugin
+6f34a52 Require latest version for deps
+8fa469f Sync config
+632ed53 Removed old build config
+b9d3994 Use global phpunit version when calling RMT
+8838a8c Bumped sonata dependencies
+f773a1a Added missing dependencies
+c1f0892 Removed PHPUnit from phpstan
+dee5e5e Use PHPUnit 6
+ee3409c Moved all translation to xlf
+a5135cb Use new twig paths
+5238ded Ignore PHPUnit warnings when calling phpstan
+743f9c6 Added phpstan extension to travis
+d38b138 Added typecasts
+f681a7c Removed hard phpunit dependency
+0455a4f Removed version information from phpunit.xml.dist
+4d04020 Ignore PHPUnit errors when calling phpstan
+d51df26 Fixed coveralls build
+c5299e3 Sync build config
+e275d26 Removed code climate status
+1106f69 Fixed file permissions
+c604351 Sync config
+8d10d32 Ignore symfony DI errors when calling phpstan
+2c6db11 Bumped twig 2
+9218dda Updated travis config for outdated symfony versions
+f5dad66 Bumped symfony deps to >=3.4
+868e86f Micro optimizations
+b5f8be2 Require latest phpstan version
+fa6a2fe Fixed CS
+18844fa Sync config
+8efbede Sync config
+0a59f47 Added .editorconfig
+a41d3fd Sort deps
+4cab0dc Release of new version 0.1.0
+add94a4 Apply fixes from StyleCI
 01/12/2017 14:42  0.1.0  Initial Release
