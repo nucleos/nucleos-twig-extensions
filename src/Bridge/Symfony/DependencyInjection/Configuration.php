@@ -27,34 +27,9 @@ final class Configuration implements ConfigurationInterface
         /** @var ArrayNodeDefinition $node */
         $node = $treeBuilder->root('core23_twig');
 
-        $this->addMailSection($node);
         $this->addPaginationSection($node);
 
         return $treeBuilder;
-    }
-
-    /**
-     * @param ArrayNodeDefinition $node
-     */
-    private function addMailSection(ArrayNodeDefinition $node): void
-    {
-        $node
-            ->children()
-                ->arrayNode('mail')
-                    ->addDefaultsIfNotSet()
-                    ->children()
-                        ->arrayNode('spam')
-                            ->addDefaultsIfNotSet()
-                            ->children()
-                                ->booleanNode('protect')->defaultTrue()->end()
-                                ->scalarNode('css_class')->defaultValue('spamme')->end()
-                                ->scalarNode('dot_text')->defaultValue('[DOT]')->end()
-                                ->scalarNode('at_text')->defaultValue('[AT]')->end()
-                            ->end()
-                        ->end()
-                    ->end()
-                ->end()
-            ->end();
     }
 
     /**

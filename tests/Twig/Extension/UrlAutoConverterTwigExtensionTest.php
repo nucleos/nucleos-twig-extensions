@@ -16,11 +16,11 @@ use PHPUnit\Framework\TestCase;
 
 final class UrlAutoConverterTwigExtensionTest extends TestCase
 {
-    public function testAutoConvertUrlsWithPlanText(): void
+    public function testConvertLinksWithPlanText(): void
     {
-        $extension = new UrlAutoConverterTwigExtension(false, '[DOT]', 'spam', '[AT]');
+        $extension = new UrlAutoConverterTwigExtension();
 
-        $this->assertSame('Lorem Ipsum test.de Sit Amet', $extension->autoConvertUrls('Lorem Ipsum test.de Sit Amet'));
+        $this->assertSame('Lorem Ipsum test.de Sit Amet', $extension->convertLinks('Lorem Ipsum test.de Sit Amet'));
     }
 
     /**
@@ -29,11 +29,11 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
      * @param string $input
      * @param string $output
      */
-    public function testAutoConvertUrlsWithLinks(string $input, string $output): void
+    public function testConvertLinksWithLinks(string $input, string $output): void
     {
-        $extension = new UrlAutoConverterTwigExtension(true, '[DOT]', 'spam', '[AT]');
+        $extension = new UrlAutoConverterTwigExtension();
 
-        $this->assertSame($output, $extension->autoConvertUrls($input));
+        $this->assertSame($output, $extension->convertLinks($input));
     }
 
     /**
@@ -42,24 +42,11 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
      * @param string $input
      * @param string $output
      */
-    public function testAutoConvertUrlsWithMails(string $input, string $output): void
+    public function testConvertLinksWithMails(string $input, string $output): void
     {
-        $extension = new UrlAutoConverterTwigExtension(false, '[DOT]', 'spam', '[AT]');
+        $extension = new UrlAutoConverterTwigExtension();
 
-        $this->assertSame($output, $extension->autoConvertUrls($input));
-    }
-
-    /**
-     * @dataProvider getSecureMailText
-     *
-     * @param string $input
-     * @param string $output
-     */
-    public function testAutoConvertUrlsWithSecureMails(string $input, string $output): void
-    {
-        $extension = new UrlAutoConverterTwigExtension(true, '[DOT]', 'spam', '[AT]');
-
-        $this->assertSame($output, $extension->autoConvertUrls($input));
+        $this->assertSame($output, $extension->convertLinks($input));
     }
 
     /**
@@ -112,27 +99,6 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
             [
                 'Lorem Ipsum <script>var link = "foo@bar.baz"; </script> Sit Amet',
                 'Lorem Ipsum <script>var link = "foo@bar.baz"; </script> Sit Amet',
-            ],
-        ];
-    }
-
-    /**
-     * @return array
-     */
-    public function getSecureMailText()
-    {
-        return [
-            [
-                'Lorem Ipsum <script>var link = "foo@bar.baz"; </script> Sit Amet',
-                'Lorem Ipsum <script>var link = "foo@bar.baz"; </script> Sit Amet',
-            ],
-            [
-                'Lorem Ipsum foo.sub@bar.baz.tld Sit Amet',
-                'Lorem Ipsum <span class="spam"><span>foo[DOT]sub</span>[AT]<span>bar[DOT]baz[DOT]tld</span></span> Sit Amet',
-            ],
-            [
-                'Lorem Ipsum <span class="spam"><span>foo[DOT]sub</span>[AT]<span>bar[DOT]baz[DOT]tld</span></span> Sit Amet',
-                'Lorem Ipsum <span class="spam"><span>foo[DOT]sub</span>[AT]<span>bar[DOT]baz[DOT]tld</span></span> Sit Amet',
             ],
         ];
     }

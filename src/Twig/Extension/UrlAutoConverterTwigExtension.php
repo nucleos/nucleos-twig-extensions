@@ -17,69 +17,15 @@ use Twig\TwigFilter;
 final class UrlAutoConverterTwigExtension extends AbstractExtension
 {
     /**
-     * @var bool
-     */
-    protected $secureMail;
-
-    /**
-     * @var string
-     */
-    protected $mailCssClass;
-
-    /**
-     * @var string
-     */
-    protected $mailAtText;
-
-    /**
-     * @var string
-     */
-    protected $mailDotText;
-
-    /**
-     * @param bool   $secureMail
-     * @param string $mailDotText
-     * @param string $mailCssClass
-     * @param string $mailAtText
-     */
-    public function __construct(bool $secureMail, string $mailDotText, string $mailCssClass, string $mailAtText)
-    {
-        $this->secureMail   = $secureMail;
-        $this->mailDotText  = $mailDotText;
-        $this->mailCssClass = $mailCssClass;
-        $this->mailAtText   = $mailAtText;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function getFilters()
     {
         return [
-            new TwigFilter('converturls', [$this, 'autoConvertUrls'], [
+            new TwigFilter('converturls', [$this, 'convertLinks'], [
                 'is_safe' => ['html'],
             ]),
         ];
-    }
-
-    /**
-     * method that finds different occurrences of urls or email addresses in a string.
-     *
-     * @param string $string  input string
-     * @param array  $options
-     *
-     * @return string with replaced links
-     */
-    public function autoConvertUrls(string $string, array $options = []): string
-    {
-        $string = $this->convertLinks($string, $options);
-
-        if ($this->secureMail) {
-            $pattern = '/\<a([^>]+)href\=\"mailto\:([^">]+)\"([^>]*)\>(.*?)\<\/a\>/ism';
-            $string  = (string) preg_replace_callback($pattern, [$this, 'encryptMail'], $string);
-        }
-
-        return $string;
     }
 
     /**
@@ -88,7 +34,7 @@ final class UrlAutoConverterTwigExtension extends AbstractExtension
      *
      * @return string
      */
-    protected function convertLinks(string $text, array $options = []): string
+    public function convertLinks(string $text, array $options = []): string
     {
         // https://bitbucket.org/kwi/urllinker/
         $text = (string) preg_replace('#(script|about|applet|activex|chrome):#is', '\\1:', $text);
@@ -109,49 +55,5 @@ final class UrlAutoConverterTwigExtension extends AbstractExtension
         $ret = preg_replace("#(^|[\n ])([a-z0-9&\-_.]+?)@([\w\-]+\.([\w\-\.]+\.)*[\w]+)#i", '\\1<a href="mailto:\\2@\\3"'.$attr.'>\\2@\\3</a>', $ret);
 
         return substr($ret, 1);
-    }
-
-    /**
-     * @param string[] $matches
-     *
-     * @return string
-     */
-    protected function encryptMail(array $matches): string
-    {
-        [, , $email, , $text] = $matches;
-
-        if ($text === $email) {
-            $text = '';
-        }
-
-        return '<span class="'.$this->mailCssClass.'">'.
-        '<span>'.$this->getSecuredName($email).'</span>'.
-        $this->mailAtText.
-        '<span>'.$this->getSecuredName($email, true).'</span>'.
-        ($text ? ' (<span>'.$text.'</span>)' : '').
-        '</span>';
-    }
-
-    /**
-     * @param string $name
-     * @param bool   $isDomain
-     *
-     * @return string
-     */
-    protected function getSecuredName(string $name, bool $isDomain = false): string
-    {
-        $index = strpos($name, '@');
-
-        if ($index === -1) {
-            return '';
-        }
-
-        if ($isDomain) {
-            $name = (string) substr($name, $index + 1);
-        } else {
-            $name = (string) substr($name, 0, $index);
-        }
-
-        return str_replace('.', $this->mailDotText, $name);
     }
 }

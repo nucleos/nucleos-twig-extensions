@@ -31,19 +31,5 @@ final class Core23TwigExtensionsExtension extends Extension
 
         $container->getDefinition('core23_twig.router.extension')
             ->replaceArgument(1, $config['pagination']);
-
-        $this->configureMail($config, $container);
-    }
-
-    /**
-     * @param array            $config
-     * @param ContainerBuilder $container
-     */
-    private function configureMail($config, ContainerBuilder $container): void
-    {
-        $container->setParameter('core23_twig.urlautoconverter.secure_mail', $config['mail']['spam']['protect']);
-        $container->setParameter('core23_twig.urlautoconverter.mail_css_class', $config['mail']['spam']['css_class']);
-        $container->setParameter('core23_twig.urlautoconverter.mail_at_text', $config['mail']['spam']['at_text']);
-        $container->setParameter('core23_twig.urlautoconverter.mail_dot_text', $config['mail']['spam']['dot_text']);
     }
 }
