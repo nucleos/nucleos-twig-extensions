@@ -77,7 +77,7 @@ final class RouterTwigExtensionTest extends TestCase
     /**
      * @return array
      */
-    public function getSplitList()
+    public function getSplitList(): array
     {
         return [
             ['<h1>Foo</h1><p>Bar</p><h1>Baz</h1>Bar', 'h1', ['<h1>Foo</h1><p>Bar</p>', '<h1>Baz</h1>Bar']],

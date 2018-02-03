@@ -77,7 +77,7 @@ final class StringTwigExtension extends AbstractExtension
      *
      * @return string
      */
-    public function obfuscate(string $string, array $options = [])
+    public function obfuscate(string $string, array $options = []): string
     {
         $options = array_merge([
             'start'       => 0,

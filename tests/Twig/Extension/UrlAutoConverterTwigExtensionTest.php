@@ -52,7 +52,7 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
     /**
      * @return array
      */
-    public function getLinkText()
+    public function getLinkText(): array
     {
         return [
             [
@@ -85,7 +85,7 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
     /**
      * @return array
      */
-    public function getMailText()
+    public function getMailText(): array
     {
         return [
             [
