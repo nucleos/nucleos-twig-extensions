@@ -34,6 +34,12 @@
         "symfony/routing": "^3.4 || ^4.0",
         "symfony/translation": "^3.4 || ^4.0"
     },
+    "conflict": {
+        "symfony/framework-bundle": "<3.4"
+    },
+    "suggest": {
+        "symfony/framework-bundle": "If you want to use symfony"
+    },
     "config": {
         "sort-packages": true
     },
