@@ -1,3 +1,8 @@
+07/02/2018 18:53  0.3.0  Move mail filtering to core23/antispam-bundle
+72dc83f Added old symfony/framework-bundle versions to conflict section
+25b4bd8 Added missing return type
+a2e2902 Don't use PHPUnit 7 yet
+ae4bfde Removed twig mail filter to core23/antispam-bundle
 27/01/2018 10:06  0.2.0  Changed service bundle prefix
 8591f98 Improved documentation
 4ef96d6 Adding stages to travis build
