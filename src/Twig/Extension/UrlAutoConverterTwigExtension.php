@@ -37,7 +37,7 @@ final class UrlAutoConverterTwigExtension extends AbstractExtension
     public function convertLinks(string $text, array $options = []): string
     {
         // https://bitbucket.org/kwi/urllinker/
-        $text = (string) preg_replace('#(script|about|applet|activex|chrome):#is', '\\1:', $text);
+        $text = preg_replace('#(script|about|applet|activex|chrome):#is', '\\1:', $text) ?: '';
         $ret  = ' '.$text;
 
         $attr = '';

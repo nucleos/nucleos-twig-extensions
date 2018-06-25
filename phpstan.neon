@@ -6,5 +6,4 @@ parameters:
         - '#Parameter \#1 \$pager of method Core23\\TwigExtensions\\Twig\\Extension\\RouterTwigExtension::generatePager\(\) expects Sonata\\DatagridBundle\\Pager\\BasePager, PHPUnit\\Framework\\MockObject\\MockObject given.#'
 
         # Symfony DI
-        - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeParentInterface::scalarNode\(\).#'
-        - '#Calling method scalarNode\(\) on possibly null value of type Symfony\\Component\\Config\\Definition\\Builder\\NodeParentInterface\|null.#'
+        - '#Cannot call method scalarNode\(\) on Symfony\\Component\\Config\\Definition\\Builder\\NodeParentInterface\|null.#'
