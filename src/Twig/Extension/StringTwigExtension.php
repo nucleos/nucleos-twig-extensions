@@ -24,8 +24,6 @@ final class StringTwigExtension extends AbstractExtension
     private $numberHelper;
 
     /**
-     * StringTwigExtension constructor.
-     *
      * @param NumberHelper $numberHelper
      */
     public function __construct(NumberHelper $numberHelper)
