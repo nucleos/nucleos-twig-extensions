@@ -23,7 +23,7 @@ final class StringUtils
      */
     public static function obfuscate($string, $start = 0, $end = 3, $replacement = '*'): string
     {
-        $len = strlen($string);
+        $len = \strlen($string);
 
         if ($start < 0) {
             $start += $len;
