@@ -1,3 +1,19 @@
+23/09/2018 12:32  0.3.1  Return type fixes
+30f0517 Fixed typo in composer.json
+6ab039b Added missing dependencies
+b47fc43 Updated .editorconfig
+6fa9e8d Fixed CS
+fd9bc31 TRAVIS: Moved dependencies check to allow failures
+6d46f94 Added missing dependencies
+fbc3324 Removed useless PHPDoc
+de4c844 Sync config
+4601814 Added composer-require-checker to build
+4e89525 Added mising extensions to composer.json
+9eea69c Sync phpstan config
+183249b phpstan findings
+cead08d Require latest phpstan version
+d94d247 Normalize composer.json
+c45953d Created issue templates
 07/02/2018 18:53  0.3.0  Move mail filtering to core23/antispam-bundle
 72dc83f Added old symfony/framework-bundle versions to conflict section
 25b4bd8 Added missing return type
