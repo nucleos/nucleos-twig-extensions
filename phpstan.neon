@@ -10,9 +10,9 @@ parameters:
 
     ignoreErrors:
         # PHPUnit
-        - '#Parameter \#1 \$router of class Core23\\TwigExtensions\\Twig\\Extension\\RouterTwigExtension constructor expects Symfony\\Component\\Routing\\RouterInterface, PHPUnit\\Framework\\MockObject\\MockObject given.#'
-        - '#Parameter \#1 \$environment of method Core23\\TwigExtensions\\Twig\\Extension\\RouterTwigExtension::initRuntime\(\) expects Twig_Environment, PHPUnit\\Framework\\MockObject\\MockObject given.#'
-        - '#Parameter \#1 \$pager of method Core23\\TwigExtensions\\Twig\\Extension\\RouterTwigExtension::generatePager\(\) expects Sonata\\DatagridBundle\\Pager\\BasePager, PHPUnit\\Framework\\MockObject\\MockObject given.#'
+        - '#Parameter \#1 \$router of class Core23\\Twig\\Twig\\Extension\\RouterTwigExtension constructor expects Symfony\\Component\\Routing\\RouterInterface, PHPUnit\\Framework\\MockObject\\MockObject given.#'
+        - '#Parameter \#1 \$environment of method Core23\\Twig\\Twig\\Extension\\RouterTwigExtension::initRuntime\(\) expects Twig_Environment, PHPUnit\\Framework\\MockObject\\MockObject given.#'
+        - '#Parameter \#1 \$pager of method Core23\\Twig\\Twig\\Extension\\RouterTwigExtension::generatePager\(\) expects Sonata\\DatagridBundle\\Pager\\BasePager, PHPUnit\\Framework\\MockObject\\MockObject given.#'
 
         # Symfony DI
         - '#Cannot call method scalarNode\(\) on Symfony\\Component\\Config\\Definition\\Builder\\NodeParentInterface\|null.#'

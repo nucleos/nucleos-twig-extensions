@@ -9,9 +9,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\TwigExtensions\Tests\Twig\Extension;
+namespace Core23\Twig\Tests\Twig\Extension;
 
-use Core23\TwigExtensions\Twig\Extension\StringTwigExtension;
+use Core23\Twig\Extension\StringTwigExtension;
 use PHPUnit\Framework\TestCase;
 use Sonata\IntlBundle\Templating\Helper\NumberHelper;
 

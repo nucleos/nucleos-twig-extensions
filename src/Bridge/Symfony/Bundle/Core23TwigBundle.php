@@ -9,12 +9,12 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\TwigExtensions\Bridge\Symfony\Bundle;
+namespace Core23\Twig\Bridge\Symfony\Bundle;
 
-use Core23\TwigExtensions\Bridge\Symfony\DependencyInjection\Core23TwigExtensionsExtension;
+use Core23\Twig\Bridge\Symfony\DependencyInjection\Core23TwigExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-final class Core23TwigExtensionsBundle extends Bundle
+final class Core23TwigBundle extends Bundle
 {
     /**
      * {@inheritdoc}
@@ -29,6 +29,6 @@ final class Core23TwigExtensionsBundle extends Bundle
      */
     protected function getContainerExtensionClass()
     {
-        return Core23TwigExtensionsExtension::class;
+        return Core23TwigExtension::class;
     }
 }

@@ -9,9 +9,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\TwigExtensions\Tests\Twig\Extension;
+namespace Core23\Twig\Tests\Twig\Extension;
 
-use Core23\TwigExtensions\Twig\Extension\RouterTwigExtension;
+use Core23\Twig\Extension\RouterTwigExtension;
 use PHPUnit\Framework\TestCase;
 use Sonata\DatagridBundle\Pager\BasePager;
 use Symfony\Component\Routing\Route;

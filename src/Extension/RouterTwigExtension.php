@@ -9,7 +9,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\TwigExtensions\Twig\Extension;
+namespace Core23\Twig\Extension;
 
 use Sonata\DatagridBundle\Pager\BasePager;
 use Symfony\Component\Routing\RouterInterface;

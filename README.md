@@ -39,7 +39,7 @@ Then, enable the bundle by adding it to the list of registered bundles in `bundl
 
 return [
     // ...
-    Core23\TwigExtensions\Bridge\Symfony\Bundle\Core23TwigExtensionsBundle::class => ['all' => true],
+    Core23\Twig\Bridge\Symfony\Bundle\Core23TwigBundle::class => ['all' => true],
 ];
 ```
 

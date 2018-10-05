@@ -9,9 +9,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\TwigExtensions\Tests\Twig\Extension;
+namespace Core23\Twig\Tests\Twig\Extension;
 
-use Core23\TwigExtensions\Twig\Extension\UrlAutoConverterTwigExtension;
+use Core23\Twig\Extension\UrlAutoConverterTwigExtension;
 use PHPUnit\Framework\TestCase;
 
 final class UrlAutoConverterTwigExtensionTest extends TestCase

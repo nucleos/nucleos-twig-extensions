@@ -9,9 +9,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\TwigExtensions\Twig\Extension;
+namespace Core23\Twig\Extension;
 
-use Core23\TwigExtensions\Util\StringUtils;
+use Core23\Twig\Util\StringUtils;
 use Sonata\IntlBundle\Templating\Helper\NumberHelper;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;

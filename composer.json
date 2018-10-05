@@ -53,12 +53,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Core23\\TwigExtensions\\": "src/"
+            "Core23\\Twig\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Core23\\TwigExtensions\\Tests\\": "tests/"
+            "Core23\\Twig\\Tests\\": "tests/"
         }
     },
     "scripts": {
