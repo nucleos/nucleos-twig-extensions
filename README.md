@@ -13,9 +13,6 @@ Twig Extensions
 [![Code Climate](https://codeclimate.com/github/core23/twig-extensions/badges/gpa.svg)](https://codeclimate.com/github/core23/twig-extensions)
 [![Coverage Status](https://coveralls.io/repos/core23/twig-extensions/badge.svg)](https://coveralls.io/r/core23/twig-extensions)
 
-[![Donate to this project using Flattr](https://img.shields.io/badge/flattr-donate-yellow.svg)](https://flattr.com/profile/core23)
-[![Donate to this project using PayPal](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://paypal.me/gripp)
-
 Useful extensions for twig.
 
 ## Installation
