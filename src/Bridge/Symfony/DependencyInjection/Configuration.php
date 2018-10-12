@@ -42,7 +42,7 @@ final class Configuration implements ConfigurationInterface
                 ->arrayNode('pagination')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->scalarNode('template')->defaultValue('@Core23TwigExtensions/Pager/pagination.html.twig')->end()
+                        ->scalarNode('template')->defaultValue('@Core23Twig/Pager/pagination.html.twig')->end()
                         ->scalarNode('extremeLimit')->defaultValue(3)->end()
                         ->scalarNode('nearbyLimit')->defaultValue(2)->end()
                     ->end()
