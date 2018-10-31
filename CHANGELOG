@@ -1,3 +1,8 @@
+31/10/2018 12:53  1.0.1  Wrong template path
+23b1312 Added typecasts
+550fc44 Removed donation from README
+85fb159 Fixed wrong default pagination template path
+b5d45f6 Changed composer alias to 1.x
 06/10/2018 22:51  1.0.0  Stable release
 e6e119a Fixed phpstan ignored list
 c7b6275 Removed word "Extensions" from namespace
