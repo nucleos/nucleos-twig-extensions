@@ -54,6 +54,7 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
      */
     public function getLinkText(): array
     {
+        /* @noinspection JSUnusedLocalSymbols */
         return [
             [
                 'Lorem Ipsum http://test.de Sit Amet',
@@ -72,12 +73,12 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
                 'Lorem Ipsum <a href="http://www.test.de/foo/bar.html">www.test.de/foo/bar.html</a> Sit Amet',
             ],
             [
-                'Lorem Ipsum <script>var link = "http://test.de"; </script> Sit Amet',
-                'Lorem Ipsum <script>var link = "http://test.de"; </script> Sit Amet',
+                'Lorem Ipsum <script>const link = "http://test.de"; </script> Sit Amet',
+                'Lorem Ipsum <script>const link = "http://test.de"; </script> Sit Amet',
             ],
             [
-                'Lorem Ipsum <script>var link = "www.test.de"; </script> Sit Amet',
-                'Lorem Ipsum <script>var link = "www.test.de"; </script> Sit Amet',
+                'Lorem Ipsum <script>const link = "www.test.de"; </script> Sit Amet',
+                'Lorem Ipsum <script>const link = "www.test.de"; </script> Sit Amet',
             ],
         ];
     }
@@ -87,6 +88,7 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
      */
     public function getMailText(): array
     {
+        /* @noinspection JSUnusedLocalSymbols */
         return [
             [
                 'Lorem Ipsum foo.sub@bar.baz.tld Sit Amet',
@@ -97,8 +99,8 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
                 'Lorem Ipsum <a href="mailto:foo.sub@bar.baz.tld">foo.sub@bar.baz.tld</a> Sit Amet',
             ],
             [
-                'Lorem Ipsum <script>var link = "foo@bar.baz"; </script> Sit Amet',
-                'Lorem Ipsum <script>var link = "foo@bar.baz"; </script> Sit Amet',
+                'Lorem Ipsum <script>const link = "foo@bar.baz"; </script> Sit Amet',
+                'Lorem Ipsum <script>const link = "foo@bar.baz"; </script> Sit Amet',
             ],
         ];
     }
