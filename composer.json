@@ -18,7 +18,7 @@
         }
     ],
     "require": {
-        "php": "^7.1",
+        "php": "^7.2",
         "ext-pcre": "*",
         "sonata-project/datagrid-bundle": "^2.3",
         "sonata-project/intl-bundle": "^2.4",
