@@ -40,7 +40,7 @@ final class StringTwigExtensionTest extends TestCase
 
         $this->numberHelper->expects($this->once())->method('formatDecimal')
             ->with($this->equalTo($number), $this->equalTo(['fraction_digits' => 1]))
-            ->will($this->returnValue($number));
+            ->willReturn($number);
 
         $this->assertStringEndsWith($unit, $extension->formatBytes($bits, true, 1));
     }
@@ -58,7 +58,7 @@ final class StringTwigExtensionTest extends TestCase
 
         $this->numberHelper->expects($this->once())->method('formatDecimal')
             ->with($this->equalTo($number), $this->equalTo(['fraction_digits' => 1]))
-            ->will($this->returnValue($number));
+            ->willReturn($number);
 
         $this->assertStringEndsWith($unit, $extension->formatBytes($bits, false, 1));
     }

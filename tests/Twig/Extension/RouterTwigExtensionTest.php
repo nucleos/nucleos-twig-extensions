@@ -53,10 +53,10 @@ final class RouterTwigExtensionTest extends TestCase
         $route = $this->createMock(Route::class);
 
         $routeCollection = $this->createMock(RouteCollection::class);
-        $routeCollection->expects($this->at(0))->method('get')->with($this->equalTo('foo'))->will($this->returnValue($route));
-        $routeCollection->expects($this->at(1))->method('get')->with($this->equalTo('bar'))->will($this->returnValue(null));
+        $routeCollection->expects($this->at(0))->method('get')->with($this->equalTo('foo'))->willReturn($route);
+        $routeCollection->expects($this->at(1))->method('get')->with($this->equalTo('bar'))->willReturn(null);
 
-        $this->router->method('getRouteCollection')->will($this->returnValue($routeCollection));
+        $this->router->method('getRouteCollection')->willReturn($routeCollection);
 
         $this->assertTrue($this->extension->routeExists('foo'));
         $this->assertFalse($this->extension->routeExists('bar'));
@@ -91,9 +91,9 @@ final class RouterTwigExtensionTest extends TestCase
     public function testGeneratePager(): void
     {
         $pager = $this->createMock(BasePager::class);
-        $pager->method('count')->will($this->returnValue('100'));
-        $pager->method('getMaxPerPage')->will($this->returnValue('20'));
-        $pager->method('getPage')->will($this->returnValue('2'));
+        $pager->method('count')->willReturn('100');
+        $pager->method('getMaxPerPage')->willReturn('20');
+        $pager->method('getPage')->willReturn('2');
 
         $expectedData = [
             'template'     => 'pager.html.twig',
