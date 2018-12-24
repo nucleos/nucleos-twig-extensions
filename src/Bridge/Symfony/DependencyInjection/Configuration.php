@@ -22,12 +22,16 @@ final class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
+        $treeBuilder = new TreeBuilder('core23_twig');
 
-        /** @var ArrayNodeDefinition $node */
-        $node = $treeBuilder->root('core23_twig');
+        // Keep compatibility with symfony/config < 4.2
+        if (!\method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->root('core23_twig');
+        } else {
+            $rootNode = $treeBuilder->getRootNode();
+        }
 
-        $this->addPaginationSection($node);
+        $this->addPaginationSection($rootNode);
 
         return $treeBuilder;
     }
