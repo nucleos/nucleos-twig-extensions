@@ -1,3 +1,18 @@
+30/12/2018 21:46  1.1.0  Removed symfony deprecations
+d55026d Fixed phpunit config for release command
+66f3b6a Use asserts for type safe root config nodes
+fe0b800 Removed deprecation warnings
+8aba200 Removed deprecation warnings
+fda07df Added platform workaround for php-cs-fixer tool
+9f6802b Require latest phpunit bridge
+bbcad15 Require latest phpunit bridge
+7dcc858 Improved unit tests
+b119bad Travis: Test against PHP 7.3
+192371c Dropped support for PHP 7.1
+fec20f1 Ignore some phpstorm inspections
+c635255 Fixed syntax error in composer.json
+e8844fb Fixed syntax error in editorconfig
+5cdcff2 Moved test dependencies to vendor-bin
 31/10/2018 12:53  1.0.1  Wrong template path
 23b1312 Added typecasts
 550fc44 Removed donation from README
