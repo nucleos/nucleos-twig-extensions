@@ -7,7 +7,6 @@ prerequisites:
           composer: composer
     - command:
           cmd: composer update
-          timeout: 600
     - tests-check:
           command: vendor/bin/phpunit --stop-on-failure
     - command:
