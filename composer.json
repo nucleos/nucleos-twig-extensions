@@ -22,8 +22,8 @@
         "ext-pcre": "*",
         "sonata-project/datagrid-bundle": "^2.3",
         "sonata-project/intl-bundle": "^2.4",
-        "symfony/routing": "^3.4 || ^4.0",
-        "symfony/translation": "^3.4 || ^4.0",
+        "symfony/routing": "^3.4 || ^4.2",
+        "symfony/translation": "^3.4 || ^4.2",
         "twig/twig": "^2.4"
     },
     "conflict": {
@@ -32,11 +32,11 @@
     "require-dev": {
         "bamarni/composer-bin-plugin": "^1.2",
         "sllh/composer-lint": "^1.0",
-        "symfony/config": "^3.4 || ^4.0",
-        "symfony/dependency-injection": "^3.4 || ^4.0",
-        "symfony/expression-language": "^3.4 || ^4.0",
-        "symfony/framework-bundle": "^3.4 || ^4.0",
-        "symfony/http-kernel": "^3.4 || ^4.0"
+        "symfony/config": "^3.4 || ^4.2",
+        "symfony/dependency-injection": "^3.4 || ^4.2",
+        "symfony/expression-language": "^3.4 || ^4.2",
+        "symfony/framework-bundle": "^3.4 || ^4.2",
+        "symfony/http-kernel": "^3.4 || ^4.2"
     },
     "suggest": {
         "symfony/framework-bundle": "If you want to use symfony"
