@@ -30,6 +30,7 @@ final class Core23TwigExtension extends Extension
         $loader->load('services.xml');
 
         $container->getDefinition('core23_twig.router.extension')
-            ->replaceArgument(1, $config['pagination']);
+            ->replaceArgument(1, $config['pagination'])
+        ;
     }
 }

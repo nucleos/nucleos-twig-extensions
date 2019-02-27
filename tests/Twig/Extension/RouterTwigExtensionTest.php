@@ -39,7 +39,8 @@ final class RouterTwigExtensionTest extends TestCase
         $this->environment = $this->createMock(Environment::class);
 
         $this->extension = new RouterTwigExtension(
-            $this->router, [
+            $this->router,
+            [
                 'template'     => 'template.html.twig',
                 'extremeLimit' => 10,
                 'nearbyLimit'  => 2,
@@ -107,7 +108,8 @@ final class RouterTwigExtensionTest extends TestCase
 
         $this->environment->expects($this->once())->method('render')
             ->with($this->equalTo('pager.html.twig'), $this->equalTo($expectedData))
-            ->willReturn('Pager Content');
+            ->willReturn('Pager Content')
+        ;
 
         $this->extension->generatePager($pager, ['template' => 'pager.html.twig']);
     }

@@ -30,8 +30,8 @@ final class StringTwigExtensionTest extends TestCase
     /**
      * @dataProvider getBase10
      *
-     * @param int|float $bits
-     * @param int|float $number
+     * @param float|int $bits
+     * @param float|int $number
      * @param string    $unit
      */
     public function testFormatBytesBase10($bits, $number, string $unit): void
@@ -40,7 +40,8 @@ final class StringTwigExtensionTest extends TestCase
 
         $this->numberHelper->expects($this->once())->method('formatDecimal')
             ->with($this->equalTo($number), $this->equalTo(['fraction_digits' => 1]))
-            ->willReturn($number);
+            ->willReturn($number)
+        ;
 
         $this->assertStringEndsWith($unit, $extension->formatBytes($bits, true, 1));
     }
@@ -48,8 +49,8 @@ final class StringTwigExtensionTest extends TestCase
     /**
      * @dataProvider getBase2
      *
-     * @param int|float $bits
-     * @param int|float $number
+     * @param float|int $bits
+     * @param float|int $number
      * @param string    $unit
      */
     public function testFormatBytesBase2($bits, $number, string $unit): void
@@ -58,7 +59,8 @@ final class StringTwigExtensionTest extends TestCase
 
         $this->numberHelper->expects($this->once())->method('formatDecimal')
             ->with($this->equalTo($number), $this->equalTo(['fraction_digits' => 1]))
-            ->willReturn($number);
+            ->willReturn($number)
+        ;
 
         $this->assertStringEndsWith($unit, $extension->formatBytes($bits, false, 1));
     }

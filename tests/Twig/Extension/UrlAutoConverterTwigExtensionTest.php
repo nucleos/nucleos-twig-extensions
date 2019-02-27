@@ -54,7 +54,7 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
      */
     public function getLinkText(): array
     {
-        /* @noinspection JSUnusedLocalSymbols */
+        // @noinspection JSUnusedLocalSymbols
         return [
             [
                 'Lorem Ipsum http://test.de Sit Amet',
@@ -88,7 +88,7 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
      */
     public function getMailText(): array
     {
-        /* @noinspection JSUnusedLocalSymbols */
+        // @noinspection JSUnusedLocalSymbols
         return [
             [
                 'Lorem Ipsum foo.sub@bar.baz.tld Sit Amet',

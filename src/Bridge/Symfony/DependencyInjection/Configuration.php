@@ -52,6 +52,7 @@ final class Configuration implements ConfigurationInterface
                         ->scalarNode('nearbyLimit')->defaultValue(2)->end()
                     ->end()
                 ->end()
-            ->end();
+            ->end()
+        ;
     }
 }
