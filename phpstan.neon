@@ -11,7 +11,7 @@ parameters:
     ignoreErrors:
         # PHPUnit
         - '#Parameter \#1 \$router of class Core23\\Twig\\Extension\\RouterTwigExtension constructor expects Symfony\\Component\\Routing\\RouterInterface, PHPUnit\\Framework\\MockObject\\MockObject given.#'
-        - '#Parameter \#1 \$environment of method Core23\\Twig\\Extension\\RouterTwigExtension::initRuntime\(\) expects Twig_Environment, PHPUnit\\Framework\\MockObject\\MockObject given.#'
+        - '#Parameter \#1 \$environment of method Core23\\Twig\\Extension\\RouterTwigExtension::initRuntime\(\) expects Twig\\Environment, PHPUnit\\Framework\\MockObject\\MockObject given.#'
         - '#Parameter \#1 \$pager of method Core23\\Twig\\Extension\\RouterTwigExtension::generatePager\(\) expects Sonata\\DatagridBundle\\Pager\\BasePager, PHPUnit\\Framework\\MockObject\\MockObject given.#'
 
         # Symfony DI
