@@ -18,6 +18,9 @@ use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\TwigFilter;
+use Twig\TwigFunction;
 
 final class RouterTwigExtensionTest extends TestCase
 {
@@ -38,15 +41,69 @@ final class RouterTwigExtensionTest extends TestCase
         $this->router      = $this->createMock(RouterInterface::class);
         $this->environment = $this->createMock(Environment::class);
 
-        $this->extension = new RouterTwigExtension(
-            $this->router,
-            [
-                'template'     => 'template.html.twig',
-                'extremeLimit' => 10,
-                'nearbyLimit'  => 2,
-            ]
-        );
+        $this->extension = new RouterTwigExtension($this->router, [
+            'template'     => 'template.html.twig',
+            'extremeLimit' => 10,
+            'nearbyLimit'  => 2,
+        ]);
         $this->extension->initRuntime($this->environment);
+    }
+
+    public function testItIsNotInstantiableWithMissingTemplate(): void
+    {
+        $this->expectException(LoaderError::class);
+        $this->expectExceptionMessage('Pager template is not set.');
+
+        $this->extension = new RouterTwigExtension($this->router, [
+            'extremeLimit' => 10,
+            'nearbyLimit'  => 2,
+        ]);
+    }
+
+    public function testItIsNotInstantiableWithMissingExtremeLimit(): void
+    {
+        $this->expectException(LoaderError::class);
+        $this->expectExceptionMessage('Pager extreme limit is not set.');
+
+        $this->extension = new RouterTwigExtension($this->router, [
+            'template'     => 'template.html.twig',
+            'nearbyLimit'  => 2,
+        ]);
+    }
+
+    public function testItIsNotInstantiableWithMissingNearbyLimit(): void
+    {
+        $this->expectException(LoaderError::class);
+        $this->expectExceptionMessage('Pager nearby limit is not set.');
+
+        $this->extension = new RouterTwigExtension($this->router, [
+            'template'     => 'template.html.twig',
+            'extremeLimit' => 10,
+        ]);
+    }
+
+    public function testGetFilters(): void
+    {
+        $filters = $this->extension->getFilters();
+
+        $this->assertNotCount(0, $filters);
+
+        foreach ($filters as $filter) {
+            $this->assertInstanceOf(TwigFilter::class, $filter);
+            $this->assertIsCallable($filter->getCallable());
+        }
+    }
+
+    public function testGetFunctions(): void
+    {
+        $filters = $this->extension->getFunctions();
+
+        $this->assertNotCount(0, $filters);
+
+        foreach ($filters as $filter) {
+            $this->assertInstanceOf(TwigFunction::class, $filter);
+            $this->assertIsCallable($filter->getCallable());
+        }
     }
 
     public function testRouteExists(): void
@@ -92,9 +149,9 @@ final class RouterTwigExtensionTest extends TestCase
     public function testGeneratePager(): void
     {
         $pager = $this->createMock(BasePager::class);
-        $pager->method('count')->willReturn('100');
-        $pager->method('getMaxPerPage')->willReturn('20');
-        $pager->method('getPage')->willReturn('2');
+        $pager->method('count')->willReturn(100);
+        $pager->method('getMaxPerPage')->willReturn(20);
+        $pager->method('getPage')->willReturn(2);
 
         $expectedData = [
             'template'     => 'pager.html.twig',
@@ -112,5 +169,32 @@ final class RouterTwigExtensionTest extends TestCase
         ;
 
         $this->extension->generatePager($pager, ['template' => 'pager.html.twig']);
+    }
+
+    public function testGeneratePagerWithNegativeLimit(): void
+    {
+        $pager = $this->createMock(BasePager::class);
+        $pager->method('count')->willReturn(100);
+        $pager->method('getMaxPerPage')->willReturn(-1);
+        $pager->method('getPage')->willReturn(2);
+
+        $expectedData = [
+            'template'     => 'pager.html.twig',
+            'extremeLimit' => 10,
+            'nearbyLimit'  => 2,
+            'itemsCount'   => 100,
+            'limit'        => 1,
+            'currentPage'  => 2,
+            'lastPage'     => 100,
+        ];
+
+        $this->environment->expects($this->once())->method('render')
+            ->with($this->equalTo('pager.html.twig'), $this->equalTo($expectedData))
+            ->willReturn('Pager Content')
+        ;
+
+        $this->extension->generatePager($pager, [
+            'template' => 'pager.html.twig',
+        ]);
     }
 }

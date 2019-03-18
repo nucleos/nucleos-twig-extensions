@@ -129,11 +129,11 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
     {
         $data = array_merge(array_merge($this->options, $options), [
             'itemsCount'  => $pager->count(),
-            'limit'       => $pager->getMaxPerPage(),
+            'limit'       => max(1, $pager->getMaxPerPage()),
             'currentPage' => $pager->getPage(),
         ]);
 
-        $data['lastPage'] = $this->getNumPages((int) $data['limit'], (int) $data['itemsCount']);
+        $data['lastPage'] = self::getNumPages((int) $data['limit'], (int) $data['itemsCount']);
 
         return $this->environment->render($data['template'], $data);
     }
@@ -144,12 +144,8 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
      *
      * @return int
      */
-    protected function getNumPages(int $limit, int $count): int
+    private static function getNumPages(int $limit, int $count): int
     {
-        if ($limit < 1) {
-            return 1;
-        }
-
         return (int) ceil($count / $limit);
     }
 }
