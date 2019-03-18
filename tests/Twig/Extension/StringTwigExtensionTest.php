@@ -14,6 +14,7 @@ namespace Core23\Twig\Tests\Twig\Extension;
 use Core23\Twig\Extension\StringTwigExtension;
 use PHPUnit\Framework\TestCase;
 use Sonata\IntlBundle\Templating\Helper\NumberHelper;
+use Twig\TwigFilter;
 
 final class StringTwigExtensionTest extends TestCase
 {
@@ -25,6 +26,20 @@ final class StringTwigExtensionTest extends TestCase
     protected function setUp(): void
     {
         $this->numberHelper = $this->createMock(NumberHelper::class);
+    }
+
+    public function testGetFilters(): void
+    {
+        $extension = new StringTwigExtension($this->numberHelper);
+
+        $filters = $extension->getFilters();
+
+        $this->assertNotCount(0, $filters);
+
+        foreach ($filters as $filter) {
+            $this->assertInstanceOf(TwigFilter::class, $filter);
+            $this->assertIsCallable($filter->getCallable());
+        }
     }
 
     /**

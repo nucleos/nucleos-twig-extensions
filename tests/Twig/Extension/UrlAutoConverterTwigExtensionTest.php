@@ -13,9 +13,24 @@ namespace Core23\Twig\Tests\Twig\Extension;
 
 use Core23\Twig\Extension\UrlAutoConverterTwigExtension;
 use PHPUnit\Framework\TestCase;
+use Twig\TwigFilter;
 
 final class UrlAutoConverterTwigExtensionTest extends TestCase
 {
+    public function testGetFilters(): void
+    {
+        $extension = new UrlAutoConverterTwigExtension();
+
+        $filters = $extension->getFilters();
+
+        $this->assertNotCount(0, $filters);
+
+        foreach ($filters as $filter) {
+            $this->assertInstanceOf(TwigFilter::class, $filter);
+            $this->assertIsCallable($filter->getCallable());
+        }
+    }
+
     public function testConvertLinksWithPlanText(): void
     {
         $extension = new UrlAutoConverterTwigExtension();
