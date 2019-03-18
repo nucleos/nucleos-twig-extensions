@@ -62,7 +62,7 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
     /**
      * {@inheritdoc}
      */
-    public function initRuntime(\Twig_Environment $environment): void
+    public function initRuntime(Environment $environment): void
     {
         $this->environment = $environment;
     }
