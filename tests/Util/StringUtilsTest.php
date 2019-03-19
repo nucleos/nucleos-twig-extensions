@@ -36,10 +36,12 @@ final class StringUtilsTest extends TestCase
     public function getObfuscatedStrings(): array
     {
         return [
+            ['Foo Bar Baz', 'start' => -3, 'end' => 1, 'replacement' => ' ', 'Foo Bar   z'],
             ['Foo Bar Baz', 'start' => 1, 'end' => 1, 'replacement' => ' ', 'F         z'],
             ['Foo Bar Baz', 'start' => 1, 'end' => 1, 'replacement' => '#', 'F#########z'],
             ['Foo Bar Baz', 'start' => 0, 'end' => 3, 'replacement' => '#', '########Baz'],
             ['Foo Bar Baz', 'start' => 2, 'end' => 0, 'replacement' => '#', 'Fo#########'],
+            ['Foobar', 'start' => 1, 'end' => -3, 'replacement' => '#', 'F##bar'],
             ['Foobar', 'start' => 5, 'end' => 0, 'replacement' => '#', 'Foobar'],
             ['Foobar', 'start' => 6, 'end' => 0, 'replacement' => '#', 'Foobar'],
             ['Foobar', 'start' => 4, 'end' => 2, 'replacement' => '#', 'Foobar'],
