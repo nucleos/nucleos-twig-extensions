@@ -65,6 +65,19 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
     }
 
     /**
+     * @dataProvider getLinkTargetText
+     *
+     * @param string $input
+     * @param string $output
+     */
+    public function testConvertLinksWithOptions(string $input, string $output): void
+    {
+        $extension = new UrlAutoConverterTwigExtension();
+
+        $this->assertSame($output, $extension->convertLinks($input, ['target' => '_blank']));
+    }
+
+    /**
      * @return array
      */
     public function getLinkText(): array
@@ -94,6 +107,28 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
             [
                 'Lorem Ipsum <script>const link = "www.test.de"; </script> Sit Amet',
                 'Lorem Ipsum <script>const link = "www.test.de"; </script> Sit Amet',
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function getLinkTargetText(): array
+    {
+        // @noinspection JSUnusedLocalSymbols
+        return [
+            [
+                'Lorem Ipsum http://test.de Sit Amet',
+                'Lorem Ipsum <a href="http://test.de" target="_blank">http://test.de</a> Sit Amet',
+            ],
+            [
+                'Lorem Ipsum www.test.de/foo Sit Amet',
+                'Lorem Ipsum <a href="http://www.test.de/foo" target="_blank">www.test.de/foo</a> Sit Amet',
+            ],
+            [
+                'Lorem Ipsum www.test.de/foo/bar.html Sit Amet',
+                'Lorem Ipsum <a href="http://www.test.de/foo/bar.html" target="_blank">www.test.de/foo/bar.html</a> Sit Amet',
             ],
         ];
     }
