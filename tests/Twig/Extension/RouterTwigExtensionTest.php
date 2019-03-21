@@ -38,15 +38,18 @@ final class RouterTwigExtensionTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->router      = $this->createMock(RouterInterface::class);
-        $this->environment = $this->createMock(Environment::class);
+        $router      = $this->createMock(RouterInterface::class);
+        $environment = $this->createMock(Environment::class);
 
-        $this->extension = new RouterTwigExtension($this->router, [
+        $this->extension = new RouterTwigExtension($router, [
             'template'     => 'template.html.twig',
             'extremeLimit' => 10,
             'nearbyLimit'  => 2,
         ]);
-        $this->extension->initRuntime($this->environment);
+        $this->extension->initRuntime($environment);
+
+        $this->router      = $router;
+        $this->environment = $environment;
     }
 
     public function testItIsNotInstantiableWithMissingTemplate(): void
