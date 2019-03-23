@@ -15,6 +15,8 @@ use Sonata\DatagridBundle\Pager\BasePager;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
 use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\InitRuntimeInterface;
 use Twig\TwigFilter;
@@ -119,9 +121,9 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
      * @param BasePager $pager
      * @param array     $options
      *
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      *
      * @return string
      */
