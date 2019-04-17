@@ -36,8 +36,7 @@ final class UrlAutoConverterTwigExtension extends AbstractExtension
      */
     public function convertLinks(string $text, array $options = []): string
     {
-        // https://bitbucket.org/kwi/urllinker/
-        $text = preg_replace('#(script|about|applet|activex|chrome):#is', '\\1:', $text) ?: '';
+        $text = $this->replaceProtocol($text);
         $ret  = ' '.$text;
 
         $attr = '';
@@ -55,5 +54,17 @@ final class UrlAutoConverterTwigExtension extends AbstractExtension
         $ret = (string) preg_replace("#(^|[\n ])([a-z0-9&\\-_.]+?)@([\\w\\-]+\\.([\\w\\-\\.]+\\.)*[\\w]+)#i", '\\1<a href="mailto:\\2@\\3"'.$attr.'>\\2@\\3</a>', $ret);
 
         return substr($ret, 1);
+    }
+
+    /**
+     * @param string $text
+     *
+     * @return string
+     *
+     * @see https://bitbucket.org/kwi/urllinker/
+     */
+    private function replaceProtocol(string $text): string
+    {
+        return preg_replace('#(script|about|applet|activex|chrome):#is', '\\1:', $text) ?: '';
     }
 }
