@@ -23,11 +23,11 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
 
         $filters = $extension->getFilters();
 
-        $this->assertNotCount(0, $filters);
+        static::assertNotCount(0, $filters);
 
         foreach ($filters as $filter) {
-            $this->assertInstanceOf(TwigFilter::class, $filter);
-            $this->assertIsCallable($filter->getCallable());
+            static::assertInstanceOf(TwigFilter::class, $filter);
+            static::assertIsCallable($filter->getCallable());
         }
     }
 
@@ -35,7 +35,7 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
     {
         $extension = new UrlAutoConverterTwigExtension();
 
-        $this->assertSame('Lorem Ipsum test.de Sit Amet', $extension->convertLinks('Lorem Ipsum test.de Sit Amet'));
+        static::assertSame('Lorem Ipsum test.de Sit Amet', $extension->convertLinks('Lorem Ipsum test.de Sit Amet'));
     }
 
     /**
@@ -48,7 +48,7 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
     {
         $extension = new UrlAutoConverterTwigExtension();
 
-        $this->assertSame($output, $extension->convertLinks($input));
+        static::assertSame($output, $extension->convertLinks($input));
     }
 
     /**
@@ -61,7 +61,7 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
     {
         $extension = new UrlAutoConverterTwigExtension();
 
-        $this->assertSame($output, $extension->convertLinks($input));
+        static::assertSame($output, $extension->convertLinks($input));
     }
 
     /**
@@ -74,7 +74,7 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
     {
         $extension = new UrlAutoConverterTwigExtension();
 
-        $this->assertSame($output, $extension->convertLinks($input, ['target' => '_blank']));
+        static::assertSame($output, $extension->convertLinks($input, ['target' => '_blank']));
     }
 
     /**

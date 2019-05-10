@@ -89,11 +89,11 @@ final class RouterTwigExtensionTest extends TestCase
     {
         $filters = $this->extension->getFilters();
 
-        $this->assertNotCount(0, $filters);
+        static::assertNotCount(0, $filters);
 
         foreach ($filters as $filter) {
-            $this->assertInstanceOf(TwigFilter::class, $filter);
-            $this->assertIsCallable($filter->getCallable());
+            static::assertInstanceOf(TwigFilter::class, $filter);
+            static::assertIsCallable($filter->getCallable());
         }
     }
 
@@ -101,11 +101,11 @@ final class RouterTwigExtensionTest extends TestCase
     {
         $filters = $this->extension->getFunctions();
 
-        $this->assertNotCount(0, $filters);
+        static::assertNotCount(0, $filters);
 
         foreach ($filters as $filter) {
-            $this->assertInstanceOf(TwigFunction::class, $filter);
-            $this->assertIsCallable($filter->getCallable());
+            static::assertInstanceOf(TwigFunction::class, $filter);
+            static::assertIsCallable($filter->getCallable());
         }
     }
 
@@ -114,13 +114,13 @@ final class RouterTwigExtensionTest extends TestCase
         $route = $this->createMock(Route::class);
 
         $routeCollection = $this->createMock(RouteCollection::class);
-        $routeCollection->expects($this->at(0))->method('get')->with($this->equalTo('foo'))->willReturn($route);
-        $routeCollection->expects($this->at(1))->method('get')->with($this->equalTo('bar'))->willReturn(null);
+        $routeCollection->expects(static::at(0))->method('get')->with(static::equalTo('foo'))->willReturn($route);
+        $routeCollection->expects(static::at(1))->method('get')->with(static::equalTo('bar'))->willReturn(null);
 
         $this->router->method('getRouteCollection')->willReturn($routeCollection);
 
-        $this->assertTrue($this->extension->routeExists('foo'));
-        $this->assertFalse($this->extension->routeExists('bar'));
+        static::assertTrue($this->extension->routeExists('foo'));
+        static::assertFalse($this->extension->routeExists('bar'));
     }
 
     /**
@@ -132,7 +132,7 @@ final class RouterTwigExtensionTest extends TestCase
      */
     public function testSplitTag(string $input, string $tag, array $output): void
     {
-        $this->assertSame($output, $this->extension->splitTag($input, $tag));
+        static::assertSame($output, $this->extension->splitTag($input, $tag));
     }
 
     /**
@@ -166,8 +166,8 @@ final class RouterTwigExtensionTest extends TestCase
             'lastPage'     => 5,
         ];
 
-        $this->environment->expects($this->once())->method('render')
-            ->with($this->equalTo('pager.html.twig'), $this->equalTo($expectedData))
+        $this->environment->expects(static::once())->method('render')
+            ->with(static::equalTo('pager.html.twig'), static::equalTo($expectedData))
             ->willReturn('Pager Content')
         ;
 
@@ -191,8 +191,8 @@ final class RouterTwigExtensionTest extends TestCase
             'lastPage'     => 100,
         ];
 
-        $this->environment->expects($this->once())->method('render')
-            ->with($this->equalTo('pager.html.twig'), $this->equalTo($expectedData))
+        $this->environment->expects(static::once())->method('render')
+            ->with(static::equalTo('pager.html.twig'), static::equalTo($expectedData))
             ->willReturn('Pager Content')
         ;
 
