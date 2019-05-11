@@ -27,7 +27,7 @@ final class StringUtilsTest extends TestCase
      */
     public function testObfuscate($input, $start, $end, $replacement, $output): void
     {
-        $this->assertSame($output, StringUtils::obfuscate($input, $start, $end, $replacement));
+        static::assertSame($output, StringUtils::obfuscate($input, $start, $end, $replacement));
     }
 
     /**

@@ -34,11 +34,11 @@ final class StringTwigExtensionTest extends TestCase
 
         $filters = $extension->getFilters();
 
-        $this->assertNotCount(0, $filters);
+        static::assertNotCount(0, $filters);
 
         foreach ($filters as $filter) {
-            $this->assertInstanceOf(TwigFilter::class, $filter);
-            $this->assertIsCallable($filter->getCallable());
+            static::assertInstanceOf(TwigFilter::class, $filter);
+            static::assertIsCallable($filter->getCallable());
         }
     }
 
@@ -53,12 +53,12 @@ final class StringTwigExtensionTest extends TestCase
     {
         $extension = new StringTwigExtension($this->numberHelper);
 
-        $this->numberHelper->expects($this->once())->method('formatDecimal')
-            ->with($this->equalTo($number), $this->equalTo(['fraction_digits' => 1]))
+        $this->numberHelper->expects(static::once())->method('formatDecimal')
+            ->with(static::equalTo($number), static::equalTo(['fraction_digits' => 1]))
             ->willReturn($number)
         ;
 
-        $this->assertStringEndsWith($unit, $extension->formatBytes($bits, true, 1));
+        static::assertStringEndsWith($unit, $extension->formatBytes($bits, true, 1));
     }
 
     /**
@@ -72,12 +72,12 @@ final class StringTwigExtensionTest extends TestCase
     {
         $extension = new StringTwigExtension($this->numberHelper);
 
-        $this->numberHelper->expects($this->once())->method('formatDecimal')
-            ->with($this->equalTo($number), $this->equalTo(['fraction_digits' => 1]))
+        $this->numberHelper->expects(static::once())->method('formatDecimal')
+            ->with(static::equalTo($number), static::equalTo(['fraction_digits' => 1]))
             ->willReturn($number)
         ;
 
-        $this->assertStringEndsWith($unit, $extension->formatBytes($bits, false, 1));
+        static::assertStringEndsWith($unit, $extension->formatBytes($bits, false, 1));
     }
 
     /**
@@ -120,7 +120,7 @@ final class StringTwigExtensionTest extends TestCase
     {
         $extension = new StringTwigExtension($this->numberHelper);
 
-        $this->assertSame('T***', $extension->obfuscate(
+        static::assertSame('T***', $extension->obfuscate(
             'Test',
             [
                 'start'       => 1,
