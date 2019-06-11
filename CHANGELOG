@@ -1,3 +1,31 @@
+11/06/2019 18:25  1.2.0  Removed support for outdated symfony versions
+7e55eba [BUILD] Replaced deprecated "weak_vendors" option
+bb10d6b Added GitHub sponsoring information
+240e25f Update sonata-project/datagrid-bundle requirement || ^3.0
+c9018f8 [PATCH] Fixed CS
+cc31c5c [BUILD] Updated export-ignore files
+e79cdca [BUILD] Updated build tools
+25bac85 [PATCH] Fixed S
+f75dd30 [BUILD] Removed dependency stage from build matrix
+0fcd93b [BUILD] Removed current copyright date
+7b383ef [PATCH] Use new twig classes in PHPDoc
+a47d640 [BUILD] Cleanup phpstan errors
+5825f33 [BUILD] Added more tests
+3283605 [BUILD] Added more tests
+91d9115 [BUILD] Added more tests
+732686d [PATCH] Fixed pager for negative page limit
+6eb4938 [PATCH] Replaced deprecated twig imports
+181e97a [BUILD] Added more tests
+afec0db [BUILD] Fixed phpstan ignore list
+44b9422 [BUILD] Added more tests
+074cedf [BUILD] Added weak_vendors when calling phpunit
+81e2489 [PATCH] Updated CS Fixer config and run
+ed93b4b [BUILD] Updated phpstan version
+f56d4b9 [BUILD] Fixed symfony test setup
+f87399b [MINOR] Removed support for outdated symfony versions
+ce3e4be Removed timeout from release config
+4a8a74c Updated cs-fixer config
+e975112 Fixed CS
 30/12/2018 21:46  1.1.0  Removed symfony deprecations
 d55026d Fixed phpunit config for release command
 66f3b6a Use asserts for type safe root config nodes
