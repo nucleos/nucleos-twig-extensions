@@ -14,7 +14,7 @@ use Core23\Twig\Bridge\Symfony\DependencyInjection\Core23TwigExtension;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 
-class Core23TwigBundleTest extends TestCase
+final class Core23TwigBundleTest extends TestCase
 {
     public function testItIsInstantiable(): void
     {
