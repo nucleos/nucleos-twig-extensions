@@ -15,7 +15,7 @@ use Core23\Twig\Extension\StringTwigExtension;
 use Core23\Twig\Extension\UrlAutoConverterTwigExtension;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
 
-class Core23TwigExtensionTest extends AbstractExtensionTestCase
+final class Core23TwigExtensionTest extends AbstractExtensionTestCase
 {
     public function testLoadDefault(): void
     {
