@@ -40,9 +40,6 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
 
     /**
      * @dataProvider getLinkText
-     *
-     * @param string $input
-     * @param string $output
      */
     public function testConvertLinksWithLinks(string $input, string $output): void
     {
@@ -53,9 +50,6 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
 
     /**
      * @dataProvider getMailText
-     *
-     * @param string $input
-     * @param string $output
      */
     public function testConvertLinksWithMails(string $input, string $output): void
     {
@@ -66,9 +60,6 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
 
     /**
      * @dataProvider getLinkTargetText
-     *
-     * @param string $input
-     * @param string $output
      */
     public function testConvertLinksWithOptions(string $input, string $output): void
     {
@@ -77,9 +68,6 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
         static::assertSame($output, $extension->convertLinks($input, ['target' => '_blank']));
     }
 
-    /**
-     * @return array
-     */
     public function getLinkText(): array
     {
         // @noinspection JSUnusedLocalSymbols
@@ -111,9 +99,6 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
         ];
     }
 
-    /**
-     * @return array
-     */
     public function getLinkTargetText(): array
     {
         // @noinspection JSUnusedLocalSymbols
@@ -133,9 +118,6 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
         ];
     }
 
-    /**
-     * @return array
-     */
     public function getMailText(): array
     {
         // @noinspection JSUnusedLocalSymbols

@@ -40,9 +40,6 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
     private $environment;
 
     /**
-     * @param RouterInterface $router
-     * @param array           $options
-     *
      * @throws LoaderError
      */
     public function __construct(RouterInterface $router, array $options = [])
@@ -92,20 +89,12 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
         ];
     }
 
-    /**
-     * @param string $name
-     *
-     * @return bool
-     */
     public function routeExists(string $name): bool
     {
         return null !== $this->router->getRouteCollection()->get($name);
     }
 
     /**
-     * @param string $text
-     * @param string $tag
-     *
      * @return string[]
      */
     public function splitTag(string $text, string $tag): array
@@ -118,14 +107,9 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
     }
 
     /**
-     * @param BasePager $pager
-     * @param array     $options
-     *
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
-     *
-     * @return string
      */
     public function generatePager(BasePager $pager, array $options = []): string
     {
@@ -140,12 +124,6 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
         return $this->environment->render($data['template'], $data);
     }
 
-    /**
-     * @param int $limit
-     * @param int $count
-     *
-     * @return int
-     */
     private static function getNumPages(int $limit, int $count): int
     {
         return (int) ceil($count / $limit);

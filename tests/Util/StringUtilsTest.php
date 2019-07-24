@@ -30,9 +30,6 @@ final class StringUtilsTest extends TestCase
         static::assertSame($output, StringUtils::obfuscate($input, $start, $end, $replacement));
     }
 
-    /**
-     * @return array
-     */
     public function getObfuscatedStrings(): array
     {
         return [

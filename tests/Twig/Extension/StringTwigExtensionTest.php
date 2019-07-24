@@ -47,7 +47,6 @@ final class StringTwigExtensionTest extends TestCase
      *
      * @param float|int $bits
      * @param float|int $number
-     * @param string    $unit
      */
     public function testFormatBytesBase10($bits, $number, string $unit): void
     {
@@ -66,7 +65,6 @@ final class StringTwigExtensionTest extends TestCase
      *
      * @param float|int $bits
      * @param float|int $number
-     * @param string    $unit
      */
     public function testFormatBytesBase2($bits, $number, string $unit): void
     {
@@ -80,9 +78,6 @@ final class StringTwigExtensionTest extends TestCase
         static::assertStringEndsWith($unit, $extension->formatBytes($bits, false, 1));
     }
 
-    /**
-     * @return array
-     */
     public function getBase10(): array
     {
         return [
@@ -98,9 +93,6 @@ final class StringTwigExtensionTest extends TestCase
         ];
     }
 
-    /**
-     * @return array
-     */
     public function getBase2(): array
     {
         return [

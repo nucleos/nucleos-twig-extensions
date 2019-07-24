@@ -23,9 +23,6 @@ final class StringTwigExtension extends AbstractExtension
      */
     private $numberHelper;
 
-    /**
-     * @param NumberHelper $numberHelper
-     */
     public function __construct(NumberHelper $numberHelper)
     {
         $this->numberHelper = $numberHelper;
@@ -42,13 +39,6 @@ final class StringTwigExtension extends AbstractExtension
         ];
     }
 
-    /**
-     * @param float $bytes
-     * @param bool  $si
-     * @param int   $fractionDigits
-     *
-     * @return string
-     */
     public function formatBytes(float $bytes, bool $si = true, int $fractionDigits = 0): string
     {
         $unit = $si ? 1000 : 1024;
@@ -69,12 +59,6 @@ final class StringTwigExtension extends AbstractExtension
         ]), $pre);
     }
 
-    /**
-     * @param string $string
-     * @param array  $options
-     *
-     * @return string
-     */
     public function obfuscate(string $string, array $options = []): string
     {
         $options = array_merge([

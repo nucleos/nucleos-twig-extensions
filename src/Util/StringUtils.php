@@ -18,8 +18,6 @@ final class StringUtils
      * @param int    $start
      * @param int    $end
      * @param string $replacement
-     *
-     * @return string
      */
     public static function obfuscate($string, $start = 0, $end = 3, $replacement = '*'): string
     {
