@@ -28,12 +28,6 @@ final class UrlAutoConverterTwigExtension extends AbstractExtension
         ];
     }
 
-    /**
-     * @param string $text
-     * @param array  $options
-     *
-     * @return string
-     */
     public function convertLinks(string $text, array $options = []): string
     {
         $text = $this->replaceProtocol($text);
@@ -57,10 +51,6 @@ final class UrlAutoConverterTwigExtension extends AbstractExtension
     }
 
     /**
-     * @param string $text
-     *
-     * @return string
-     *
      * @see https://bitbucket.org/kwi/urllinker/
      */
     private function replaceProtocol(string $text): string

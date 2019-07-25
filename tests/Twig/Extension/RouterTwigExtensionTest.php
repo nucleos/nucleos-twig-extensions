@@ -125,19 +125,12 @@ final class RouterTwigExtensionTest extends TestCase
 
     /**
      * @dataProvider getSplitList
-     *
-     * @param string $input
-     * @param string $tag
-     * @param array  $output
      */
     public function testSplitTag(string $input, string $tag, array $output): void
     {
         static::assertSame($output, $this->extension->splitTag($input, $tag));
     }
 
-    /**
-     * @return array
-     */
     public function getSplitList(): array
     {
         return [
