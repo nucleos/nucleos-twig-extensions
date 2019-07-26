@@ -58,17 +58,11 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function initRuntime(Environment $environment): void
     {
         $this->environment = $environment;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getFunctions()
     {
         return [
@@ -79,9 +73,6 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getFilters()
     {
         return [

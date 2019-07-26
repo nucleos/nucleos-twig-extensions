@@ -16,9 +16,6 @@ use Twig\TwigFilter;
 
 final class UrlAutoConverterTwigExtension extends AbstractExtension
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getFilters()
     {
         return [
