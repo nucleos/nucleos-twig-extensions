@@ -33,9 +33,6 @@ final class RouterTwigExtensionTest extends TestCase
      */
     private $extension;
 
-    /**
-     * {@inheritdoc}
-     */
     protected function setUp(): void
     {
         $router      = $this->createMock(RouterInterface::class);

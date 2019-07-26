@@ -28,9 +28,6 @@ final class StringTwigExtension extends AbstractExtension
         $this->numberHelper = $numberHelper;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getFilters()
     {
         return [

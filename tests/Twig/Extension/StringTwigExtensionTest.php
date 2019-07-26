@@ -20,9 +20,6 @@ final class StringTwigExtensionTest extends TestCase
 {
     private $numberHelper;
 
-    /**
-     * {@inheritdoc}
-     */
     protected function setUp(): void
     {
         $this->numberHelper = $this->createMock(NumberHelper::class);
