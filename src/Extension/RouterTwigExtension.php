@@ -90,7 +90,7 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
      */
     public function splitTag(string $text, string $tag): array
     {
-        if (!$tag) {
+        if ('' === trim($tag)) {
             return [$text];
         }
 
