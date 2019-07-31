@@ -12,17 +12,9 @@ namespace Core23\Twig\Tests\Bridge\Symfony\Bundle;
 use Core23\Twig\Bridge\Symfony\Bundle\Core23TwigBundle;
 use Core23\Twig\Bridge\Symfony\DependencyInjection\Core23TwigExtension;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 
 final class Core23TwigBundleTest extends TestCase
 {
-    public function testItIsInstantiable(): void
-    {
-        $bundle = new Core23TwigBundle();
-
-        static::assertInstanceOf(BundleInterface::class, $bundle);
-    }
-
     public function testGetPath(): void
     {
         $bundle = new Core23TwigBundle();
