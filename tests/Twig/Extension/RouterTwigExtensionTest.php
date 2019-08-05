@@ -38,15 +38,14 @@ final class RouterTwigExtensionTest extends TestCase
         $router      = $this->createMock(RouterInterface::class);
         $environment = $this->createMock(Environment::class);
 
-        $this->extension = new RouterTwigExtension($router, [
+        $this->router      = $router;
+        $this->environment = $environment;
+
+        $this->extension = new RouterTwigExtension($this->environment, $router, [
             'template'     => 'template.html.twig',
             'extremeLimit' => 10,
             'nearbyLimit'  => 2,
         ]);
-        $this->extension->initRuntime($environment);
-
-        $this->router      = $router;
-        $this->environment = $environment;
     }
 
     public function testItIsNotInstantiableWithMissingTemplate(): void
@@ -54,7 +53,7 @@ final class RouterTwigExtensionTest extends TestCase
         $this->expectException(LoaderError::class);
         $this->expectExceptionMessage('Pager template is not set.');
 
-        $this->extension = new RouterTwigExtension($this->router, [
+        $this->extension = new RouterTwigExtension($this->environment, $this->router, [
             'extremeLimit' => 10,
             'nearbyLimit'  => 2,
         ]);
@@ -65,7 +64,7 @@ final class RouterTwigExtensionTest extends TestCase
         $this->expectException(LoaderError::class);
         $this->expectExceptionMessage('Pager extreme limit is not set.');
 
-        $this->extension = new RouterTwigExtension($this->router, [
+        $this->extension = new RouterTwigExtension($this->environment, $this->router, [
             'template'     => 'template.html.twig',
             'nearbyLimit'  => 2,
         ]);
@@ -76,7 +75,7 @@ final class RouterTwigExtensionTest extends TestCase
         $this->expectException(LoaderError::class);
         $this->expectExceptionMessage('Pager nearby limit is not set.');
 
-        $this->extension = new RouterTwigExtension($this->router, [
+        $this->extension = new RouterTwigExtension($this->environment, $this->router, [
             'template'     => 'template.html.twig',
             'extremeLimit' => 10,
         ]);

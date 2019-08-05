@@ -10,6 +10,7 @@
     </service>
     <service id="core23_twig.router.extension" class="Core23\Twig\Extension\RouterTwigExtension">
       <tag name="twig.extension"/>
+      <argument type="service" id="twig"/>
       <argument type="service" id="router"/>
       <argument/>
     </service>
