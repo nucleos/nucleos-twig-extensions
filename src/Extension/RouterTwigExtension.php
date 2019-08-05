@@ -18,11 +18,10 @@ use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 use Twig\Extension\AbstractExtension;
-use Twig\Extension\InitRuntimeInterface;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 
-final class RouterTwigExtension extends AbstractExtension implements InitRuntimeInterface
+final class RouterTwigExtension extends AbstractExtension
 {
     /**
      * @var RouterInterface
@@ -42,10 +41,11 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
     /**
      * @throws LoaderError
      */
-    public function __construct(RouterInterface $router, array $options = [])
+    public function __construct(Environment $environment, RouterInterface $router, array $options = [])
     {
-        $this->router  = $router;
-        $this->options = $options;
+        $this->environment = $environment;
+        $this->router      = $router;
+        $this->options     = $options;
 
         if (!isset($this->options['template'])) {
             throw new LoaderError('Pager template is not set.');
@@ -56,11 +56,6 @@ final class RouterTwigExtension extends AbstractExtension implements InitRuntime
         if (!isset($this->options['nearbyLimit'])) {
             throw new LoaderError('Pager nearby limit is not set.');
         }
-    }
-
-    public function initRuntime(Environment $environment): void
-    {
-        $this->environment = $environment;
     }
 
     public function getFunctions()

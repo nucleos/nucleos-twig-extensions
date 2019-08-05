@@ -25,7 +25,7 @@ final class Core23TwigExtensionTest extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasService('core23_twig.string.extension', StringTwigExtension::class);
         $this->assertContainerBuilderHasService('core23_twig.router.extension', RouterTwigExtension::class);
 
-        $this->assertContainerBuilderHasServiceDefinitionWithArgument('core23_twig.router.extension', 1, [
+        $this->assertContainerBuilderHasServiceDefinitionWithArgument('core23_twig.router.extension', 2, [
             'template'     => '@Core23Twig/Pager/pagination.html.twig',
             'extremeLimit' => 3,
             'nearbyLimit'  => 2,
@@ -42,7 +42,7 @@ final class Core23TwigExtensionTest extends AbstractExtensionTestCase
             ],
         ]);
 
-        $this->assertContainerBuilderHasServiceDefinitionWithArgument('core23_twig.router.extension', 1, [
+        $this->assertContainerBuilderHasServiceDefinitionWithArgument('core23_twig.router.extension', 2, [
             'template'     => '@Acme/Pager/pagination.html.twig',
             'extremeLimit' => 10,
             'nearbyLimit'  => 5,
