@@ -75,7 +75,7 @@ final class StringTwigExtensionTest extends TestCase
         static::assertStringEndsWith($unit, $extension->formatBytes($bits, false, 1));
     }
 
-    public function getBase10(): array
+    public function getBase10(): iterable
     {
         return [
             [500, 500, 'B'],
@@ -90,7 +90,7 @@ final class StringTwigExtensionTest extends TestCase
         ];
     }
 
-    public function getBase2(): array
+    public function getBase2(): iterable
     {
         return [
             [512, 512, 'B'],
