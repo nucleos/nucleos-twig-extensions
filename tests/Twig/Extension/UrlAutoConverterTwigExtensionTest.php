@@ -68,7 +68,7 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
         static::assertSame($output, $extension->convertLinks($input, ['target' => '_blank']));
     }
 
-    public function getLinkText(): array
+    public function getLinkText(): iterable
     {
         // @noinspection JSUnusedLocalSymbols
         return [
@@ -99,7 +99,7 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
         ];
     }
 
-    public function getLinkTargetText(): array
+    public function getLinkTargetText(): iterable
     {
         // @noinspection JSUnusedLocalSymbols
         return [
@@ -118,7 +118,7 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
         ];
     }
 
-    public function getMailText(): array
+    public function getMailText(): iterable
     {
         // @noinspection JSUnusedLocalSymbols
         return [

@@ -30,7 +30,7 @@ final class StringUtilsTest extends TestCase
         static::assertSame($output, StringUtils::obfuscate($input, $start, $end, $replacement));
     }
 
-    public function getObfuscatedStrings(): array
+    public function getObfuscatedStrings(): iterable
     {
         return [
             ['Foo Bar Baz', 'start' => -3, 'end' => 1, 'replacement' => ' ', 'Foo Bar   z'],
