@@ -1,11 +1,11 @@
 {% macro pageLink(urlPath, urlParams, i) %}
-    {% spaceless %}
+    {% apply spaceless %}
         {% if i > 1 %}
             {{ path(urlPath, urlParams|merge( { 'page': i }) ) }}
         {% else %}
             {{ path(urlPath, urlParams) }}
         {% endif %}
-    {% endspaceless %}
+    {% endapply %}
 {% endmacro %}
 
 {% if urlParams is not defined %}
