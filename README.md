@@ -8,10 +8,8 @@ Twig Extensions
 [![Monthly Downloads](https://poser.pugx.org/core23/twig-extensions/d/monthly)](https://packagist.org/packages/core23/twig-extensions)
 [![Daily Downloads](https://poser.pugx.org/core23/twig-extensions/d/daily)](https://packagist.org/packages/core23/twig-extensions)
 
-[![Build Status](https://travis-ci.org/core23/twig-extensions.svg)](http://travis-ci.org/core23/twig-extensions)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/core23/twig-extensions/badges/quality-score.png)](https://scrutinizer-ci.com/g/core23/twig-extensions/)
-[![Code Climate](https://codeclimate.com/github/core23/twig-extensions/badges/gpa.svg)](https://codeclimate.com/github/core23/twig-extensions)
-[![Coverage Status](https://coveralls.io/repos/core23/twig-extensions/badge.svg)](https://coveralls.io/r/core23/twig-extensions)
+[![Continuous Integration](https://github.com/core23/twig-extensions/workflows/Continuous%20Integration/badge.svg)](https://github.com/core23/twig-extensions/actions)
+[![Code Coverage](https://codecov.io/gh/core23/twig-extensions/branch/master/graph/badge.svg)](https://codecov.io/gh/core23/twig-extensions)
 
 Useful extensions for twig.
 
