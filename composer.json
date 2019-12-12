@@ -4,10 +4,9 @@
   "description": "Useful extensions for twig.",
   "keywords": [
     "symfony",
-    "bundle",
+    "symfony-bridge",
     "twig",
-    "extensions",
-    "bridge"
+    "twig-extension"
   ],
   "homepage": "https://core23.de",
   "license": "MIT",
