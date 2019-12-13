@@ -56,6 +56,9 @@ final class StringTwigExtension extends AbstractExtension
         ]), $pre);
     }
 
+    /**
+     * @param array<string, int|string> $options
+     */
     public function obfuscate(string $string, array $options = []): string
     {
         $options = array_merge([
@@ -64,6 +67,6 @@ final class StringTwigExtension extends AbstractExtension
             'replacement' => '*',
         ], $options);
 
-        return StringUtils::obfuscate($string, $options['start'], $options['end'], $options['replacement']);
+        return StringUtils::obfuscate($string, (int) $options['start'], (int) $options['end'], (string) $options['replacement']);
     }
 }

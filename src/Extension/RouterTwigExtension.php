@@ -29,7 +29,7 @@ final class RouterTwigExtension extends AbstractExtension
     private $router;
 
     /**
-     * @var array
+     * @var array<string, int|string>
      */
     private $options;
 
@@ -39,6 +39,8 @@ final class RouterTwigExtension extends AbstractExtension
     private $environment;
 
     /**
+     * @param array<string, int|string> $options
+     *
      * @throws LoaderError
      */
     public function __construct(Environment $environment, RouterInterface $router, array $options = [])
@@ -93,6 +95,8 @@ final class RouterTwigExtension extends AbstractExtension
     }
 
     /**
+     * @param array<string, int|string> $options
+     *
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
@@ -107,7 +111,7 @@ final class RouterTwigExtension extends AbstractExtension
 
         $data['lastPage'] = self::getNumPages((int) $data['limit'], (int) $data['itemsCount']);
 
-        return $this->environment->render($data['template'], $data);
+        return $this->environment->render((string) $data['template'], $data);
     }
 
     private static function getNumPages(int $limit, int $count): int

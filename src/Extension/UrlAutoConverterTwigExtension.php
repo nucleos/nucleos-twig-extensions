@@ -25,6 +25,9 @@ final class UrlAutoConverterTwigExtension extends AbstractExtension
         ];
     }
 
+    /**
+     * @param array<string, string> $options
+     */
     public function convertLinks(string $text, array $options = []): string
     {
         $text = $this->replaceProtocol($text);
@@ -52,6 +55,6 @@ final class UrlAutoConverterTwigExtension extends AbstractExtension
      */
     private function replaceProtocol(string $text): string
     {
-        return preg_replace('#(script|about|applet|activex|chrome):#is', '\\1:', $text) ?: '';
+        return preg_replace('#(script|about|applet|activex|chrome):#is', '\\1:', $text) ?? '';
     }
 }
