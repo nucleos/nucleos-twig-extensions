@@ -1,0 +1,15 @@
+framework:
+    secret: secret
+
+twig:
+    paths:
+        - '%kernel.project_dir%/templates'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Core23\Twig\Tests\Bridge\Symfony\App\Controller\TwigTestController:
+        tags:
+            - controller.service_arguments
