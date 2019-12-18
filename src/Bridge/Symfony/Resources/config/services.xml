@@ -6,7 +6,6 @@
     </service>
     <service id="core23_twig.string.extension" class="Core23\Twig\Extension\StringTwigExtension">
       <tag name="twig.extension"/>
-      <argument type="service" id="sonata.intl.templating.helper.number"/>
     </service>
     <service id="core23_twig.router.extension" class="Core23\Twig\Extension\RouterTwigExtension">
       <tag name="twig.extension"/>

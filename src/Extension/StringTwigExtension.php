@@ -12,22 +12,11 @@ declare(strict_types=1);
 namespace Core23\Twig\Extension;
 
 use Core23\Twig\Util\StringUtils;
-use Sonata\IntlBundle\Templating\Helper\NumberHelper;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
 final class StringTwigExtension extends AbstractExtension
 {
-    /**
-     * @var NumberHelper
-     */
-    private $numberHelper;
-
-    public function __construct(NumberHelper $numberHelper)
-    {
-        $this->numberHelper = $numberHelper;
-    }
-
     public function getFilters()
     {
         return [
@@ -36,12 +25,16 @@ final class StringTwigExtension extends AbstractExtension
         ];
     }
 
-    public function formatBytes(float $bytes, bool $si = true, int $fractionDigits = 0): string
+    public function formatBytes(float $bytes, bool $si = true, int $fractionDigits = 0, ?string $locale = null): string
     {
+        if (null === $locale) {
+            $locale = \Locale::getDefault();
+        }
+
         $unit = $si ? 1000 : 1024;
 
         if ($bytes < $unit) {
-            $pre = 'B';
+            $pre = '';
             $num = $bytes;
         } else {
             $exp = (int) (log($bytes) / log($unit));
@@ -51,9 +44,11 @@ final class StringTwigExtension extends AbstractExtension
             $num = $bytes / ($unit ** $exp);
         }
 
-        return sprintf('%s %sB', $this->numberHelper->formatDecimal($num, [
-            'fraction_digits' => $fractionDigits,
-        ]), $pre);
+        $formatter = new \NumberFormatter($locale, \NumberFormatter::DECIMAL);
+        $formatter->setAttribute(\NumberFormatter::MIN_FRACTION_DIGITS, $fractionDigits);
+        $formatter->setAttribute(\NumberFormatter::FRACTION_DIGITS, $fractionDigits);
+
+        return sprintf('%s %sB', $formatter->format($num, \NumberFormatter::TYPE_DEFAULT), $pre);
     }
 
     /**

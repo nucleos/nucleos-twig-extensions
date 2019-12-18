@@ -13,7 +13,6 @@ namespace Core23\Twig\Tests\Bridge\Symfony\App;
 
 use Core23\Twig\Bridge\Symfony\Bundle\Core23TwigBundle;
 use Core23\Twig\Tests\Bridge\Symfony\App\Controller\TwigTestController;
-use Sonata\IntlBundle\SonataIntlBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Bundle\TwigBundle\TwigBundle;
@@ -35,7 +34,6 @@ final class AppKernel extends Kernel
     {
         yield new FrameworkBundle();
         yield new TwigBundle();
-        yield new SonataIntlBundle();
         yield new Core23TwigBundle();
     }
 
