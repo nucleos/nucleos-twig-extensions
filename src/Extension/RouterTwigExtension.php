@@ -91,7 +91,13 @@ final class RouterTwigExtension extends AbstractExtension
             return [$text];
         }
 
-        return preg_split('/(?=<'.$tag.'([^>])*>)/', $text, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE) ?: [$text];
+        $split = preg_split('/(?=<'.$tag.'([^>])*>)/', $text, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
+
+        if (false !== $split) {
+            return $split;
+        }
+
+        return [$text];
     }
 
     /**
