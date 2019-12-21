@@ -1,0 +1,77 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Cannot call method scalarNode\\(\\) on Symfony\\\\Component\\\\Config\\\\Definition\\\\Builder\\\\NodeParentInterface\\|null\\.$#"
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/Configuration.php
+
+		-
+			message: "#^Property Core23\\\\Twig\\\\Tests\\\\Twig\\\\Extension\\\\RouterTwigExtensionTest\\:\\:\\$router has no typehint specified\\.$#"
+			count: 1
+			path: tests/Twig/Extension/RouterTwigExtensionTest.php
+
+		-
+			message: "#^Property Core23\\\\Twig\\\\Tests\\\\Twig\\\\Extension\\\\RouterTwigExtensionTest\\:\\:\\$environment has no typehint specified\\.$#"
+			count: 1
+			path: tests/Twig/Extension/RouterTwigExtensionTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Twig\\\\\\\\TwigFilter' and Twig\\\\TwigFilter will always evaluate to true\\.$#"
+			count: 1
+			path: tests/Twig/Extension/RouterTwigExtensionTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Twig\\\\\\\\TwigFunction' and Twig\\\\TwigFunction will always evaluate to true\\.$#"
+			count: 1
+			path: tests/Twig/Extension/RouterTwigExtensionTest.php
+
+		-
+			message: "#^Method Core23\\\\Twig\\\\Tests\\\\Twig\\\\Extension\\\\RouterTwigExtensionTest\\:\\:testSplitTag\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Twig/Extension/RouterTwigExtensionTest.php
+
+		-
+			message: "#^Method Core23\\\\Twig\\\\Tests\\\\Twig\\\\Extension\\\\RouterTwigExtensionTest\\:\\:getSplitList\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/Twig/Extension/RouterTwigExtensionTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Twig\\\\\\\\TwigFilter' and Twig\\\\TwigFilter will always evaluate to true\\.$#"
+			count: 1
+			path: tests/Twig/Extension/StringTwigExtensionTest.php
+
+		-
+			message: "#^Method Core23\\\\Twig\\\\Tests\\\\Twig\\\\Extension\\\\StringTwigExtensionTest\\:\\:getBase10\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/Twig/Extension/StringTwigExtensionTest.php
+
+		-
+			message: "#^Method Core23\\\\Twig\\\\Tests\\\\Twig\\\\Extension\\\\StringTwigExtensionTest\\:\\:getBase2\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/Twig/Extension/StringTwigExtensionTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Twig\\\\\\\\TwigFilter' and Twig\\\\TwigFilter will always evaluate to true\\.$#"
+			count: 1
+			path: tests/Twig/Extension/UrlAutoConverterTwigExtensionTest.php
+
+		-
+			message: "#^Method Core23\\\\Twig\\\\Tests\\\\Twig\\\\Extension\\\\UrlAutoConverterTwigExtensionTest\\:\\:getLinkText\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/Twig/Extension/UrlAutoConverterTwigExtensionTest.php
+
+		-
+			message: "#^Method Core23\\\\Twig\\\\Tests\\\\Twig\\\\Extension\\\\UrlAutoConverterTwigExtensionTest\\:\\:getLinkTargetText\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/Twig/Extension/UrlAutoConverterTwigExtensionTest.php
+
+		-
+			message: "#^Method Core23\\\\Twig\\\\Tests\\\\Twig\\\\Extension\\\\UrlAutoConverterTwigExtensionTest\\:\\:getMailText\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/Twig/Extension/UrlAutoConverterTwigExtensionTest.php
+
+		-
+			message: "#^Method Core23\\\\Twig\\\\Tests\\\\Util\\\\StringUtilsTest\\:\\:getObfuscatedStrings\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/Util/StringUtilsTest.php
+
