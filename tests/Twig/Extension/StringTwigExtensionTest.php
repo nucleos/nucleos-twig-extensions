@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Core23\Twig\Tests\Twig\Extension;
 
 use Core23\Twig\Extension\StringTwigExtension;
+use Locale;
 use PHPUnit\Framework\TestCase;
 use Twig\TwigFilter;
 
@@ -19,7 +20,7 @@ final class StringTwigExtensionTest extends TestCase
 {
     protected function setUp(): void
     {
-        \Locale::setDefault('de-DE');
+        Locale::setDefault('de-DE');
     }
 
     public function testGetFilters(): void
@@ -66,6 +67,9 @@ final class StringTwigExtensionTest extends TestCase
         );
     }
 
+    /**
+     * @return int[][]|string[][]
+     */
     public function getBase10(): iterable
     {
         return [
@@ -81,6 +85,9 @@ final class StringTwigExtensionTest extends TestCase
         ];
     }
 
+    /**
+     * @return int[][]|string[][]
+     */
     public function getBase2(): iterable
     {
         return [

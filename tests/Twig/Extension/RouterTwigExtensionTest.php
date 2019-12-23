@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Core23\Twig\Tests\Twig\Extension;
 
 use Core23\Twig\Extension\RouterTwigExtension;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Sonata\DatagridBundle\Pager\BasePager;
 use Symfony\Component\Routing\Route;
@@ -24,8 +25,14 @@ use Twig\TwigFunction;
 
 final class RouterTwigExtensionTest extends TestCase
 {
+    /**
+     * @var MockObject&RouterInterface
+     */
     private $router;
 
+    /**
+     * @var MockObject&Environment
+     */
     private $environment;
 
     /**
