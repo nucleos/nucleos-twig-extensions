@@ -12,6 +12,8 @@ declare(strict_types=1);
 namespace Core23\Twig\Extension;
 
 use Core23\Twig\Util\StringUtils;
+use Locale;
+use NumberFormatter;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
@@ -28,7 +30,7 @@ final class StringTwigExtension extends AbstractExtension
     public function formatBytes(float $bytes, bool $si = true, int $fractionDigits = 0, ?string $locale = null): string
     {
         if (null === $locale) {
-            $locale = \Locale::getDefault();
+            $locale = Locale::getDefault();
         }
 
         $unit = $si ? 1000 : 1024;
@@ -44,11 +46,11 @@ final class StringTwigExtension extends AbstractExtension
             $num = $bytes / ($unit ** $exp);
         }
 
-        $formatter = new \NumberFormatter($locale, \NumberFormatter::DECIMAL);
-        $formatter->setAttribute(\NumberFormatter::MIN_FRACTION_DIGITS, $fractionDigits);
-        $formatter->setAttribute(\NumberFormatter::FRACTION_DIGITS, $fractionDigits);
+        $formatter = new NumberFormatter($locale, NumberFormatter::DECIMAL);
+        $formatter->setAttribute(NumberFormatter::MIN_FRACTION_DIGITS, $fractionDigits);
+        $formatter->setAttribute(NumberFormatter::FRACTION_DIGITS, $fractionDigits);
 
-        return sprintf('%s %sB', $formatter->format($num, \NumberFormatter::TYPE_DEFAULT), $pre);
+        return sprintf('%s %sB', $formatter->format($num, NumberFormatter::TYPE_DEFAULT), $pre);
     }
 
     /**
