@@ -99,6 +99,9 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
         ];
     }
 
+    /**
+     * @return string[][]
+     */
     public function getLinkTargetText(): iterable
     {
         // @noinspection JSUnusedLocalSymbols
@@ -118,6 +121,9 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
         ];
     }
 
+    /**
+     * @return string[][]
+     */
     public function getMailText(): iterable
     {
         // @noinspection JSUnusedLocalSymbols
