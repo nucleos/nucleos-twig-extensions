@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Core23\Twig\Tests\Twig\Extension;
 
 use Core23\Twig\Extension\StringTwigExtension;
+use Locale;
 use PHPUnit\Framework\TestCase;
 use Twig\TwigFilter;
 
@@ -19,7 +20,7 @@ final class StringTwigExtensionTest extends TestCase
 {
     protected function setUp(): void
     {
-        \Locale::setDefault('de-DE');
+        Locale::setDefault('de-DE');
     }
 
     public function testGetFilters(): void
