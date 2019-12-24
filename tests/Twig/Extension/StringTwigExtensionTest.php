@@ -67,6 +67,9 @@ final class StringTwigExtensionTest extends TestCase
         );
     }
 
+    /**
+     * @return int[][]|string[][]
+     */
     public function getBase10(): iterable
     {
         return [
@@ -82,6 +85,9 @@ final class StringTwigExtensionTest extends TestCase
         ];
     }
 
+    /**
+     * @return int[][]|string[][]
+     */
     public function getBase2(): iterable
     {
         return [

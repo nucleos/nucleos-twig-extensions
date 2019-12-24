@@ -18,14 +18,8 @@ final class StringUtilsTest extends TestCase
 {
     /**
      * @dataProvider getObfuscatedStrings
-     *
-     * @param string $input
-     * @param int    $start
-     * @param int    $end
-     * @param string $replacement
-     * @param string $output
      */
-    public function testObfuscate($input, $start, $end, $replacement, $output): void
+    public function testObfuscate(string $input, int $start, int $end, string $replacement, string $output): void
     {
         static::assertSame($output, StringUtils::obfuscate($input, $start, $end, $replacement));
     }
