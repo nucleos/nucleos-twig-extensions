@@ -1,125 +1,17 @@
-11/06/2019 18:25  1.2.0  Removed support for outdated symfony versions
-7e55eba [BUILD] Replaced deprecated "weak_vendors" option
-bb10d6b Added GitHub sponsoring information
-240e25f Update sonata-project/datagrid-bundle requirement || ^3.0
-c9018f8 [PATCH] Fixed CS
-cc31c5c [BUILD] Updated export-ignore files
-e79cdca [BUILD] Updated build tools
-25bac85 [PATCH] Fixed S
-f75dd30 [BUILD] Removed dependency stage from build matrix
-0fcd93b [BUILD] Removed current copyright date
-7b383ef [PATCH] Use new twig classes in PHPDoc
-a47d640 [BUILD] Cleanup phpstan errors
-5825f33 [BUILD] Added more tests
-3283605 [BUILD] Added more tests
-91d9115 [BUILD] Added more tests
-732686d [PATCH] Fixed pager for negative page limit
-6eb4938 [PATCH] Replaced deprecated twig imports
-181e97a [BUILD] Added more tests
-afec0db [BUILD] Fixed phpstan ignore list
-44b9422 [BUILD] Added more tests
-074cedf [BUILD] Added weak_vendors when calling phpunit
-81e2489 [PATCH] Updated CS Fixer config and run
-ed93b4b [BUILD] Updated phpstan version
-f56d4b9 [BUILD] Fixed symfony test setup
-f87399b [MINOR] Removed support for outdated symfony versions
-ce3e4be Removed timeout from release config
-4a8a74c Updated cs-fixer config
-e975112 Fixed CS
-30/12/2018 21:46  1.1.0  Removed symfony deprecations
-d55026d Fixed phpunit config for release command
-66f3b6a Use asserts for type safe root config nodes
-fe0b800 Removed deprecation warnings
-8aba200 Removed deprecation warnings
-fda07df Added platform workaround for php-cs-fixer tool
-9f6802b Require latest phpunit bridge
-bbcad15 Require latest phpunit bridge
-7dcc858 Improved unit tests
-b119bad Travis: Test against PHP 7.3
-192371c Dropped support for PHP 7.1
-fec20f1 Ignore some phpstorm inspections
-c635255 Fixed syntax error in composer.json
-e8844fb Fixed syntax error in editorconfig
-5cdcff2 Moved test dependencies to vendor-bin
-31/10/2018 12:53  1.0.1  Wrong template path
-23b1312 Added typecasts
-550fc44 Removed donation from README
-85fb159 Fixed wrong default pagination template path
-b5d45f6 Changed composer alias to 1.x
-06/10/2018 22:51  1.0.0  Stable release
-e6e119a Fixed phpstan ignored list
-c7b6275 Removed word "Extensions" from namespace
-f5e6b3e Updated release config
-58e5251 Updated style config
-e19cf4e Clean tests
-23/09/2018 12:32  0.3.1  Return type fixes
-30f0517 Fixed typo in composer.json
-6ab039b Added missing dependencies
-b47fc43 Updated .editorconfig
-6fa9e8d Fixed CS
-fd9bc31 TRAVIS: Moved dependencies check to allow failures
-6d46f94 Added missing dependencies
-fbc3324 Removed useless PHPDoc
-de4c844 Sync config
-4601814 Added composer-require-checker to build
-4e89525 Added mising extensions to composer.json
-9eea69c Sync phpstan config
-183249b phpstan findings
-cead08d Require latest phpstan version
-d94d247 Normalize composer.json
-c45953d Created issue templates
-07/02/2018 18:53  0.3.0  Move mail filtering to core23/antispam-bundle
-72dc83f Added old symfony/framework-bundle versions to conflict section
-25b4bd8 Added missing return type
-a2e2902 Don't use PHPUnit 7 yet
-ae4bfde Removed twig mail filter to core23/antispam-bundle
-27/01/2018 10:06  0.2.0  Changed service bundle prefix
-8591f98 Improved documentation
-4ef96d6 Adding stages to travis build
-3ae3171 Replaced composer.phar with composer in docs
-a9916d3 Closing API
-be2b57d Make tests final
-c551326 Removed unused variables
-c3e5161 Use correct bundle prefix for serivices and parameters
-684e4ae Ignore vendor-bin when calling lint
-e74b814 Use weak vendors mode
-154f9c2 Added rmt tool
-b756aa8 Normalize composer.json file
-e05c9c2 Cleanup PHPStan ignores
-b14c4fd Allow floats for format_bytes filter
-852b380 Added dev tools via composer-bin plugin
-6f34a52 Require latest version for deps
-8fa469f Sync config
-632ed53 Removed old build config
-b9d3994 Use global phpunit version when calling RMT
-8838a8c Bumped sonata dependencies
-f773a1a Added missing dependencies
-c1f0892 Removed PHPUnit from phpstan
-dee5e5e Use PHPUnit 6
-ee3409c Moved all translation to xlf
-a5135cb Use new twig paths
-5238ded Ignore PHPUnit warnings when calling phpstan
-743f9c6 Added phpstan extension to travis
-d38b138 Added typecasts
-f681a7c Removed hard phpunit dependency
-0455a4f Removed version information from phpunit.xml.dist
-4d04020 Ignore PHPUnit errors when calling phpstan
-d51df26 Fixed coveralls build
-c5299e3 Sync build config
-e275d26 Removed code climate status
-1106f69 Fixed file permissions
-c604351 Sync config
-8d10d32 Ignore symfony DI errors when calling phpstan
-2c6db11 Bumped twig 2
-9218dda Updated travis config for outdated symfony versions
-f5dad66 Bumped symfony deps to >=3.4
-868e86f Micro optimizations
-b5f8be2 Require latest phpstan version
-fa6a2fe Fixed CS
-18844fa Sync config
-8efbede Sync config
-0a59f47 Added .editorconfig
-a41d3fd Sort deps
-4cab0dc Release of new version 0.1.0
-add94a4 Apply fixes from StyleCI
-01/12/2017 14:42  0.1.0  Initial Release
+# 1.3.0
+## Changes
+
+- Modernize test files @core23 (#46)
+- Enhancement: Use ergebnis/composer-normalize instead of localheinz/composer-normalize @core23 (#39)
+- Add missing strict file header @core23 (#36)
+- Drop support for symfony 3 @core23 (#33)
+- Add missing twig bridge dependency @core23 (#26)
+- Remove deprecated twig calls @core23 (#24)
+- Use more precise type checks @core23 (#20)
+- Removed twig deprecations @core23 (#19)
+- Removed explicit private visibility of services @core23 (#16)
+- Replace sonata intl with symfony intl @core23 (#40)
+
+## 🚀 Features
+
+- Use symfony translation contracts @core23 (#28)
