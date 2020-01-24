@@ -1,73 +1,84 @@
 {
-  "name": "core23/twig-extensions",
-  "type": "library",
-  "description": "Useful extensions for twig.",
-  "keywords": [
-    "symfony",
-    "symfony-bridge",
-    "twig",
-    "twig-extension"
-  ],
-  "homepage": "https://core23.de",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Christian Gripp",
-      "email": "mail@core23.de"
-    }
-  ],
-  "require": {
-    "php": "^7.2",
-    "ext-pcre": "*",
-    "sonata-project/datagrid-bundle": "^2.3 || ^3.0",
-    "symfony/routing": "^4.2 || ^5.0",
-    "symfony/translation-contracts": "^1.1 || ^2.0",
-    "twig/twig": "^2.4"
-  },
-  "conflict": {
-    "symfony/framework-bundle": "<4.2"
-  },
-  "require-dev": {
-    "bamarni/composer-bin-plugin": "^1.3",
-    "ergebnis/composer-normalize": "^2.0.1",
-    "symfony/browser-kit": "^4.4 || ^5.0",
-    "symfony/config": "^4.2 || ^5.0",
-    "symfony/dependency-injection": "^4.2 || ^5.0",
-    "symfony/expression-language": "^4.2 || ^5.0",
-    "symfony/framework-bundle": "^4.2 || ^5.0",
-    "symfony/http-kernel": "^4.2 || ^5.0",
-    "symfony/intl": "^4.2 || ^5.0",
-    "symfony/polyfill-intl-icu": "^1.13",
-    "symfony/twig-bridge": "^4.2 || ^5.0",
-    "symfony/twig-bundle": "^4.2 || ^5.0"
-  },
-  "suggest": {
-    "symfony/framework-bundle": "If you want to use symfony"
-  },
-  "config": {
-    "sort-packages": true
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "1.x-dev"
-    }
-  },
-  "autoload": {
-    "psr-4": {
-      "Core23\\Twig\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Core23\\Twig\\Tests\\": "tests/"
-    }
-  },
-  "scripts": {
-    "post-install-cmd": [
-      "@composer bin all install --ansi"
+    "name": "core23/twig-extensions",
+    "type": "library",
+    "description": "Useful extensions for twig.",
+    "keywords": [
+        "symfony",
+        "symfony-bridge",
+        "twig",
+        "twig-extension"
     ],
-    "post-update-cmd": [
-      "@composer bin all update --ansi"
-    ]
-  }
+    "homepage": "https://core23.de",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christian Gripp",
+            "email": "mail@core23.de"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "ext-pcre": "*",
+        "sonata-project/datagrid-bundle": "^2.3 || ^3.0",
+        "symfony/routing": "^4.2 || ^5.0",
+        "symfony/translation-contracts": "^1.1 || ^2.0",
+        "twig/twig": "^2.4"
+    },
+    "conflict": {
+        "symfony/framework-bundle": "<4.2"
+    },
+    "require-dev": {
+        "bamarni/composer-bin-plugin": "^1.3",
+        "ergebnis/composer-normalize": "^2.0.1",
+        "symfony/browser-kit": "^4.4 || ^5.0",
+        "symfony/config": "^4.2 || ^5.0",
+        "symfony/dependency-injection": "^4.2 || ^5.0",
+        "symfony/expression-language": "^4.2 || ^5.0",
+        "symfony/framework-bundle": "^4.2 || ^5.0",
+        "symfony/http-kernel": "^4.2 || ^5.0",
+        "symfony/intl": "^4.2 || ^5.0",
+        "symfony/polyfill-intl-icu": "^1.13",
+        "symfony/twig-bridge": "^4.2 || ^5.0",
+        "symfony/twig-bundle": "^4.2 || ^5.0"
+    },
+    "suggest": {
+        "symfony/framework-bundle": "If you want to use symfony"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Core23\\Twig\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Core23\\Twig\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@composer bin all install --ansi"
+        ],
+        "post-update-cmd": [
+            "@composer bin all update --ansi"
+        ],
+        "coverage": "vendor/bin/phpunit --colors=always --coverage-clover=build/logs/clover.xml",
+        "cs": "PHP_CS_FIXER_IGNORE_ENV=1 && vendor/bin/php-cs-fixer fix --verbose",
+        "cs-diff": "PHP_CS_FIXER_IGNORE_ENV=1 && vendor/bin/php-cs-fixer fix  --verbose --diff --diff-format=udiff --dry-run",
+        "deps": "vendor/bin/composer-require-checker check --config-file composer-require.json composer.json",
+        "infection": "vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=70 --min-msi=69",
+        "lint": [
+            "find ./src \\( -name '*.xml' -or -name '*.xml.dist' -or -name '*.xlf' \\) -type f -exec xmllint --encode UTF-8 --output '{}' --format '{}' \\;",
+            "find ./src \\( -name '*.yml' -or -name '*.yaml' \\) -not -path '*/vendor/*' | xargs yaml-lint"
+        ],
+        "phpstan": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/phpunit --colors=always"
+    }
 }
