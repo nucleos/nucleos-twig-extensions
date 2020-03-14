@@ -34,7 +34,7 @@
                     <li class="disabled"><span class="sep-dots">...</span></li>
                 {% endif %}
 
-                {% for i in range(currentPage-nearbyLimit, currentPage-1) if ( i > 0 ) %}
+                {% for i in range(currentPage-nearbyLimit, currentPage-1)|filter(i => i > 0 ) %}
                     <li><a href="{{ path(route, routeParams|merge({page: i})) }}">{{ i }}</a></li>
                 {% endfor %}
 
@@ -51,7 +51,7 @@
                         <li class="disabled"><span class="sep-dots">...</span></li>
                     {% endif %}
 
-                    {% for i in range(lastPage-extremeLimit+1, lastPage) if ( i > currentPage+nearbyLimit ) %}
+                    {% for i in range(lastPage-extremeLimit+1, lastPage)|filter(i => i > currentPage+nearbyLimit ) %}
                         <li><a href="{{ path(route, routeParams|merge({page: i})) }}">{{ i }}</a></li>
                     {% endfor %}
                 {% endif %}
