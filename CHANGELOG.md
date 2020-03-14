@@ -1,4 +1,21 @@
+# 1.4.1
+
+## Changes
+
+- Replace Makefile with composer scripts @core23 (#47)
+
+## 🐛 Bug Fixes
+
+- Fix template deprecations @core23 (#48)
+
+# 1.4.0
+
+## 📦 Dependencies
+
+- Add support for symfony 5 @core23 (#27)
+
 # 1.3.0
+
 ## Changes
 
 - Modernize test files @core23 (#46)
