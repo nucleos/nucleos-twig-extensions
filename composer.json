@@ -38,7 +38,7 @@
         "symfony/http-kernel": "^4.2 || ^5.0",
         "symfony/intl": "^4.2 || ^5.0",
         "symfony/polyfill-intl-icu": "^1.13",
-        "symfony/twig-bridge": "^4.2 || ^5.0",
+        "symfony/twig-bridge": "^4.4.8",
         "symfony/twig-bundle": "^4.2 || ^5.0"
     },
     "suggest": {
