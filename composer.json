@@ -20,7 +20,7 @@
         "php": "^7.2",
         "ext-pcre": "*",
         "sonata-project/datagrid-bundle": "^2.3 || ^3.0",
-        "symfony/routing": "^4.2 || ^5.0",
+        "symfony/routing": "^4.4.8",
         "symfony/translation-contracts": "^1.1 || ^2.0",
         "twig/twig": "^2.4"
     },
