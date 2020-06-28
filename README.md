@@ -9,7 +9,7 @@ Twig Extensions
 [![Daily Downloads](https://poser.pugx.org/nucleos/twig-extensions/d/daily)](https://packagist.org/packages/nucleos/twig-extensions)
 
 [![Continuous Integration](https://github.com/nucleos/nucleos-twig-extensions/workflows/Continuous%20Integration/badge.svg)](https://github.com/nucleos/nucleos-twig-extensions/actions)
-[![Code Coverage](https://codecov.io/gh/nucleos/nucleos-twig-extensions/branch/master/graph/badge.svg)](https://codecov.io/gh/nucleos/nucleos-twig-extensions)
+[![Code Coverage](https://codecov.io/gh/nucleos/nucleos-twig-extensions/branch/main/graph/badge.svg)](https://codecov.io/gh/nucleos/nucleos-twig-extensions)
 
 Useful extensions for twig.
 
