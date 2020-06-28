@@ -9,9 +9,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\Twig\Tests\Util;
+namespace Nucleos\Twig\Tests\Util;
 
-use Core23\Twig\Util\StringUtils;
+use Nucleos\Twig\Util\StringUtils;
 use PHPUnit\Framework\TestCase;
 
 final class StringUtilsTest extends TestCase

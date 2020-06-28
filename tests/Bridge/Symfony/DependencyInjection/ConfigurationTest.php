@@ -9,9 +9,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\Twig\Tests\Bridge\Symfony\DependencyInjection;
+namespace Nucleos\Twig\Tests\Bridge\Symfony\DependencyInjection;
 
-use Core23\Twig\Bridge\Symfony\DependencyInjection\Configuration;
+use Nucleos\Twig\Bridge\Symfony\DependencyInjection\Configuration;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\Processor;
 
@@ -26,7 +26,7 @@ final class ConfigurationTest extends TestCase
 
         $expected = [
             'pagination' => [
-                'template'     => '@Core23Twig/Pager/pagination.html.twig',
+                'template'     => '@NucleosTwig/Pager/pagination.html.twig',
                 'extremeLimit' => 3,
                 'nearbyLimit'  => 2,
             ],

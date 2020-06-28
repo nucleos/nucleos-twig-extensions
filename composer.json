@@ -1,5 +1,5 @@
 {
-    "name": "core23/twig-extensions",
+    "name": "nucleos/twig-extensions",
     "type": "library",
     "description": "Useful extensions for twig.",
     "keywords": [
@@ -8,7 +8,7 @@
         "twig",
         "twig-extension"
     ],
-    "homepage": "https://core23.de",
+    "homepage": "https://nucleos.rocks",
     "license": "MIT",
     "authors": [
         {
@@ -49,17 +49,17 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.x-dev"
+            "dev-main": "2.x-dev"
         }
     },
     "autoload": {
         "psr-4": {
-            "Core23\\Twig\\": "src/"
+            "Nucleos\\Twig\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Core23\\Twig\\Tests\\": "tests/"
+            "Nucleos\\Twig\\Tests\\": "tests/"
         }
     },
     "scripts": {

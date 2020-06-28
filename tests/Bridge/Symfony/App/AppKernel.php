@@ -9,10 +9,10 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\Twig\Tests\Bridge\Symfony\App;
+namespace Nucleos\Twig\Tests\Bridge\Symfony\App;
 
-use Core23\Twig\Bridge\Symfony\Bundle\Core23TwigBundle;
-use Core23\Twig\Tests\Bridge\Symfony\App\Controller\TwigTestController;
+use Nucleos\Twig\Bridge\Symfony\Bundle\NucleosTwigBundle;
+use Nucleos\Twig\Tests\Bridge\Symfony\App\Controller\TwigTestController;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Bundle\TwigBundle\TwigBundle;
@@ -34,7 +34,7 @@ final class AppKernel extends Kernel
     {
         yield new FrameworkBundle();
         yield new TwigBundle();
-        yield new Core23TwigBundle();
+        yield new NucleosTwigBundle();
     }
 
     public function getCacheDir(): string

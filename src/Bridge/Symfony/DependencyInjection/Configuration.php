@@ -9,7 +9,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\Twig\Bridge\Symfony\DependencyInjection;
+namespace Nucleos\Twig\Bridge\Symfony\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
@@ -19,7 +19,7 @@ final class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder('core23_twig');
+        $treeBuilder = new TreeBuilder('nucleos_twig');
 
         $rootNode = $treeBuilder->getRootNode();
 
@@ -32,17 +32,10 @@ final class Configuration implements ConfigurationInterface
 
     private function addPaginationSection(ArrayNodeDefinition $node): void
     {
-        $node
-            ->children()
-                ->arrayNode('pagination')
-                    ->addDefaultsIfNotSet()
-                    ->children()
-                        ->scalarNode('template')->defaultValue('@Core23Twig/Pager/pagination.html.twig')->end()
-                        ->scalarNode('extremeLimit')->defaultValue(3)->end()
-                        ->scalarNode('nearbyLimit')->defaultValue(2)->end()
-                    ->end()
-                ->end()
-            ->end()
-        ;
+        $node->children()->arrayNode('pagination')->addDefaultsIfNotSet()->children()->scalarNode(
+            'template'
+        )->defaultValue('@NucleosTwig/Pager/pagination.html.twig')->end()->scalarNode('extremeLimit')->defaultValue(
+            3
+        )->end()->scalarNode('nearbyLimit')->defaultValue(2)->end()->end()->end()->end();
     }
 }

@@ -3,13 +3,13 @@
 _extends: .github
 
 repository:
-  name: twig-extensions
-  description: Useful extensions for twig.
-  homepage: https://core23.de
+  name: nucleos-twig-extensions
+  description: ⚙️ Useful extensions for twig.
+  homepage: https://nucleos.rocks
   topics: library, symfony, symfony-bridge, twig, twig-extension
 
 branches:
-  - name: master
+  - name: main
     protection:
       enforce_admins: false
       required_status_checks:

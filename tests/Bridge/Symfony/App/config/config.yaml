@@ -10,6 +10,6 @@ services:
         autowire: true
         autoconfigure: true
 
-    Core23\Twig\Tests\Bridge\Symfony\App\Controller\TwigTestController:
-        tags:
-            - controller.service_arguments
+    Nucleos\Twig\Tests\Bridge\Symfony\App\Controller\TwigTestController:
+      tags:
+        - controller.service_arguments

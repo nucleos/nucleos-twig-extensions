@@ -9,9 +9,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\Twig\Tests\Twig\Extension;
+namespace Nucleos\Twig\Tests\Twig\Extension;
 
-use Core23\Twig\Tests\Bridge\Symfony\App\AppKernel;
+use Nucleos\Twig\Tests\Bridge\Symfony\App\AppKernel;
 use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Component\HttpKernel\Client;

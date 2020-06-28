@@ -21,7 +21,9 @@
         <nav class="col-sm-12">
             <ul class="pagination pagination-sm">
                 {% if currentPage > 1 %}
-                    <li><a href="{{ path(route, routeParams|merge({page: currentPage-1})) }}">{{ "pagination.navigation_previous"|trans({}, 'Core23TwigBundle') }}</a></li>
+                    <li>
+                        <a href="{{ path(route, routeParams|merge({page: currentPage-1})) }}">{{ "pagination.navigation_previous"|trans({}, 'NucleosTwigBundle') }}</a>
+                    </li>
                 {% endif %}
 
                 {% for i in range(1, extremeLimit) %}
@@ -57,7 +59,9 @@
                 {% endif %}
 
                 {% if currentPage < lastPage %}
-                    <li><a href="{{ path(route, routeParams|merge({page: currentPage+1})) }}">{{ "pagination.navigation_next"|trans({}, 'Core23TwigBundle') }}</a></li>
+                    <li>
+                        <a href="{{ path(route, routeParams|merge({page: currentPage+1})) }}">{{ "pagination.navigation_next"|trans({}, 'NucleosTwigBundle') }}</a>
+                    </li>
                 {% endif %}
             </ul>
         </nav>

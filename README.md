@@ -1,15 +1,15 @@
 Twig Extensions
 ===============
-[![Latest Stable Version](https://poser.pugx.org/core23/twig-extensions/v/stable)](https://packagist.org/packages/core23/twig-extensions)
-[![Latest Unstable Version](https://poser.pugx.org/core23/twig-extensions/v/unstable)](https://packagist.org/packages/core23/twig-extensions)
-[![License](https://poser.pugx.org/core23/twig-extensions/license)](LICENSE.md)
+[![Latest Stable Version](https://poser.pugx.org/nucleos/twig-extensions/v/stable)](https://packagist.org/packages/nucleos/twig-extensions)
+[![Latest Unstable Version](https://poser.pugx.org/nucleos/twig-extensions/v/unstable)](https://packagist.org/packages/nucleos/twig-extensions)
+[![License](https://poser.pugx.org/nucleos/twig-extensions/license)](LICENSE.md)
 
-[![Total Downloads](https://poser.pugx.org/core23/twig-extensions/downloads)](https://packagist.org/packages/core23/twig-extensions)
-[![Monthly Downloads](https://poser.pugx.org/core23/twig-extensions/d/monthly)](https://packagist.org/packages/core23/twig-extensions)
-[![Daily Downloads](https://poser.pugx.org/core23/twig-extensions/d/daily)](https://packagist.org/packages/core23/twig-extensions)
+[![Total Downloads](https://poser.pugx.org/nucleos/twig-extensions/downloads)](https://packagist.org/packages/nucleos/twig-extensions)
+[![Monthly Downloads](https://poser.pugx.org/nucleos/twig-extensions/d/monthly)](https://packagist.org/packages/nucleos/twig-extensions)
+[![Daily Downloads](https://poser.pugx.org/nucleos/twig-extensions/d/daily)](https://packagist.org/packages/nucleos/twig-extensions)
 
-[![Continuous Integration](https://github.com/core23/twig-extensions/workflows/Continuous%20Integration/badge.svg)](https://github.com/core23/twig-extensions/actions)
-[![Code Coverage](https://codecov.io/gh/core23/twig-extensions/branch/master/graph/badge.svg)](https://codecov.io/gh/core23/twig-extensions)
+[![Continuous Integration](https://github.com/nucleos/nucleos-twig-extensions/workflows/Continuous%20Integration/badge.svg)](https://github.com/nucleos/nucleos-twig-extensions/actions)
+[![Code Coverage](https://codecov.io/gh/nucleos/nucleos-twig-extensions/branch/main/graph/badge.svg)](https://codecov.io/gh/nucleos/nucleos-twig-extensions)
 
 Useful extensions for twig.
 
@@ -18,7 +18,7 @@ Useful extensions for twig.
 Open a command console, enter your project directory and execute the following command to download the latest stable version of this library:
 
 ```
-composer require core23/twig-extensions
+composer require nucleos/twig-extensions
 ```
 
 ## Symfony usage
@@ -34,7 +34,7 @@ Then, enable the bundle by adding it to the list of registered bundles in `confi
 
 return [
     // ...
-    Core23\Twig\Bridge\Symfony\Bundle\Core23TwigBundle::class => ['all' => true],
+    Nucleos\Twig\Bridge\Symfony\Bundle\NucleosTwigBundle::class => ['all' => true],
 ];
 ```
 

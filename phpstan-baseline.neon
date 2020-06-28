@@ -16,12 +16,12 @@ parameters:
 			path: tests/Twig/Extension/RouterTwigExtensionTest.php
 
 		-
-			message: "#^Method Core23\\\\Twig\\\\Tests\\\\Twig\\\\Extension\\\\RouterTwigExtensionTest\\:\\:testSplitTag\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
+			message: "#^Method Nucleos\\\\Twig\\\\Tests\\\\Twig\\\\Extension\\\\RouterTwigExtensionTest\\:\\:testSplitTag\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Twig/Extension/RouterTwigExtensionTest.php
 
 		-
-			message: "#^Method Core23\\\\Twig\\\\Tests\\\\Twig\\\\Extension\\\\RouterTwigExtensionTest\\:\\:getSplitList\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			message: "#^Method Nucleos\\\\Twig\\\\Tests\\\\Twig\\\\Extension\\\\RouterTwigExtensionTest\\:\\:getSplitList\\(\\) return type has no value type specified in iterable type iterable\\.$#"
 			count: 1
 			path: tests/Twig/Extension/RouterTwigExtensionTest.php
 
@@ -51,12 +51,12 @@ parameters:
 			path: tests/Twig/Extension/UrlAutoConverterTwigExtensionTest.php
 
 		-
-			message: "#^Method Core23\\\\Twig\\\\Tests\\\\Twig\\\\Extension\\\\UrlAutoConverterTwigExtensionTest\\:\\:getLinkText\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			message: "#^Method Nucleos\\\\Twig\\\\Tests\\\\Twig\\\\Extension\\\\UrlAutoConverterTwigExtensionTest\\:\\:getLinkText\\(\\) return type has no value type specified in iterable type iterable\\.$#"
 			count: 1
 			path: tests/Twig/Extension/UrlAutoConverterTwigExtensionTest.php
 
 		-
-			message: "#^Method Core23\\\\Twig\\\\Tests\\\\Util\\\\StringUtilsTest\\:\\:getObfuscatedStrings\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			message: "#^Method Nucleos\\\\Twig\\\\Tests\\\\Util\\\\StringUtilsTest\\:\\:getObfuscatedStrings\\(\\) return type has no value type specified in iterable type iterable\\.$#"
 			count: 1
 			path: tests/Util/StringUtilsTest.php
 

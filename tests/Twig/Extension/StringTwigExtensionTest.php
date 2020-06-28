@@ -9,10 +9,10 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\Twig\Tests\Twig\Extension;
+namespace Nucleos\Twig\Tests\Twig\Extension;
 
-use Core23\Twig\Extension\StringTwigExtension;
 use Locale;
+use Nucleos\Twig\Extension\StringTwigExtension;
 use PHPUnit\Framework\TestCase;
 use Twig\TwigFilter;
 
