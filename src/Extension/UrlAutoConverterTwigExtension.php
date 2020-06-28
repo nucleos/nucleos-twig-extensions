@@ -20,7 +20,9 @@ final class UrlAutoConverterTwigExtension extends AbstractExtension
     {
         return [
             new TwigFilter(
-                'converturls', [$this, 'convertLinks'], [
+                'converturls',
+                [$this, 'convertLinks'],
+                [
                     'is_safe' => ['html'],
                 ]
             ),

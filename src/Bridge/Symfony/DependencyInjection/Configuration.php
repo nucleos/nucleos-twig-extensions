@@ -35,7 +35,7 @@ final class Configuration implements ConfigurationInterface
         $node->children()->arrayNode('pagination')->addDefaultsIfNotSet()->children()->scalarNode(
             'template'
         )->defaultValue('@NucleosTwig/Pager/pagination.html.twig')->end()->scalarNode('extremeLimit')->defaultValue(
-                3
-            )->end()->scalarNode('nearbyLimit')->defaultValue(2)->end()->end()->end()->end();
+            3
+        )->end()->scalarNode('nearbyLimit')->defaultValue(2)->end()->end()->end()->end();
     }
 }
