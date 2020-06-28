@@ -9,7 +9,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\Twig\Extension;
+namespace Nucleos\Twig\Extension;
 
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
@@ -19,9 +19,11 @@ final class UrlAutoConverterTwigExtension extends AbstractExtension
     public function getFilters()
     {
         return [
-            new TwigFilter('converturls', [$this, 'convertLinks'], [
-                'is_safe' => ['html'],
-            ]),
+            new TwigFilter(
+                'converturls', [$this, 'convertLinks'], [
+                    'is_safe' => ['html'],
+                ]
+            ),
         ];
     }
 

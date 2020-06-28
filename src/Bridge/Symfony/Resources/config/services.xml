@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <services>
-    <service id="core23_twig.urlautoconverter.extension" class="Core23\Twig\Extension\UrlAutoConverterTwigExtension">
-      <tag name="twig.extension"/>
+    <service id="nucleos_twig.urlautoconverter.extension" class="Nucleos\Twig\Extension\UrlAutoConverterTwigExtension">
+        <tag name="twig.extension" />
     </service>
-    <service id="core23_twig.string.extension" class="Core23\Twig\Extension\StringTwigExtension">
-      <tag name="twig.extension"/>
-    </service>
-    <service id="core23_twig.router.extension" class="Core23\Twig\Extension\RouterTwigExtension">
-      <tag name="twig.extension"/>
-      <argument type="service" id="twig"/>
-      <argument type="service" id="router"/>
-      <argument/>
-    </service>
+      <service id="nucleos_twig.string.extension" class="Nucleos\Twig\Extension\StringTwigExtension">
+          <tag name="twig.extension" />
+      </service>
+      <service id="nucleos_twig.router.extension" class="Nucleos\Twig\Extension\RouterTwigExtension">
+          <tag name="twig.extension" />
+          <argument type="service" id="twig" />
+          <argument type="service" id="router" />
+          <argument />
+      </service>
   </services>
 </container>

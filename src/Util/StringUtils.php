@@ -9,7 +9,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\Twig\Util;
+namespace Nucleos\Twig\Util;
 
 final class StringUtils
 {

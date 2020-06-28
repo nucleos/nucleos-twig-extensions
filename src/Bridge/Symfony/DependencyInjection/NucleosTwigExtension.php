@@ -9,14 +9,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\Twig\Bridge\Symfony\DependencyInjection;
+namespace Nucleos\Twig\Bridge\Symfony\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-final class Core23TwigExtension extends Extension
+final class NucleosTwigExtension extends Extension
 {
     /**
      * @param array<mixed> $configs
@@ -29,7 +29,7 @@ final class Core23TwigExtension extends Extension
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
 
-        $container->getDefinition('core23_twig.router.extension')
+        $container->getDefinition('nucleos_twig.router.extension')
             ->replaceArgument(2, $config['pagination'])
         ;
     }

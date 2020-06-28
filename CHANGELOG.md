@@ -1,3 +1,39 @@
+# 2.0.0
+
+## Changes
+
+- Renamed namespace `Core23\Twig` to `Nucleos\Twig` after move to [@nucleos]
+
+  Run
+
+  ```
+  $ composer remove nucleos/twig-extensions
+  ```
+
+  and
+
+  ```
+  $ composer require nucleos/twig-extensions
+  ```
+
+  to update.
+
+  Run
+
+  ```
+  $ find . -type f -exec sed -i '.bak' 's/Core23\\Twig/Nucleos\\Twig/g' {} \;
+  ```
+
+  to replace occurrences of `Core23\Twig` with `Nucleos\Twig`.
+
+  Run
+
+  ```
+  $ find -type f -name '*.bak' -delete
+  ```
+
+  to delete backup files created in the previous step.
+
 # 1.4.1
 
 ## Changes

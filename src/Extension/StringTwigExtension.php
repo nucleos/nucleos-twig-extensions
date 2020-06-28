@@ -9,10 +9,10 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\Twig\Extension;
+namespace Nucleos\Twig\Extension;
 
-use Core23\Twig\Util\StringUtils;
 use Locale;
+use Nucleos\Twig\Util\StringUtils;
 use NumberFormatter;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;

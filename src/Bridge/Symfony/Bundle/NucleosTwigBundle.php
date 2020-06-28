@@ -9,12 +9,12 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\Twig\Bridge\Symfony\Bundle;
+namespace Nucleos\Twig\Bridge\Symfony\Bundle;
 
-use Core23\Twig\Bridge\Symfony\DependencyInjection\Core23TwigExtension;
+use Nucleos\Twig\Bridge\Symfony\DependencyInjection\NucleosTwigExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-final class Core23TwigBundle extends Bundle
+final class NucleosTwigBundle extends Bundle
 {
     public function getPath()
     {
@@ -23,6 +23,6 @@ final class Core23TwigBundle extends Bundle
 
     protected function getContainerExtensionClass()
     {
-        return Core23TwigExtension::class;
+        return NucleosTwigExtension::class;
     }
 }
