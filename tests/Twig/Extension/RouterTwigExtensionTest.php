@@ -117,8 +117,16 @@ final class RouterTwigExtensionTest extends TestCase
         $route = $this->createMock(Route::class);
 
         $routeCollection = $this->createMock(RouteCollection::class);
-        $routeCollection->expects(static::at(0))->method('get')->with(static::equalTo('foo'))->willReturn($route);
-        $routeCollection->expects(static::at(1))->method('get')->with(static::equalTo('bar'))->willReturn(null);
+        $routeCollection->expects(static::exactly(2))->method('get')
+            ->withConsecutive(
+                [static::equalTo('foo')],
+                [static::equalTo('bar')]
+            )
+            ->willReturn(
+                $route,
+                null
+            )
+        ;
 
         $this->router->method('getRouteCollection')->willReturn($routeCollection);
 
