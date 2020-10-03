@@ -6,7 +6,7 @@ repository:
   name: nucleos-twig-extensions
   description: ⚙️ Useful extensions for twig.
   homepage: https://nucleos.rocks
-  topics: library, symfony, symfony-bridge, twig, twig-extension
+  topics: hacktoberfest, library, symfony, symfony-bridge, twig, twig-extension
 
 branches:
   - name: main
