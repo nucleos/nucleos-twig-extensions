@@ -13,30 +13,34 @@ namespace Nucleos\Twig\Util;
 
 final class StringUtils
 {
-    /**
-     * @param string $string
-     * @param int    $start
-     * @param int    $end
-     * @param string $replacement
-     */
-    public static function obfuscate($string, $start = 0, $end = 3, $replacement = '*'): string
+    public static function obfuscate(string $string, int $start = 0, int $end = 3, string $replacement = '*'): string
     {
-        $len = \strlen($string);
+        $length = \strlen($string);
 
         if ($start < 0) {
-            $start += $len;
+            $start += $length;
         }
-        $start = min($start, $len - 1);
+        $start = min($start, $length - 1);
 
         if ($end < 0) {
-            $end += $len;
+            $end += $length;
         }
-        $end = min($end, $len - 1);
+        $end = min($end, $length - 1);
 
-        if (0 === $len || $len === $start + 1 || $len === $end + 1 || $len <= $start + $end) {
+        if (self::verifyLength($length, $start, $end)) {
             return $string;
         }
 
-        return substr($string, 0, $start).str_repeat($replacement, $len - $end - $start).substr($string, $len - $end, $end);
+        return substr($string, 0, $start).
+            str_repeat($replacement, $length - $end - $start).
+            substr($string, $length - $end, $end);
+    }
+
+    private static function verifyLength(int $length, int $startPosition, int $endPosition): bool
+    {
+        return 0    === $length               ||
+            $length === $startPosition + 1    ||
+            $length === $endPosition   + 1    ||
+            $length <= $startPosition  + $endPosition;
     }
 }

@@ -36,21 +36,20 @@ final class StringTwigExtension extends AbstractExtension
         $unit = $si ? 1000 : 1024;
 
         if ($bytes < $unit) {
-            $pre = '';
-            $num = $bytes;
+            $prefix = '';
+            $number = $bytes;
         } else {
-            $exp = (int) (log($bytes) / log($unit));
-            $pre = ($si ? 'kMGTPE' : 'KMGTPE');
-            $pre = $pre[$exp - 1].($si ? '' : 'i');
+            $exp    = (int) (log($bytes) / log($unit));
+            $prefix = $this->getPrefix($si, $exp);
 
-            $num = $bytes / ($unit ** $exp);
+            $number = $bytes / ($unit ** $exp);
         }
 
         $formatter = new NumberFormatter($locale, NumberFormatter::DECIMAL);
         $formatter->setAttribute(NumberFormatter::MIN_FRACTION_DIGITS, $fractionDigits);
         $formatter->setAttribute(NumberFormatter::FRACTION_DIGITS, $fractionDigits);
 
-        return sprintf('%s %sB', $formatter->format($num, NumberFormatter::TYPE_DEFAULT), $pre);
+        return sprintf('%s %sB', $formatter->format($number, NumberFormatter::TYPE_DEFAULT), $prefix);
     }
 
     /**
@@ -65,5 +64,12 @@ final class StringTwigExtension extends AbstractExtension
         ], $options);
 
         return StringUtils::obfuscate($string, (int) $options['start'], (int) $options['end'], (string) $options['replacement']);
+    }
+
+    private function getPrefix(bool $si, int $exp): string
+    {
+        $prefixes = ($si ? 'kMGTPE' : 'KMGTPE');
+
+        return $prefixes[$exp - 1].($si ? '' : 'i');
     }
 }
