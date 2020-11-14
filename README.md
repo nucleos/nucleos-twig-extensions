@@ -8,7 +8,7 @@ Twig Extensions
 [![Monthly Downloads](https://poser.pugx.org/nucleos/twig-extensions/d/monthly)](https://packagist.org/packages/nucleos/twig-extensions)
 [![Daily Downloads](https://poser.pugx.org/nucleos/twig-extensions/d/daily)](https://packagist.org/packages/nucleos/twig-extensions)
 
-[![Continuous Integration](https://github.com/nucleos/nucleos-twig-extensions/workflows/Continuous%20Integration/badge.svg)](https://github.com/nucleos/nucleos-twig-extensions/actions)
+[![Continuous Integration](https://github.com/nucleos/nucleos-twig-extensions/workflows/Continuous%20Integration/badge.svg)](https://github.com/nucleos/nucleos-twig-extensions/actions?query=workflow%3A"Continuous+Integration"+branch%3Amain)
 [![Code Coverage](https://codecov.io/gh/nucleos/nucleos-twig-extensions/branch/main/graph/badge.svg)](https://codecov.io/gh/nucleos/nucleos-twig-extensions)
 [![Type Coverage](https://shepherd.dev/github/nucleos/nucleos-twig-extensions/coverage.svg)](https://shepherd.dev/github/nucleos/nucleos-twig-extensions)
 
