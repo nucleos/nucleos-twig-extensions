@@ -38,9 +38,9 @@ final class StringUtils
 
     private static function verifyLength(int $length, int $startPosition, int $endPosition): bool
     {
-        return 0    === $length               ||
-            $length === $startPosition + 1    ||
-            $length === $endPosition   + 1    ||
-            $length <= $startPosition  + $endPosition;
+        return 0       === $length
+            || $length === $startPosition + 1
+            || $length === $endPosition   + 1
+            || $length <= $startPosition  + $endPosition;
     }
 }
