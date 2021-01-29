@@ -2,13 +2,13 @@
 
 ## 🚀 Features
 
-- Move configuration to PHP @core23 (#76)
+- Move configuration to PHP [@core23] ([#76])
 
 ## 📦 Dependencies
 
-- Add support for PHP 8 @core23 (#150)
-- Add support for twig 3 @core23 (#90)
-- Drop support for PHP 7.2 @core23 (#87)
+- Add support for PHP 8 [@core23] ([#150])
+- Add support for twig 3 [@core23] ([#90])
+- Drop support for PHP 7.2 [@core23] ([#87])
 
 # 2.0.0
 
@@ -97,3 +97,7 @@
 [#16]: https://github.com/nucleos/nucleos-twig-extensions/pull/16
 [@nucleos]: https://github.com/nucleos
 [@core23]: https://github.com/core23
+[#150]: https://github.com/nucleos/nucleos-twig-extensions/pull/150
+[#90]: https://github.com/nucleos/nucleos-twig-extensions/pull/90
+[#87]: https://github.com/nucleos/nucleos-twig-extensions/pull/87
+[#76]: https://github.com/nucleos/nucleos-twig-extensions/pull/76
