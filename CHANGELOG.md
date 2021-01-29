@@ -1,3 +1,15 @@
+# 2.1.0
+
+## 🚀 Features
+
+- Move configuration to PHP @core23 (#76)
+
+## 📦 Dependencies
+
+- Add support for PHP 8 @core23 (#150)
+- Add support for twig 3 @core23 (#90)
+- Drop support for PHP 7.2 @core23 (#87)
+
 # 2.0.0
 
 ## Changes
