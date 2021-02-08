@@ -1,18 +1,45 @@
-# 2.1.0
+# Changelog
 
-## 🚀 Features
+All notable changes to this project will be documented in this file, in reverse chronological order by release.
+
+## 2.2.0 - TBD
+
+### Added
+
+- Nothing.
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
+
+## 2.1.0
+
+### 🚀 Features
 
 - Move configuration to PHP [@core23] ([#76])
 
-## 📦 Dependencies
+### 📦 Dependencies
 
 - Add support for PHP 8 [@core23] ([#150])
 - Add support for twig 3 [@core23] ([#90])
 - Drop support for PHP 7.2 [@core23] ([#87])
 
-# 2.0.0
+## 2.0.0
 
-## Changes
+### Changes
 
 - Renamed namespace `Core23\Twig` to `Nucleos\Twig` after move to [@nucleos]
 
@@ -46,25 +73,25 @@
 
   to delete backup files created in the previous step.
 
-# 1.4.1
+## 1.4.1
 
-## Changes
+### Changes
 
 - Replace Makefile with composer scripts [@core23] ([#47])
 
-## 🐛 Bug Fixes
+### 🐛 Bug Fixes
 
 - Fix template deprecations [@core23] ([#48])
 
-# 1.4.0
+## 1.4.0
 
-## 📦 Dependencies
+### 📦 Dependencies
 
 - Add support for symfony 5 [@core23] ([#27])
 
-# 1.3.0
+## 1.3.0
 
-## Changes
+### Changes
 
 - Modernize test files [@core23] ([#46])
 - Enhancement: Use ergebnis/composer-normalize instead of localheinz/composer-normalize [@core23] ([#39])
@@ -77,7 +104,7 @@
 - Removed explicit private visibility of services [@core23] ([#16])
 - Replace sonata intl with symfony intl [@core23] ([#40])
 
-## 🚀 Features
+### 🚀 Features
 
 - Use symfony translation contracts [@core23] ([#28])
 
