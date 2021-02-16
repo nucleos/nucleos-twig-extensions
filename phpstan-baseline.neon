@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Cannot call method scalarNode\\(\\) on Symfony\\\\Component\\\\Config\\\\Definition\\\\Builder\\\\NodeParentInterface\\|null\\.$#"
-			count: 1
-			path: src/Bridge/Symfony/DependencyInjection/Configuration.php
-
-		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Twig\\\\\\\\TwigFilter' and Twig\\\\TwigFilter will always evaluate to true\\.$#"
 			count: 1
 			path: tests/Twig/Extension/RouterTwigExtensionTest.php
