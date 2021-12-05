@@ -2,28 +2,31 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 2.2.0 - TBD
+## 2.2.0 - 2021-12-05
 
-### Added
 
-- Nothing.
 
-### Changed
+-----
 
-- Nothing.
+### Release Notes for [2.2.0](https://github.com/nucleos/nucleos-twig-extensions/milestone/1)
 
-### Deprecated
 
-- Nothing.
 
-### Removed
+### 2.2.0
 
-- Nothing.
+- Total issues resolved: **0**
+- Total pull requests resolved: **4**
+- Total contributors: **1**
 
-### Fixed
+#### dependency
 
-- Nothing.
+ - [338: Add support for symfony 6](https://github.com/nucleos/nucleos-twig-extensions/pull/338) thanks to @core23
+ - [337: Bump symfony 5.4](https://github.com/nucleos/nucleos-twig-extensions/pull/337) thanks to @core23
+ - [334: Drop PHP 7 support](https://github.com/nucleos/nucleos-twig-extensions/pull/334) thanks to @core23
 
+#### Enhancement
+
+ - [336: Update tools and use make to run them](https://github.com/nucleos/nucleos-twig-extensions/pull/336) thanks to @core23
 
 ## 2.1.0
 
