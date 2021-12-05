@@ -1,6 +1,21 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Method Nucleos\\\\Twig\\\\Tests\\\\Bridge\\\\Symfony\\\\App\\\\AppKernel\\:\\:configureContainer\\(\\) has parameter \\$container with no type specified\\.$#"
+			count: 1
+			path: tests/Bridge/Symfony/App/AppKernel.php
+
+		-
+			message: "#^Method Nucleos\\\\Twig\\\\Tests\\\\Bridge\\\\Symfony\\\\App\\\\AppKernel\\:\\:configureContainer\\(\\) has parameter \\$loader with no type specified\\.$#"
+			count: 1
+			path: tests/Bridge/Symfony/App/AppKernel.php
+
+		-
+			message: "#^Method Nucleos\\\\Twig\\\\Tests\\\\Bridge\\\\Symfony\\\\App\\\\AppKernel\\:\\:configureRoutes\\(\\) has parameter \\$routes with no type specified\\.$#"
+			count: 1
+			path: tests/Bridge/Symfony/App/AppKernel.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Twig\\\\\\\\TwigFilter' and Twig\\\\TwigFilter will always evaluate to true\\.$#"
 			count: 1
 			path: tests/Twig/Extension/RouterTwigExtensionTest.php
@@ -11,12 +26,12 @@ parameters:
 			path: tests/Twig/Extension/RouterTwigExtensionTest.php
 
 		-
-			message: "#^Method Nucleos\\\\Twig\\\\Tests\\\\Twig\\\\Extension\\\\RouterTwigExtensionTest\\:\\:testSplitTag\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
+			message: "#^Method Nucleos\\\\Twig\\\\Tests\\\\Twig\\\\Extension\\\\RouterTwigExtensionTest\\:\\:getSplitList\\(\\) return type has no value type specified in iterable type iterable\\.$#"
 			count: 1
 			path: tests/Twig/Extension/RouterTwigExtensionTest.php
 
 		-
-			message: "#^Method Nucleos\\\\Twig\\\\Tests\\\\Twig\\\\Extension\\\\RouterTwigExtensionTest\\:\\:getSplitList\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			message: "#^Method Nucleos\\\\Twig\\\\Tests\\\\Twig\\\\Extension\\\\RouterTwigExtensionTest\\:\\:testSplitTag\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Twig/Extension/RouterTwigExtensionTest.php
 
@@ -26,7 +41,7 @@ parameters:
 			path: tests/Twig/Extension/StringTwigExtensionTest.php
 
 		-
-			message: "#^Instantiated class Symfony\\\\Component\\\\HttpKernel\\\\Client not found\\.$#"
+			message: "#^Call to method getResponse\\(\\) on an unknown class Symfony\\\\Component\\\\HttpKernel\\\\Client\\.$#"
 			count: 1
 			path: tests/Twig/Extension/TwigExtensionIntegrationTest.php
 
@@ -36,7 +51,7 @@ parameters:
 			path: tests/Twig/Extension/TwigExtensionIntegrationTest.php
 
 		-
-			message: "#^Call to method getResponse\\(\\) on an unknown class Symfony\\\\Component\\\\HttpKernel\\\\Client\\.$#"
+			message: "#^Instantiated class Symfony\\\\Component\\\\HttpKernel\\\\Client not found\\.$#"
 			count: 1
 			path: tests/Twig/Extension/TwigExtensionIntegrationTest.php
 
