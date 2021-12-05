@@ -16,7 +16,7 @@ use Twig\TwigFilter;
 
 final class UrlAutoConverterTwigExtension extends AbstractExtension
 {
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
             new TwigFilter(

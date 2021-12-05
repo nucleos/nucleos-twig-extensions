@@ -16,12 +16,12 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 final class NucleosTwigBundle extends Bundle
 {
-    public function getPath()
+    public function getPath(): string
     {
         return __DIR__.'/..';
     }
 
-    protected function getContainerExtensionClass()
+    protected function getContainerExtensionClass(): string
     {
         return NucleosTwigExtension::class;
     }

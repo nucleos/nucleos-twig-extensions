@@ -16,10 +16,9 @@ use Nucleos\Twig\Tests\Bridge\Symfony\App\Controller\TwigTestController;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Bundle\TwigBundle\TwigBundle;
-use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\HttpKernel\Kernel;
-use Symfony\Component\Routing\RouteCollectionBuilder;
+use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
 final class AppKernel extends Kernel
 {
@@ -30,7 +29,7 @@ final class AppKernel extends Kernel
         parent::__construct('test', false);
     }
 
-    public function registerBundles()
+    public function registerBundles(): iterable
     {
         yield new FrameworkBundle();
         yield new TwigBundle();
@@ -52,13 +51,28 @@ final class AppKernel extends Kernel
         return __DIR__;
     }
 
-    protected function configureRoutes(RouteCollectionBuilder $routes): void
+    protected function configureRoutes($routes): void
     {
+        if ($routes instanceof RoutingConfigurator) {
+            $routes
+                ->add('twig-test', '/twig-test')
+                ->controller(TwigTestController::class)
+            ;
+
+            return;
+        }
+
         $routes->add('/twig-test', TwigTestController::class);
     }
 
-    protected function configureContainer(ContainerBuilder $containerBuilder, LoaderInterface $loader): void
+    protected function configureContainer($container, $loader): void
     {
+        if ($container instanceof ContainerConfigurator) {
+            $container->import(__DIR__.'/config/config.yaml');
+
+            return;
+        }
+
         $loader->load(__DIR__.'/config/config.yaml');
     }
 

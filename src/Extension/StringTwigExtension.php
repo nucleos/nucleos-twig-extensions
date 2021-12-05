@@ -19,7 +19,7 @@ use Twig\TwigFilter;
 
 final class StringTwigExtension extends AbstractExtension
 {
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
             new TwigFilter('format_bytes', [$this, 'formatBytes']),
