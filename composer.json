@@ -38,23 +38,23 @@
         "php": "^8.0",
         "ext-pcre": "*",
         "sonata-project/datagrid-bundle": "^2.3 || ^3.0",
-        "symfony/routing": "^5.4",
+        "symfony/routing": "^5.4 || ^6.0",
         "symfony/translation-contracts": "^1.1 || ^2.0",
         "twig/twig": "^2.4 || ^3.0"
     },
     "require-dev": {
         "bamarni/composer-bin-plugin": "^1.4",
         "ergebnis/composer-normalize": "^2.5.1",
-        "symfony/browser-kit": "^5.4",
-        "symfony/config": "^5.4",
-        "symfony/dependency-injection": "^5.4",
-        "symfony/expression-language": "^5.4",
-        "symfony/framework-bundle": "^5.4",
-        "symfony/http-kernel": "^5.4",
-        "symfony/intl": "^5.4",
+        "symfony/browser-kit": "^5.4 || ^6.0",
+        "symfony/config": "^5.4 || ^6.0",
+        "symfony/dependency-injection": "^5.4 || ^6.0",
+        "symfony/expression-language": "^5.4 || ^6.0",
+        "symfony/framework-bundle": "^5.4 || ^6.0",
+        "symfony/http-kernel": "^5.4 || ^6.0",
+        "symfony/intl": "^5.4 || ^6.0",
         "symfony/polyfill-intl-icu": "^1.13",
-        "symfony/twig-bridge": "^5.4",
-        "symfony/twig-bundle": "^5.4"
+        "symfony/twig-bridge": "^5.4 || ^6.0",
+        "symfony/twig-bundle": "^5.4 || ^6.0"
     },
     "conflict": {
         "symfony/framework-bundle": "<5.4"
