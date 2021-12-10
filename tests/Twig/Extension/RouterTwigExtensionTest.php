@@ -14,7 +14,7 @@ namespace Nucleos\Twig\Tests\Twig\Extension;
 use Nucleos\Twig\Extension\RouterTwigExtension;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use Sonata\DatagridBundle\Pager\BasePager;
+use Sonata\DatagridBundle\Pager\PagerInterface;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\Routing\RouterInterface;
@@ -155,7 +155,7 @@ final class RouterTwigExtensionTest extends TestCase
 
     public function testGeneratePager(): void
     {
-        $pager = $this->createMock(BasePager::class);
+        $pager = $this->createMock(PagerInterface::class);
         $pager->method('count')->willReturn(100);
         $pager->method('getMaxPerPage')->willReturn(20);
         $pager->method('getPage')->willReturn(2);
@@ -180,7 +180,7 @@ final class RouterTwigExtensionTest extends TestCase
 
     public function testGeneratePagerWithNegativeLimit(): void
     {
-        $pager = $this->createMock(BasePager::class);
+        $pager = $this->createMock(PagerInterface::class);
         $pager->method('count')->willReturn(100);
         $pager->method('getMaxPerPage')->willReturn(-1);
         $pager->method('getPage')->willReturn(2);

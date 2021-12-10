@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace Nucleos\Twig\Extension;
 
-use Sonata\DatagridBundle\Pager\BasePager;
+use Sonata\DatagridBundle\Pager\PagerInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
 use Twig\Error\LoaderError;
@@ -107,7 +107,7 @@ final class RouterTwigExtension extends AbstractExtension
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function generatePager(BasePager $pager, array $options = []): string
+    public function generatePager(PagerInterface $pager, array $options = []): string
     {
         $data = array_merge(array_merge($this->options, $options), [
             'itemsCount'  => $pager->count(),
