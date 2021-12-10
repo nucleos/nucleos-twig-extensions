@@ -30,10 +30,22 @@ final class Configuration implements ConfigurationInterface
 
     private function addPaginationSection(ArrayNodeDefinition $node): void
     {
-        $node->children()->arrayNode('pagination')->addDefaultsIfNotSet()->children()->scalarNode(
-            'template'
-        )->defaultValue('@NucleosTwig/Pager/pagination.html.twig')->end()->scalarNode('extremeLimit')->defaultValue(
-            3
-        )->end()->scalarNode('nearbyLimit')->defaultValue(2)->end()->end()->end()->end();
+        $node
+            ->children()
+                ->arrayNode('pagination')
+                    ->setDeprecated(
+                        'nucleos/twig-extensions',
+                        '2.3',
+                        'The "%node%" option is deprecated without any replacement.'
+                    )
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('template')->defaultValue('@NucleosTwig/Pager/pagination.html.twig')->end()
+                        ->scalarNode('extremeLimit')->defaultValue(3)->end()
+                        ->scalarNode('nearbyLimit')->defaultValue(2)->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
     }
 }

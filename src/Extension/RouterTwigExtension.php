@@ -65,7 +65,8 @@ final class RouterTwigExtension extends AbstractExtension
         return [
             new TwigFunction('routeExists', [$this, 'routeExists']),
             new TwigFunction('page_pager', [$this, 'generatePager'], [
-                'is_safe' => ['html'],
+                'is_safe'    => ['html'],
+                'deprecated' => true,
             ]),
         ];
     }
@@ -107,6 +108,8 @@ final class RouterTwigExtension extends AbstractExtension
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
+     *
+     * @deprecated
      */
     public function generatePager(PagerInterface $pager, array $options = []): string
     {
