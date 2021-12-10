@@ -101,6 +101,7 @@ final class RouterTwigExtension extends AbstractExtension
     }
 
     /**
+     * @param PagerInterface<object>    $pager
      * @param array<string, int|string> $options
      *
      * @throws LoaderError
