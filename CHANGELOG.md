@@ -2,27 +2,27 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 2.3.0 - TBD
+## 2.3.0 - 2022-02-21
 
-### Added
 
-- Nothing.
+-----
 
-### Changed
+### Release Notes for [2.3.0](https://github.com/nucleos/nucleos-twig-extensions/milestone/3)
 
-- Nothing.
+Feature release (minor)
 
-### Deprecated
+### 2.3.0
 
-- Nothing.
+- Total issues resolved: **0**
+- Total pull requests resolved: **4**
+- Total contributors: **1**
 
-### Removed
+#### Enhancement
 
-- Nothing.
-
-### Fixed
-
-- Nothing.
+ - [357: Use shared pipelines](https://github.com/nucleos/nucleos-twig-extensions/pull/357) thanks to @core23
+ - [345: Remove composer-bin plugin](https://github.com/nucleos/nucleos-twig-extensions/pull/345) thanks to @core23
+ - [344: Deprecate `page&#95;pager` function](https://github.com/nucleos/nucleos-twig-extensions/pull/344) thanks to @core23
+ - [343: Prefer pager interface](https://github.com/nucleos/nucleos-twig-extensions/pull/343) thanks to @core23
 
 ## 2.2.0 - 2021-12-05
 
