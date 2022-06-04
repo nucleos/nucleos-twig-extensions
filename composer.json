@@ -39,7 +39,7 @@
         "ext-pcre": "*",
         "sonata-project/datagrid-bundle": "^2.3 || ^3.0",
         "symfony/routing": "^5.4 || ^6.0",
-        "symfony/translation-contracts": "^1.1 || ^2.0",
+        "symfony/translation-contracts": "^1.1 || ^2.0 || ^3.0",
         "twig/twig": "^2.4 || ^3.0"
     },
     "require-dev": {
