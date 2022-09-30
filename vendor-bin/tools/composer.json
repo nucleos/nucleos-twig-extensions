@@ -19,12 +19,12 @@
         "vimeo/psalm": "^4.13"
     },
     "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        },
         "bin-dir": "../../vendor/bin",
         "platform": {
             "php": "8.0.2"
-        },
-        "allow-plugins": {
-            "phpstan/extension-installer": true
         }
     }
 }
