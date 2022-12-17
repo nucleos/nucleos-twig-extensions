@@ -2,27 +2,24 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 2.4.0 - TBD
+## 2.4.0 - 2022-12-17
 
-### Added
 
-- Nothing.
+-----
 
-### Changed
+### Release Notes for [2.4.0](https://github.com/nucleos/nucleos-twig-extensions/milestone/6)
 
-- Nothing.
+Feature release (minor)
 
-### Deprecated
+### 2.4.0
 
-- Nothing.
+- Total issues resolved: **0**
+- Total pull requests resolved: **1**
+- Total contributors: **1**
 
-### Removed
+#### dependency,hacktoberfest-accepted
 
-- Nothing.
-
-### Fixed
-
-- Nothing.
+ - [437: Update dependency symfony/translation-contracts to ^1.1 || ^2.0 || ^3.0](https://github.com/nucleos/nucleos-twig-extensions/pull/437) thanks to @core23
 
 ## 2.3.0 - 2022-02-21
 
