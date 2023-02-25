@@ -31,7 +31,7 @@ final class RouterTwigExtensionTest extends TestCase
     private $router;
 
     /**
-     * @var MockObject&Environment
+     * @var Environment&MockObject
      */
     private $environment;
 
