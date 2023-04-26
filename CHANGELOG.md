@@ -2,27 +2,29 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 2.5.0 - TBD
+## 2.5.0 - 2023-04-26
 
-### Added
 
-- Nothing.
+-----
 
-### Changed
+### Release Notes for [2.5.0](https://github.com/nucleos/nucleos-twig-extensions/milestone/8)
 
-- Nothing.
+Feature release (minor)
 
-### Deprecated
+### 2.5.0
 
-- Nothing.
+- Total issues resolved: **0**
+- Total pull requests resolved: **3**
+- Total contributors: **1**
 
-### Removed
+#### Enhancement
 
-- Nothing.
+ - [446: Add type hints](https://github.com/nucleos/nucleos-twig-extensions/pull/446) thanks to @core23
+ - [445: Update build tools](https://github.com/nucleos/nucleos-twig-extensions/pull/445) thanks to @core23
 
-### Fixed
+#### dependency
 
-- Nothing.
+ - [444: Drop support for PHP 8.0](https://github.com/nucleos/nucleos-twig-extensions/pull/444) thanks to @core23
 
 ## 2.4.0 - 2022-12-17
 
