@@ -114,19 +114,8 @@ final class RouterTwigExtensionTest extends TestCase
 
     public function testRouteExists(): void
     {
-        $route = $this->createMock(Route::class);
-
-        $routeCollection = $this->createMock(RouteCollection::class);
-        $routeCollection->expects(static::exactly(2))->method('get')
-            ->withConsecutive(
-                [static::equalTo('foo')],
-                [static::equalTo('bar')]
-            )
-            ->willReturn(
-                $route,
-                null
-            )
-        ;
+        $routeCollection = new RouteCollection();
+        $routeCollection->add('foo', new Route('/foo'));
 
         $this->router->method('getRouteCollection')->willReturn($routeCollection);
 
@@ -142,7 +131,7 @@ final class RouterTwigExtensionTest extends TestCase
         static::assertSame($output, $this->extension->splitTag($input, $tag));
     }
 
-    public function getSplitList(): iterable
+    public static function getSplitList(): iterable
     {
         return [
             ['<h1>Foo</h1><p>Bar</p><h1>Baz</h1>Bar', 'h1', ['<h1>Foo</h1><p>Bar</p>', '<h1>Baz</h1>Bar']],
