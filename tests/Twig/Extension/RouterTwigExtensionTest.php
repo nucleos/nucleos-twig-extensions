@@ -28,17 +28,14 @@ final class RouterTwigExtensionTest extends TestCase
     /**
      * @var MockObject&RouterInterface
      */
-    private $router;
+    private RouterInterface $router;
 
     /**
      * @var Environment&MockObject
      */
-    private $environment;
+    private Environment $environment;
 
-    /**
-     * @var RouterTwigExtension
-     */
-    private $extension;
+    private RouterTwigExtension $extension;
 
     protected function setUp(): void
     {
