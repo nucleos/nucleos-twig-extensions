@@ -30,6 +30,7 @@ final class Configuration implements ConfigurationInterface
 
     private function addPaginationSection(ArrayNodeDefinition $node): void
     {
+        /** @psalm-suppress UndefinedInterfaceMethod */
         $node
             ->children()
                 ->arrayNode('pagination')
