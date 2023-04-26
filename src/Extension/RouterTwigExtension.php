@@ -23,20 +23,14 @@ use Twig\TwigFunction;
 
 final class RouterTwigExtension extends AbstractExtension
 {
-    /**
-     * @var RouterInterface
-     */
-    private $router;
+    private RouterInterface $router;
 
     /**
      * @var array<string, int|string>
      */
-    private $options;
+    private array $options;
 
-    /**
-     * @var Environment
-     */
-    private $environment;
+    private Environment $environment;
 
     /**
      * @param array<string, int|string> $options
