@@ -70,7 +70,7 @@ final class StringTwigExtensionTest extends TestCase
     /**
      * @return int[][]|string[][]
      */
-    public function getBase10(): iterable
+    public static function getBase10(): iterable
     {
         return [
             ['500,0 B', 500],
@@ -88,7 +88,7 @@ final class StringTwigExtensionTest extends TestCase
     /**
      * @return int[][]|string[][]
      */
-    public function getBase2(): iterable
+    public static function getBase2(): iterable
     {
         return [
             ['512,0 B', 512],
