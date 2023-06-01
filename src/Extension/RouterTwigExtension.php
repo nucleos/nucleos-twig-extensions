@@ -11,12 +11,7 @@ declare(strict_types=1);
 
 namespace Nucleos\Twig\Extension;
 
-use Sonata\DatagridBundle\Pager\PagerInterface;
 use Symfony\Component\Routing\RouterInterface;
-use Twig\Environment;
-use Twig\Error\LoaderError;
-use Twig\Error\RuntimeError;
-use Twig\Error\SyntaxError;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
@@ -25,43 +20,15 @@ final class RouterTwigExtension extends AbstractExtension
 {
     private RouterInterface $router;
 
-    /**
-     * @var array<string, int|string>
-     */
-    private array $options;
-
-    private Environment $environment;
-
-    /**
-     * @param array<string, int|string> $options
-     *
-     * @throws LoaderError
-     */
-    public function __construct(Environment $environment, RouterInterface $router, array $options = [])
+    public function __construct(RouterInterface $router)
     {
-        $this->environment = $environment;
-        $this->router      = $router;
-        $this->options     = $options;
-
-        if (!isset($this->options['template'])) {
-            throw new LoaderError('Pager template is not set.');
-        }
-        if (!isset($this->options['extremeLimit'])) {
-            throw new LoaderError('Pager extreme limit is not set.');
-        }
-        if (!isset($this->options['nearbyLimit'])) {
-            throw new LoaderError('Pager nearby limit is not set.');
-        }
+        $this->router = $router;
     }
 
     public function getFunctions(): array
     {
         return [
             new TwigFunction('routeExists', [$this, 'routeExists']),
-            new TwigFunction('page_pager', [$this, 'generatePager'], [
-                'is_safe'    => ['html'],
-                'deprecated' => true,
-            ]),
         ];
     }
 
@@ -93,33 +60,5 @@ final class RouterTwigExtension extends AbstractExtension
         }
 
         return [$text];
-    }
-
-    /**
-     * @param PagerInterface<object>    $pager
-     * @param array<string, int|string> $options
-     *
-     * @throws LoaderError
-     * @throws RuntimeError
-     * @throws SyntaxError
-     *
-     * @deprecated
-     */
-    public function generatePager(PagerInterface $pager, array $options = []): string
-    {
-        $data = array_merge(array_merge($this->options, $options), [
-            'itemsCount'  => $pager->count(),
-            'limit'       => max(1, $pager->getMaxPerPage()),
-            'currentPage' => $pager->getPage(),
-        ]);
-
-        $data['lastPage'] = self::getNumPages((int) $data['limit'], (int) $data['itemsCount']);
-
-        return $this->environment->render((string) $data['template'], $data);
-    }
-
-    private static function getNumPages(int $limit, int $count): int
-    {
-        return (int) ceil($count / $limit);
     }
 }

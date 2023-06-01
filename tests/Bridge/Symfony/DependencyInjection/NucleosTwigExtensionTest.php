@@ -29,39 +29,6 @@ final class NucleosTwigExtensionTest extends AbstractExtensionTestCase
         );
         $this->assertContainerBuilderHasService('nucleos_twig.string.extension', StringTwigExtension::class);
         $this->assertContainerBuilderHasService('nucleos_twig.router.extension', RouterTwigExtension::class);
-
-        $this->assertContainerBuilderHasServiceDefinitionWithArgument(
-            'nucleos_twig.router.extension',
-            2,
-            [
-                'template'     => '@NucleosTwig/Pager/pagination.html.twig',
-                'extremeLimit' => 3,
-                'nearbyLimit'  => 2,
-            ]
-        );
-    }
-
-    public function testLoadCustom(): void
-    {
-        $this->load(
-            [
-                'pagination' => [
-                    'template'     => '@Acme/Pager/pagination.html.twig',
-                    'extremeLimit' => 10,
-                    'nearbyLimit'  => 5,
-                ],
-            ]
-        );
-
-        $this->assertContainerBuilderHasServiceDefinitionWithArgument(
-            'nucleos_twig.router.extension',
-            2,
-            [
-                'template'     => '@Acme/Pager/pagination.html.twig',
-                'extremeLimit' => 10,
-                'nearbyLimit'  => 5,
-            ]
-        );
     }
 
     protected function getContainerExtensions(): array
