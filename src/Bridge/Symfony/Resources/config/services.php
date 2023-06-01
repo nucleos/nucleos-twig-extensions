@@ -26,9 +26,7 @@ return static function (ContainerConfigurator $container): void {
         ->set('nucleos_twig.router.extension', RouterTwigExtension::class)
             ->tag('twig.extension')
             ->args([
-                new Reference('twig'),
                 new Reference('router'),
-                [],
             ])
     ;
 };
