@@ -21,13 +21,13 @@ final class NucleosTwigBundleTest extends TestCase
     {
         $bundle = new NucleosTwigBundle();
 
-        static::assertStringEndsWith('Bridge/Symfony/Bundle', \dirname($bundle->getPath()));
+        self::assertStringEndsWith('Bridge/Symfony/Bundle', \dirname($bundle->getPath()));
     }
 
     public function testGetContainerExtension(): void
     {
         $bundle = new NucleosTwigBundle();
 
-        static::assertInstanceOf(NucleosTwigExtension::class, $bundle->getContainerExtension());
+        self::assertInstanceOf(NucleosTwigExtension::class, $bundle->getContainerExtension());
     }
 }

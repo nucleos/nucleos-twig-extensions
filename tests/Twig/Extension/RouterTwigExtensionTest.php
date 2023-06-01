@@ -39,11 +39,11 @@ final class RouterTwigExtensionTest extends TestCase
     {
         $filters = $this->extension->getFilters();
 
-        static::assertNotCount(0, $filters);
+        self::assertNotCount(0, $filters);
 
         foreach ($filters as $filter) {
-            static::assertInstanceOf(TwigFilter::class, $filter);
-            static::assertIsCallable($filter->getCallable());
+            self::assertInstanceOf(TwigFilter::class, $filter);
+            self::assertIsCallable($filter->getCallable());
         }
     }
 
@@ -51,11 +51,11 @@ final class RouterTwigExtensionTest extends TestCase
     {
         $filters = $this->extension->getFunctions();
 
-        static::assertNotCount(0, $filters);
+        self::assertNotCount(0, $filters);
 
         foreach ($filters as $filter) {
-            static::assertInstanceOf(TwigFunction::class, $filter);
-            static::assertIsCallable($filter->getCallable());
+            self::assertInstanceOf(TwigFunction::class, $filter);
+            self::assertIsCallable($filter->getCallable());
         }
     }
 
@@ -66,8 +66,8 @@ final class RouterTwigExtensionTest extends TestCase
 
         $this->router->method('getRouteCollection')->willReturn($routeCollection);
 
-        static::assertTrue($this->extension->routeExists('foo'));
-        static::assertFalse($this->extension->routeExists('bar'));
+        self::assertTrue($this->extension->routeExists('foo'));
+        self::assertFalse($this->extension->routeExists('bar'));
     }
 
     /**
@@ -75,7 +75,7 @@ final class RouterTwigExtensionTest extends TestCase
      */
     public function testSplitTag(string $input, string $tag, array $output): void
     {
-        static::assertSame($output, $this->extension->splitTag($input, $tag));
+        self::assertSame($output, $this->extension->splitTag($input, $tag));
     }
 
     public static function getSplitList(): iterable
