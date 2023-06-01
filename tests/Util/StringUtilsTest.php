@@ -21,7 +21,7 @@ final class StringUtilsTest extends TestCase
      */
     public function testObfuscate(string $input, int $start, int $end, string $replacement, string $output): void
     {
-        static::assertSame($output, StringUtils::obfuscate($input, $start, $end, $replacement));
+        self::assertSame($output, StringUtils::obfuscate($input, $start, $end, $replacement));
     }
 
     public static function getObfuscatedStrings(): iterable

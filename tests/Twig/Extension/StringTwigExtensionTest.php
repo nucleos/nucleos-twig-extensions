@@ -29,11 +29,11 @@ final class StringTwigExtensionTest extends TestCase
 
         $filters = $extension->getFilters();
 
-        static::assertNotCount(0, $filters);
+        self::assertNotCount(0, $filters);
 
         foreach ($filters as $filter) {
-            static::assertInstanceOf(TwigFilter::class, $filter);
-            static::assertIsCallable($filter->getCallable());
+            self::assertInstanceOf(TwigFilter::class, $filter);
+            self::assertIsCallable($filter->getCallable());
         }
     }
 
@@ -46,7 +46,7 @@ final class StringTwigExtensionTest extends TestCase
     {
         $extension = new StringTwigExtension();
 
-        static::assertSame(
+        self::assertSame(
             $expected,
             $extension->formatBytes($bits, true, 1)
         );
@@ -61,7 +61,7 @@ final class StringTwigExtensionTest extends TestCase
     {
         $extension = new StringTwigExtension();
 
-        static::assertSame(
+        self::assertSame(
             $expected,
             $extension->formatBytes($bits, false, 1)
         );
@@ -107,7 +107,7 @@ final class StringTwigExtensionTest extends TestCase
     {
         $extension = new StringTwigExtension();
 
-        static::assertSame('T***', $extension->obfuscate(
+        self::assertSame('T***', $extension->obfuscate(
             'Test',
             [
                 'start'       => 1,
