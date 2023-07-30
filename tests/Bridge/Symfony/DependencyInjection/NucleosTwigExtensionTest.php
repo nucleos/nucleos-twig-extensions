@@ -23,12 +23,9 @@ final class NucleosTwigExtensionTest extends AbstractExtensionTestCase
     {
         $this->load();
 
-        $this->assertContainerBuilderHasService(
-            'nucleos_twig.urlautoconverter.extension',
-            UrlAutoConverterTwigExtension::class
-        );
-        $this->assertContainerBuilderHasService('nucleos_twig.string.extension', StringTwigExtension::class);
-        $this->assertContainerBuilderHasService('nucleos_twig.router.extension', RouterTwigExtension::class);
+        $this->assertContainerBuilderHasService(UrlAutoConverterTwigExtension::class);
+        $this->assertContainerBuilderHasService(StringTwigExtension::class);
+        $this->assertContainerBuilderHasService(RouterTwigExtension::class);
     }
 
     protected function getContainerExtensions(): array

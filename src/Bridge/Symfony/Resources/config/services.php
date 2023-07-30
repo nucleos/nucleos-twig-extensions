@@ -17,13 +17,13 @@ use Symfony\Component\DependencyInjection\Reference;
 return static function (ContainerConfigurator $container): void {
     $container->services()
 
-        ->set('nucleos_twig.urlautoconverter.extension', UrlAutoConverterTwigExtension::class)
+        ->set(UrlAutoConverterTwigExtension::class)
             ->tag('twig.extension')
 
-        ->set('nucleos_twig.string.extension', StringTwigExtension::class)
+        ->set(StringTwigExtension::class)
             ->tag('twig.extension')
 
-        ->set('nucleos_twig.router.extension', RouterTwigExtension::class)
+        ->set(RouterTwigExtension::class)
             ->tag('twig.extension')
             ->args([
                 new Reference('router'),
