@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -9,24 +7,15 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Nucleos\Twig\Extension;
+namespace Nucleos\Twig\Runtime;
 
 use Locale;
 use Nucleos\Twig\Util\StringUtils;
 use NumberFormatter;
-use Twig\Extension\AbstractExtension;
-use Twig\TwigFilter;
+use Twig\Extension\RuntimeExtensionInterface;
 
-final class StringTwigExtension extends AbstractExtension
+final class StringRuntime implements RuntimeExtensionInterface
 {
-    public function getFilters(): array
-    {
-        return [
-            new TwigFilter('format_bytes', [$this, 'formatBytes']),
-            new TwigFilter('obfuscate', [$this, 'obfuscate']),
-        ];
-    }
-
     public function formatBytes(float $bytes, bool $si = true, int $fractionDigits = 0, ?string $locale = null): string
     {
         if (null === $locale) {

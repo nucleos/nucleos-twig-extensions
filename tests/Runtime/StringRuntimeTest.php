@@ -9,32 +9,17 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Nucleos\Twig\Tests\Twig\Extension;
+namespace Nucleos\Twig\Tests\Runtime;
 
 use Locale;
-use Nucleos\Twig\Extension\StringTwigExtension;
+use Nucleos\Twig\Runtime\StringRuntime;
 use PHPUnit\Framework\TestCase;
-use Twig\TwigFilter;
 
-final class StringTwigExtensionTest extends TestCase
+final class StringRuntimeTest extends TestCase
 {
     protected function setUp(): void
     {
         Locale::setDefault('de-DE');
-    }
-
-    public function testGetFilters(): void
-    {
-        $extension = new StringTwigExtension();
-
-        $filters = $extension->getFilters();
-
-        self::assertNotCount(0, $filters);
-
-        foreach ($filters as $filter) {
-            self::assertInstanceOf(TwigFilter::class, $filter);
-            self::assertIsCallable($filter->getCallable());
-        }
     }
 
     /**
@@ -44,7 +29,7 @@ final class StringTwigExtensionTest extends TestCase
      */
     public function testFormatBytesBase10(string $expected, $bits): void
     {
-        $extension = new StringTwigExtension();
+        $extension = new StringRuntime();
 
         self::assertSame(
             $expected,
@@ -59,7 +44,7 @@ final class StringTwigExtensionTest extends TestCase
      */
     public function testFormatBytesBase2(string $expected, $bits): void
     {
-        $extension = new StringTwigExtension();
+        $extension = new StringRuntime();
 
         self::assertSame(
             $expected,
@@ -105,7 +90,7 @@ final class StringTwigExtensionTest extends TestCase
 
     public function testObfuscate(): void
     {
-        $extension = new StringTwigExtension();
+        $extension = new StringRuntime();
 
         self::assertSame('T***', $extension->obfuscate(
             'Test',

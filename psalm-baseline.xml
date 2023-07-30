@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="v4.14.0@14dcbc908ab2625cd7a74258ee6c740cbecc6140">
-  <file src="src/Extension/RouterTwigExtension.php">
-    <RedundantCast occurrences="2">
-      <code>(int) $data['itemsCount']</code>
-      <code>(int) $data['limit']</code>
-    </RedundantCast>
-  </file>
-  <file src="src/Extension/StringTwigExtension.php">
+  <file src="src/Runtime/StringRuntime.php">
     <InvalidArrayOffset occurrences="1">
       <code>$prefixes[$exp - 1]</code>
     </InvalidArrayOffset>

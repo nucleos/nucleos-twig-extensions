@@ -13,9 +13,9 @@ namespace Nucleos\Twig\Tests\Bridge\Symfony\DependencyInjection;
 
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
 use Nucleos\Twig\Bridge\Symfony\DependencyInjection\NucleosTwigExtension;
-use Nucleos\Twig\Extension\RouterTwigExtension;
-use Nucleos\Twig\Extension\StringTwigExtension;
-use Nucleos\Twig\Extension\UrlAutoConverterTwigExtension;
+use Nucleos\Twig\Extension\RouterExtension;
+use Nucleos\Twig\Extension\StringExtension;
+use Nucleos\Twig\Extension\UrlAutoConverterExtension;
 
 final class NucleosTwigExtensionTest extends AbstractExtensionTestCase
 {
@@ -23,9 +23,9 @@ final class NucleosTwigExtensionTest extends AbstractExtensionTestCase
     {
         $this->load();
 
-        $this->assertContainerBuilderHasService(UrlAutoConverterTwigExtension::class);
-        $this->assertContainerBuilderHasService(StringTwigExtension::class);
-        $this->assertContainerBuilderHasService(RouterTwigExtension::class);
+        $this->assertContainerBuilderHasService(UrlAutoConverterExtension::class);
+        $this->assertContainerBuilderHasService(StringExtension::class);
+        $this->assertContainerBuilderHasService(RouterExtension::class);
     }
 
     protected function getContainerExtensions(): array

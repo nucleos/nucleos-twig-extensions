@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -9,26 +7,12 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Nucleos\Twig\Extension;
+namespace Nucleos\Twig\Runtime;
 
-use Twig\Extension\AbstractExtension;
-use Twig\TwigFilter;
+use Twig\Extension\RuntimeExtensionInterface;
 
-final class UrlAutoConverterTwigExtension extends AbstractExtension
+final class UrlAutoConverterRuntime implements RuntimeExtensionInterface
 {
-    public function getFilters(): array
-    {
-        return [
-            new TwigFilter(
-                'converturls',
-                [$this, 'convertLinks'],
-                [
-                    'is_safe' => ['html'],
-                ]
-            ),
-        ];
-    }
-
     /**
      * @param array<string, string> $options
      */
