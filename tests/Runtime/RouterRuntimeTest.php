@@ -9,54 +9,28 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Nucleos\Twig\Tests\Twig\Extension;
+namespace Nucleos\Twig\Tests\Runtime;
 
-use Nucleos\Twig\Extension\RouterTwigExtension;
+use Nucleos\Twig\Runtime\RouterRuntime;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\Routing\RouterInterface;
-use Twig\TwigFilter;
-use Twig\TwigFunction;
 
-final class RouterTwigExtensionTest extends TestCase
+final class RouterRuntimeTest extends TestCase
 {
     /**
      * @var MockObject&RouterInterface
      */
     private RouterInterface $router;
 
-    private RouterTwigExtension $extension;
+    private RouterRuntime $extension;
 
     protected function setUp(): void
     {
         $this->router    = $this->createMock(RouterInterface::class);
-        $this->extension = new RouterTwigExtension($this->router);
-    }
-
-    public function testGetFilters(): void
-    {
-        $filters = $this->extension->getFilters();
-
-        self::assertNotCount(0, $filters);
-
-        foreach ($filters as $filter) {
-            self::assertInstanceOf(TwigFilter::class, $filter);
-            self::assertIsCallable($filter->getCallable());
-        }
-    }
-
-    public function testGetFunctions(): void
-    {
-        $filters = $this->extension->getFunctions();
-
-        self::assertNotCount(0, $filters);
-
-        foreach ($filters as $filter) {
-            self::assertInstanceOf(TwigFunction::class, $filter);
-            self::assertIsCallable($filter->getCallable());
-        }
+        $this->extension = new RouterRuntime($this->router);
     }
 
     public function testRouteExists(): void

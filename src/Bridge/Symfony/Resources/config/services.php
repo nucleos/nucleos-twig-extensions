@@ -9,22 +9,34 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use Nucleos\Twig\Extension\RouterTwigExtension;
-use Nucleos\Twig\Extension\StringTwigExtension;
-use Nucleos\Twig\Extension\UrlAutoConverterTwigExtension;
+use Nucleos\Twig\Extension\RouterExtension;
+use Nucleos\Twig\Extension\StringExtension;
+use Nucleos\Twig\Extension\UrlAutoConverterExtension;
+use Nucleos\Twig\Runtime\RouterRuntime;
+use Nucleos\Twig\Runtime\StringRuntime;
+use Nucleos\Twig\Runtime\UrlAutoConverterRuntime;
 use Symfony\Component\DependencyInjection\Reference;
 
 return static function (ContainerConfigurator $container): void {
     $container->services()
 
-        ->set(UrlAutoConverterTwigExtension::class)
+        ->set(UrlAutoConverterExtension::class)
             ->tag('twig.extension')
 
-        ->set(StringTwigExtension::class)
+        ->set(StringExtension::class)
             ->tag('twig.extension')
 
-        ->set(RouterTwigExtension::class)
+        ->set(RouterExtension::class)
             ->tag('twig.extension')
+
+        ->set(UrlAutoConverterRuntime::class)
+            ->tag('twig.runtime')
+
+        ->set(StringRuntime::class)
+            ->tag('twig.runtime')
+
+        ->set(RouterRuntime::class)
+            ->tag('twig.runtime')
             ->args([
                 new Reference('router'),
             ])

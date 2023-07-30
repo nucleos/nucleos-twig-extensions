@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -9,34 +7,18 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Nucleos\Twig\Extension;
+namespace Nucleos\Twig\Runtime;
 
 use Symfony\Component\Routing\RouterInterface;
-use Twig\Extension\AbstractExtension;
-use Twig\TwigFilter;
-use Twig\TwigFunction;
+use Twig\Extension\RuntimeExtensionInterface;
 
-final class RouterTwigExtension extends AbstractExtension
+final class RouterRuntime implements RuntimeExtensionInterface
 {
     private RouterInterface $router;
 
     public function __construct(RouterInterface $router)
     {
         $this->router = $router;
-    }
-
-    public function getFunctions(): array
-    {
-        return [
-            new TwigFunction('routeExists', [$this, 'routeExists']),
-        ];
-    }
-
-    public function getFilters(): array
-    {
-        return [
-            new TwigFilter('splitTag', [$this, 'splitTag']),
-        ];
     }
 
     public function routeExists(string $name): bool

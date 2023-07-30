@@ -9,31 +9,16 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Nucleos\Twig\Tests\Twig\Extension;
+namespace Nucleos\Twig\Tests\Runtime;
 
-use Nucleos\Twig\Extension\UrlAutoConverterTwigExtension;
+use Nucleos\Twig\Runtime\UrlAutoConverterRuntime;
 use PHPUnit\Framework\TestCase;
-use Twig\TwigFilter;
 
-final class UrlAutoConverterTwigExtensionTest extends TestCase
+final class UrlAutoConverterRuntimeTest extends TestCase
 {
-    public function testGetFilters(): void
-    {
-        $extension = new UrlAutoConverterTwigExtension();
-
-        $filters = $extension->getFilters();
-
-        self::assertNotCount(0, $filters);
-
-        foreach ($filters as $filter) {
-            self::assertInstanceOf(TwigFilter::class, $filter);
-            self::assertIsCallable($filter->getCallable());
-        }
-    }
-
     public function testConvertLinksWithPlanText(): void
     {
-        $extension = new UrlAutoConverterTwigExtension();
+        $extension = new UrlAutoConverterRuntime();
 
         self::assertSame('Lorem Ipsum test.de Sit Amet', $extension->convertLinks('Lorem Ipsum test.de Sit Amet'));
     }
@@ -43,7 +28,7 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
      */
     public function testConvertLinksWithLinks(string $input, string $output): void
     {
-        $extension = new UrlAutoConverterTwigExtension();
+        $extension = new UrlAutoConverterRuntime();
 
         self::assertSame($output, $extension->convertLinks($input));
     }
@@ -53,7 +38,7 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
      */
     public function testConvertLinksWithMails(string $input, string $output): void
     {
-        $extension = new UrlAutoConverterTwigExtension();
+        $extension = new UrlAutoConverterRuntime();
 
         self::assertSame($output, $extension->convertLinks($input));
     }
@@ -63,7 +48,7 @@ final class UrlAutoConverterTwigExtensionTest extends TestCase
      */
     public function testConvertLinksWithOptions(string $input, string $output): void
     {
-        $extension = new UrlAutoConverterTwigExtension();
+        $extension = new UrlAutoConverterRuntime();
 
         self::assertSame($output, $extension->convertLinks($input, ['target' => '_blank']));
     }
