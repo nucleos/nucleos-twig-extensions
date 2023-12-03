@@ -23,7 +23,7 @@ final class StringRuntimeTest extends TestCase
     }
 
     /**
-     * @dataProvider getBase10
+     * @dataProvider provideFormatBytesBase10Cases
      *
      * @param float|int $bits
      */
@@ -38,7 +38,7 @@ final class StringRuntimeTest extends TestCase
     }
 
     /**
-     * @dataProvider getBase2
+     * @dataProvider provideFormatBytesBase2Cases
      *
      * @param float|int $bits
      */
@@ -55,7 +55,7 @@ final class StringRuntimeTest extends TestCase
     /**
      * @return int[][]|string[][]
      */
-    public static function getBase10(): iterable
+    public static function provideFormatBytesBase10Cases(): iterable
     {
         return [
             ['500,0 B', 500],
@@ -73,7 +73,7 @@ final class StringRuntimeTest extends TestCase
     /**
      * @return int[][]|string[][]
      */
-    public static function getBase2(): iterable
+    public static function provideFormatBytesBase2Cases(): iterable
     {
         return [
             ['512,0 B', 512],

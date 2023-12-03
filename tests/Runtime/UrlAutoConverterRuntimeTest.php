@@ -24,7 +24,7 @@ final class UrlAutoConverterRuntimeTest extends TestCase
     }
 
     /**
-     * @dataProvider getLinkText
+     * @dataProvider provideConvertLinksWithLinksCases
      */
     public function testConvertLinksWithLinks(string $input, string $output): void
     {
@@ -34,7 +34,7 @@ final class UrlAutoConverterRuntimeTest extends TestCase
     }
 
     /**
-     * @dataProvider getMailText
+     * @dataProvider provideConvertLinksWithMailsCases
      */
     public function testConvertLinksWithMails(string $input, string $output): void
     {
@@ -44,7 +44,7 @@ final class UrlAutoConverterRuntimeTest extends TestCase
     }
 
     /**
-     * @dataProvider getLinkTargetText
+     * @dataProvider provideConvertLinksWithOptionsCases
      */
     public function testConvertLinksWithOptions(string $input, string $output): void
     {
@@ -53,7 +53,7 @@ final class UrlAutoConverterRuntimeTest extends TestCase
         self::assertSame($output, $extension->convertLinks($input, ['target' => '_blank']));
     }
 
-    public static function getLinkText(): iterable
+    public static function provideConvertLinksWithLinksCases(): iterable
     {
         // @noinspection JSUnusedLocalSymbols
         return [
@@ -87,7 +87,7 @@ final class UrlAutoConverterRuntimeTest extends TestCase
     /**
      * @return string[][]
      */
-    public static function getLinkTargetText(): iterable
+    public static function provideConvertLinksWithOptionsCases(): iterable
     {
         // @noinspection JSUnusedLocalSymbols
         return [
@@ -109,7 +109,7 @@ final class UrlAutoConverterRuntimeTest extends TestCase
     /**
      * @return string[][]
      */
-    public static function getMailText(): iterable
+    public static function provideConvertLinksWithMailsCases(): iterable
     {
         // @noinspection JSUnusedLocalSymbols
         return [
