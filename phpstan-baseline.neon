@@ -31,7 +31,7 @@ parameters:
 			path: tests/Bridge/Symfony/App/TwigExtensionIntegrationTest.php
 
 		-
-			message: "#^Method Nucleos\\\\Twig\\\\Tests\\\\Runtime\\\\RouterRuntimeTest\\:\\:getSplitList\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			message: "#^Method Nucleos\\\\Twig\\\\Tests\\\\Runtime\\\\RouterRuntimeTest\\:\\:provideSplitTagCases\\(\\) return type has no value type specified in iterable type iterable\\.$#"
 			count: 1
 			path: tests/Runtime/RouterRuntimeTest.php
 
@@ -41,12 +41,12 @@ parameters:
 			path: tests/Runtime/RouterRuntimeTest.php
 
 		-
-			message: "#^Method Nucleos\\\\Twig\\\\Tests\\\\Runtime\\\\UrlAutoConverterRuntimeTest\\:\\:getLinkText\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			message: "#^Method Nucleos\\\\Twig\\\\Tests\\\\Runtime\\\\UrlAutoConverterRuntimeTest\\:\\:provideConvertLinksWithLinksCases\\(\\) return type has no value type specified in iterable type iterable\\.$#"
 			count: 1
 			path: tests/Runtime/UrlAutoConverterRuntimeTest.php
 
 		-
-			message: "#^Method Nucleos\\\\Twig\\\\Tests\\\\Util\\\\StringUtilsTest\\:\\:getObfuscatedStrings\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			message: "#^Method Nucleos\\\\Twig\\\\Tests\\\\Util\\\\StringUtilsTest\\:\\:provideObfuscateCases\\(\\) return type has no value type specified in iterable type iterable\\.$#"
 			count: 1
 			path: tests/Util/StringUtilsTest.php
 

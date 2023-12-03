@@ -17,14 +17,14 @@ use PHPUnit\Framework\TestCase;
 final class StringUtilsTest extends TestCase
 {
     /**
-     * @dataProvider getObfuscatedStrings
+     * @dataProvider provideObfuscateCases
      */
     public function testObfuscate(string $input, int $start, int $end, string $replacement, string $output): void
     {
         self::assertSame($output, StringUtils::obfuscate($input, $start, $end, $replacement));
     }
 
-    public static function getObfuscatedStrings(): iterable
+    public static function provideObfuscateCases(): iterable
     {
         return [
             ['Foo Bar Baz', 'start' => -3, 'end' => 1, 'replacement' => ' ', 'Foo Bar   z'],

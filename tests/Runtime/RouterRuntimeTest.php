@@ -45,14 +45,14 @@ final class RouterRuntimeTest extends TestCase
     }
 
     /**
-     * @dataProvider getSplitList
+     * @dataProvider provideSplitTagCases
      */
     public function testSplitTag(string $input, string $tag, array $output): void
     {
         self::assertSame($output, $this->extension->splitTag($input, $tag));
     }
 
-    public static function getSplitList(): iterable
+    public static function provideSplitTagCases(): iterable
     {
         return [
             ['<h1>Foo</h1><p>Bar</p><h1>Baz</h1>Bar', 'h1', ['<h1>Foo</h1><p>Bar</p>', '<h1>Baz</h1>Bar']],
