@@ -2,27 +2,32 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 3.1.0 - TBD
+## 3.1.0 - 2023-12-05
 
-### Added
 
-- Nothing.
+-----
 
-### Changed
+### Release Notes for [3.1.0](https://github.com/nucleos/nucleos-twig-extensions/milestone/12)
 
-- Nothing.
+Feature release (minor)
 
-### Deprecated
+### 3.1.0
 
-- Nothing.
+- Total issues resolved: **0**
+- Total pull requests resolved: **6**
+- Total contributors: **2**
 
-### Removed
+#### dependency
 
-- Nothing.
+ - [456: Bump to symfony ^6.4 || ^7.0](https://github.com/nucleos/nucleos-twig-extensions/pull/456) thanks to @core23
+ - [455: Bump to symfony ^6.4 || ^7.0](https://github.com/nucleos/nucleos-twig-extensions/pull/455) thanks to @core23
+ - [452: Update dependency symfony/phpunit-bridge to v7](https://github.com/nucleos/nucleos-twig-extensions/pull/452) thanks to @renovate[bot]
+ - [451: Update dependency matthiasnoback/symfony-dependency-injection-test to v5](https://github.com/nucleos/nucleos-twig-extensions/pull/451) thanks to @renovate[bot]
 
-### Fixed
+#### Enhancement
 
-- Nothing.
+ - [454: Update tools ](https://github.com/nucleos/nucleos-twig-extensions/pull/454) thanks to @core23
+ - [453: Update tools](https://github.com/nucleos/nucleos-twig-extensions/pull/453) thanks to @core23
 
 ## 2.6.0 - TBD
 
