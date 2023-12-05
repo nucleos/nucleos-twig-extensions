@@ -55,7 +55,7 @@
         "symfony/twig-bundle": "^6.4 || ^7.0"
     },
     "conflict": {
-        "symfony/framework-bundle": "<5.4"
+        "symfony/framework-bundle": "<6.4"
     },
     "suggest": {
         "symfony/framework-bundle": "If you want to use symfony"
