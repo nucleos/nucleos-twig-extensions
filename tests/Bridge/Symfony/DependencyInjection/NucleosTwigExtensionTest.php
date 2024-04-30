@@ -16,6 +16,7 @@ use Nucleos\Twig\Bridge\Symfony\DependencyInjection\NucleosTwigExtension;
 use Nucleos\Twig\Extension\RouterExtension;
 use Nucleos\Twig\Extension\StringExtension;
 use Nucleos\Twig\Extension\UrlAutoConverterExtension;
+use Nucleos\Twig\Runtime\StringRuntime;
 
 final class NucleosTwigExtensionTest extends AbstractExtensionTestCase
 {
@@ -26,6 +27,13 @@ final class NucleosTwigExtensionTest extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasService(UrlAutoConverterExtension::class);
         $this->assertContainerBuilderHasService(StringExtension::class);
         $this->assertContainerBuilderHasService(RouterExtension::class);
+
+        $this->assertContainerBuilderHasServiceDefinitionWithArgument(StringRuntime::class, 0, [
+            ' [AT] ', ' (AT) ', ' [ÄT] ',
+        ]);
+        $this->assertContainerBuilderHasServiceDefinitionWithArgument(StringRuntime::class, 1, [
+            ' [DOT] ', ' (DOT) ', ' [.] ',
+        ]);
     }
 
     protected function getContainerExtensions(): array

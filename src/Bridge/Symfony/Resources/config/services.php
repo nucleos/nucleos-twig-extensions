@@ -34,6 +34,10 @@ return static function (ContainerConfigurator $container): void {
 
         ->set(StringRuntime::class)
             ->tag('twig.runtime')
+            ->args([
+                [],
+                [],
+            ])
 
         ->set(RouterRuntime::class)
             ->tag('twig.runtime')

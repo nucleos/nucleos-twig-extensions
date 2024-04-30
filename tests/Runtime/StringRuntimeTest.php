@@ -17,9 +17,13 @@ use PHPUnit\Framework\TestCase;
 
 final class StringRuntimeTest extends TestCase
 {
+    private StringRuntime $runtime;
+
     protected function setUp(): void
     {
         Locale::setDefault('de-DE');
+
+        $this->runtime = new StringRuntime([' [AT] ', ' [ÄT] ', ' (AT) ', ' |AT| '], [' [DOT] ', ' PUNKT ', '[.]']);
     }
 
     /**
@@ -29,11 +33,9 @@ final class StringRuntimeTest extends TestCase
      */
     public function testFormatBytesBase10(string $expected, $bits): void
     {
-        $extension = new StringRuntime();
-
         self::assertSame(
             $expected,
-            $extension->formatBytes($bits, true, 1)
+            $this->runtime->formatBytes($bits, true, 1)
         );
     }
 
@@ -44,11 +46,9 @@ final class StringRuntimeTest extends TestCase
      */
     public function testFormatBytesBase2(string $expected, $bits): void
     {
-        $extension = new StringRuntime();
-
         self::assertSame(
             $expected,
-            $extension->formatBytes($bits, false, 1)
+            $this->runtime->formatBytes($bits, false, 1)
         );
     }
 
@@ -88,11 +88,71 @@ final class StringRuntimeTest extends TestCase
         ];
     }
 
+    /**
+     * @dataProvider provideSpamSecureCases
+     */
+    public function testSpamSecure(string $input, string $output): void
+    {
+        self::assertSame($output, $this->runtime->spamsecure($input));
+    }
+
+    /**
+     * @dataProvider provideSpamSecureTextCases
+     */
+    public function testSpamSecureText(string $input, string $output): void
+    {
+        self::assertSame($output, $this->runtime->spamsecure($input, false));
+    }
+
+    /**
+     * @return string[][]
+     */
+    public static function provideSpamSecureCases(): iterable
+    {
+        return [
+            [
+                'Lorem Ipsum <script>const link = "foo@bar.baz"; </script> Sit Amet',
+                'Lorem Ipsum <script>const link = "foo@bar.baz"; </script> Sit Amet',
+            ],
+            [
+                'Lorem Ipsum <a href="mailto:john@smith.cool">John Smith</a> Sit Amet',
+                'Lorem Ipsum john [AT] smith[.]cool (John Smith) Sit Amet',
+            ],
+            [
+                'Lorem Ipsum <a href="mailto:foo.sub@bar.baz.tld">foo.sub@bar.baz.tld</a> Sit Amet',
+                'Lorem Ipsum foo [DOT] sub (AT) bar PUNKT baz PUNKT tld Sit Amet',
+            ],
+            [
+                'Lorem Ipsum foo [DOT] sub (AT) bar PUNKT baz PUNKT tld Sit Amet',
+                'Lorem Ipsum foo [DOT] sub (AT) bar PUNKT baz PUNKT tld Sit Amet',
+            ],
+        ];
+    }
+
+    /**
+     * @return string[][]
+     */
+    public static function provideSpamSecureTextCases(): iterable
+    {
+        return [
+            [
+                'Lorem Ipsum foo.sub@bar.baz.tld Sit Amet',
+                'Lorem Ipsum foo [DOT] sub [AT] bar PUNKT baz PUNKT tld Sit Amet',
+            ],
+            [
+                'Lorem Ipsum foo [DOT] sub [AT] bar PUNKT baz PUNKT tld Sit Amet',
+                'Lorem Ipsum foo [DOT] sub [AT] bar PUNKT baz PUNKT tld Sit Amet',
+            ],
+            [
+                'Lorem Ipsum foo[DOT]sub[AT]bar PUNKT baz PUNKT tld Sit Amet',
+                'Lorem Ipsum foo[DOT]sub[AT]bar PUNKT baz PUNKT tld Sit Amet',
+            ],
+        ];
+    }
+
     public function testObfuscate(): void
     {
-        $extension = new StringRuntime();
-
-        self::assertSame('T***', $extension->obfuscate(
+        self::assertSame('T***', $this->runtime->obfuscate(
             'Test',
             [
                 'start'       => 1,

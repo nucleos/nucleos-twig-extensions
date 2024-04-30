@@ -39,6 +39,33 @@ return [
 ];
 ```
 
+### Twig text spam protection
+
+The Twig filter `spamsecure` replaces all dot and @-signs.
+
+```twig
+{# Replace plain text #}
+{{ text|spamsecure }}
+
+{# Replace rich text mails #}
+{{ htmlText|spamsecure(true) }}
+```
+
+
+### Configure the Bundle
+
+Create a configuration file called `nucleos_twig.yaml`:
+
+```yaml
+# config/packages/nucleos_twig.yaml
+
+nucleos_twig:
+    secure:
+        mail:
+            at_text:   [ ' [AT] ', ' (AT) ', ' [ÄT] ' ]
+            dot_text:  [ ' [DOT] ', ' (DOT) ', ' [.] ' ]
+```
+
 ## License
 
 This library is under the [MIT license](LICENSE.md).
