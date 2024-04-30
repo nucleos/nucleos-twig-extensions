@@ -22,6 +22,9 @@ final class StringExtension extends AbstractExtension
         return [
             new TwigFilter('format_bytes', [StringRuntime::class, 'formatBytes']),
             new TwigFilter('obfuscate', [StringRuntime::class, 'obfuscate']),
+            new TwigFilter('spamsecure', [StringRuntime::class, 'spamsecure'], [
+                'is_safe' => ['html'],
+            ]),
         ];
     }
 }

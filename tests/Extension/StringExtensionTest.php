@@ -32,13 +32,11 @@ final class StringExtensionTest extends TestCase
             self::assertCallable($filter->getCallable());
         }
 
-        self::assertSame(
-            [
-                'format_bytes',
-                'obfuscate',
-            ],
-            array_map(static fn (TwigFilter $filter): string => $filter->getName(), $filters)
-        );
+        self::assertSame([
+            'format_bytes',
+            'obfuscate',
+            'spamsecure',
+        ], array_map(static fn (TwigFilter $filter): string => $filter->getName(), $filters));
     }
 
     private static function assertCallable(mixed $callable): void
