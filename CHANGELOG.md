@@ -2,27 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 3.2.0 - TBD
+## 3.2.0 - 2024-04-30
 
-### Added
 
-- Nothing.
+-----
 
-### Changed
+### Release Notes for [3.2.0](https://github.com/nucleos/nucleos-twig-extensions/milestone/15)
 
-- Nothing.
+Feature release (minor)
 
-### Deprecated
+### 3.2.0
 
-- Nothing.
+- Total issues resolved: **0**
+- Total pull requests resolved: **2**
+- Total contributors: **2**
 
-### Removed
+#### Feature Request
 
-- Nothing.
+ - [459: Add spam secure filter](https://github.com/nucleos/nucleos-twig-extensions/pull/459) thanks to @core23
 
-### Fixed
+#### dependency
 
-- Nothing.
+ - [458: Update dependency psalm/plugin-phpunit to ^0.19.0](https://github.com/nucleos/nucleos-twig-extensions/pull/458) thanks to @renovate[bot]
 
 ## 3.1.0 - 2023-12-05
 
