@@ -2,27 +2,24 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 3.3.0 - TBD
+## 3.3.0 - 2024-08-14
 
-### Added
 
-- Nothing.
+-----
 
-### Changed
+### Release Notes for [3.3.0](https://github.com/nucleos/nucleos-twig-extensions/milestone/17)
 
-- Nothing.
+Feature release (minor)
 
-### Deprecated
+### 3.3.0
 
-- Nothing.
+- Total issues resolved: **0**
+- Total pull requests resolved: **1**
+- Total contributors: **1**
 
-### Removed
+#### Enhancement
 
-- Nothing.
-
-### Fixed
-
-- Nothing.
+ - [462: Fix symfony deprecation](https://github.com/nucleos/nucleos-twig-extensions/pull/462) thanks to @core23
 
 ## 3.2.0 - 2024-04-30
 
