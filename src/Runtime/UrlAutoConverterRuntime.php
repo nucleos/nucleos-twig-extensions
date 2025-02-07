@@ -27,13 +27,13 @@ final class UrlAutoConverterRuntime implements RuntimeExtensionInterface
         }
 
         // Replace Links with http://
-        $ret = (string) preg_replace("#(^|[\n ])([\\w]+?://[\\w\\#$%&~/.\\-;:=,?@\\[\\]+]*)#is", '\\1<a href="\\2"'.$attr.'>\\2</a>', $ret);
+        $ret = (string) preg_replace("#(^|[\n ])([\\w]+?://[\\w\\#$%&~/.\\-;:=,?@\\[\\]+]*)#is", '\1<a href="\2"'.$attr.'>\2</a>', $ret);
 
         // Replace Links without http://
-        $ret = (string) preg_replace("#(^|[\n ])((www|ftp)\\.[\\w\\#$%&~/.\\-;:=,?@\\[\\]+]*)#is", '\\1<a href="http://\\2"'.$attr.'>\\2</a>', $ret);
+        $ret = (string) preg_replace("#(^|[\n ])((www|ftp)\\.[\\w\\#$%&~/.\\-;:=,?@\\[\\]+]*)#is", '\1<a href="http://\2"'.$attr.'>\2</a>', $ret);
 
         // Replace Email Addresses
-        $ret = (string) preg_replace("#(^|[\n ])([a-z0-9&\\-_.]+?)@([\\w\\-]+\\.([\\w\\-\\.]+\\.)*[\\w]+)#i", '\\1<a href="mailto:\\2@\\3"'.$attr.'>\\2@\\3</a>', $ret);
+        $ret = (string) preg_replace("#(^|[\n ])([a-z0-9&\\-_.]+?)@([\\w\\-]+\\.([\\w\\-\\.]+\\.)*[\\w]+)#i", '\1<a href="mailto:\2@\3"'.$attr.'>\2@\3</a>', $ret);
 
         return substr($ret, 1);
     }
@@ -43,6 +43,6 @@ final class UrlAutoConverterRuntime implements RuntimeExtensionInterface
      */
     private function replaceProtocol(string $text): string
     {
-        return preg_replace('#(script|about|applet|activex|chrome):#is', '\\1:', $text) ?? '';
+        return preg_replace('#(script|about|applet|activex|chrome):#is', '\1:', $text) ?? '';
     }
 }

@@ -61,7 +61,7 @@ final class StringRuntime implements RuntimeExtensionInterface
         $formatter->setAttribute(NumberFormatter::MIN_FRACTION_DIGITS, $fractionDigits);
         $formatter->setAttribute(NumberFormatter::FRACTION_DIGITS, $fractionDigits);
 
-        return sprintf('%s %sB', $formatter->format($number, NumberFormatter::TYPE_DEFAULT), $prefix);
+        return \sprintf('%s %sB', $formatter->format($number, NumberFormatter::TYPE_DEFAULT), $prefix);
     }
 
     /**
@@ -103,7 +103,7 @@ final class StringRuntime implements RuntimeExtensionInterface
         [$original, $email, $text] = $matches;
 
         if ($text === $email) {
-            return sprintf(
+            return \sprintf(
                 '%s%s%s',
                 $this->createSecuredName($email),
                 $this->hashedArrayValue($this->mailAtText, $original),
@@ -111,7 +111,7 @@ final class StringRuntime implements RuntimeExtensionInterface
             );
         }
 
-        return sprintf(
+        return \sprintf(
             '%s%s%s (%s)',
             $this->createSecuredName($email),
             $this->hashedArrayValue($this->mailAtText, $original),
