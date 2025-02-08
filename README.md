@@ -10,7 +10,6 @@ Twig Extensions
 
 [![Continuous Integration](https://github.com/nucleos/nucleos-twig-extensions/actions/workflows/continuous-integration.yml/badge.svg?event=push)](https://github.com/nucleos/nucleos-twig-extensions/actions?query=workflow%3A"Continuous+Integration"+event%3Apush)
 [![Code Coverage](https://codecov.io/gh/nucleos/nucleos-twig-extensions/graph/badge.svg)](https://codecov.io/gh/nucleos/nucleos-twig-extensions)
-[![Type Coverage](https://shepherd.dev/github/nucleos/nucleos-twig-extensions/coverage.svg)](https://shepherd.dev/github/nucleos/nucleos-twig-extensions)
 
 Useful extensions for twig.
 
