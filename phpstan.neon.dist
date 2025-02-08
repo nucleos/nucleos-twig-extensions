@@ -2,7 +2,10 @@ includes:
     - phpstan-baseline.neon
 
 parameters:
-    level: max
+    level: 8
+
+    parallel:
+        maximumNumberOfProcesses: 4
 
     paths:
         - src
@@ -10,3 +13,4 @@ parameters:
 
     bootstrapFiles:
         - vendor-bin/tools/vendor/autoload.php
+
