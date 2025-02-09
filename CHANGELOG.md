@@ -2,27 +2,31 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 3.4.0 - TBD
+## 3.4.0 - 2025-02-09
 
-### Added
 
-- Nothing.
+-----
 
-### Changed
+### Release Notes for [3.4.0](https://github.com/nucleos/nucleos-twig-extensions/milestone/19)
 
-- Nothing.
+Feature release (minor)
 
-### Deprecated
+### 3.4.0
 
-- Nothing.
+- Total issues resolved: **0**
+- Total pull requests resolved: **5**
+- Total contributors: **2**
 
-### Removed
+#### Enhancement
 
-- Nothing.
+ - [469: Sync tool config ](https://github.com/nucleos/nucleos-twig-extensions/pull/469) thanks to @core23
+ - [468: Remove infection testing ](https://github.com/nucleos/nucleos-twig-extensions/pull/468) thanks to @core23
+ - [465: Remove psalm in favor of phpstan ](https://github.com/nucleos/nucleos-twig-extensions/pull/465) thanks to @core23
 
-### Fixed
+#### dependency
 
-- Nothing.
+ - [463: Update PHPStan packages to v2 (major)](https://github.com/nucleos/nucleos-twig-extensions/pull/463) thanks to @renovate[bot]
+ - [461: Update dependency matthiasnoback/symfony-dependency-injection-test to v6](https://github.com/nucleos/nucleos-twig-extensions/pull/461) thanks to @renovate[bot]
 
 ## 3.3.0 - 2024-08-14
 
