@@ -127,9 +127,9 @@ final class StringRuntime implements RuntimeExtensionInterface
     {
         [$original, $email] = $matches;
 
-        return $this->createSecuredName($email).
-            $this->hashedArrayValue($this->mailAtText, $original).
-            $this->createSecuredName($email, true);
+        return $this->createSecuredName($email)
+            .$this->hashedArrayValue($this->mailAtText, $original)
+            .$this->createSecuredName($email, true);
     }
 
     private function createSecuredName(string $name, bool $isDomain = false): string

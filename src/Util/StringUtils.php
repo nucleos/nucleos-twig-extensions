@@ -31,9 +31,9 @@ final class StringUtils
             return $string;
         }
 
-        return substr($string, 0, $start).
-            str_repeat($replacement, $length - $end - $start).
-            substr($string, $length - $end, $end);
+        return substr($string, 0, $start)
+            .str_repeat($replacement, $length - $end - $start)
+            .substr($string, $length - $end, $end);
     }
 
     private static function verifyLength(int $length, int $startPosition, int $endPosition): bool
