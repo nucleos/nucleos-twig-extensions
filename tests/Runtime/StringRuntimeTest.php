@@ -13,6 +13,7 @@ namespace Nucleos\Twig\Tests\Runtime;
 
 use Locale;
 use Nucleos\Twig\Runtime\StringRuntime;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 final class StringRuntimeTest extends TestCase
@@ -27,28 +28,14 @@ final class StringRuntimeTest extends TestCase
     }
 
     /**
-     * @dataProvider provideFormatBytesBase10Cases
-     *
      * @param float|int $bits
      */
+    #[DataProvider('provideFormatBytesBase10Cases')]
     public function testFormatBytesBase10(string $expected, $bits): void
     {
         self::assertSame(
             $expected,
             $this->runtime->formatBytes($bits, true, 1)
-        );
-    }
-
-    /**
-     * @dataProvider provideFormatBytesBase2Cases
-     *
-     * @param float|int $bits
-     */
-    public function testFormatBytesBase2(string $expected, $bits): void
-    {
-        self::assertSame(
-            $expected,
-            $this->runtime->formatBytes($bits, false, 1)
         );
     }
 
@@ -71,6 +58,18 @@ final class StringRuntimeTest extends TestCase
     }
 
     /**
+     * @param float|int $bits
+     */
+    #[DataProvider('provideFormatBytesBase2Cases')]
+    public function testFormatBytesBase2(string $expected, $bits): void
+    {
+        self::assertSame(
+            $expected,
+            $this->runtime->formatBytes($bits, false, 1)
+        );
+    }
+
+    /**
      * @return int[][]|string[][]
      */
     public static function provideFormatBytesBase2Cases(): iterable
@@ -88,20 +87,10 @@ final class StringRuntimeTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider provideSpamSecureCases
-     */
+    #[DataProvider('provideSpamSecureCases')]
     public function testSpamSecure(string $input, string $output): void
     {
         self::assertSame($output, $this->runtime->spamsecure($input));
-    }
-
-    /**
-     * @dataProvider provideSpamSecureTextCases
-     */
-    public function testSpamSecureText(string $input, string $output): void
-    {
-        self::assertSame($output, $this->runtime->spamsecure($input, false));
     }
 
     /**
@@ -127,6 +116,12 @@ final class StringRuntimeTest extends TestCase
                 'Lorem Ipsum foo [DOT] sub (AT) bar PUNKT baz PUNKT tld Sit Amet',
             ],
         ];
+    }
+
+    #[DataProvider('provideSpamSecureTextCases')]
+    public function testSpamSecureText(string $input, string $output): void
+    {
+        self::assertSame($output, $this->runtime->spamsecure($input, false));
     }
 
     /**

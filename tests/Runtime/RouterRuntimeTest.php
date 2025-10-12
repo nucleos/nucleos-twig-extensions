@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Nucleos\Twig\Tests\Runtime;
 
 use Nucleos\Twig\Runtime\RouterRuntime;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Routing\Route;
@@ -44,9 +45,7 @@ final class RouterRuntimeTest extends TestCase
         self::assertFalse($this->extension->routeExists('bar'));
     }
 
-    /**
-     * @dataProvider provideSplitTagCases
-     */
+    #[DataProvider('provideSplitTagCases')]
     public function testSplitTag(string $input, string $tag, array $output): void
     {
         self::assertSame($output, $this->extension->splitTag($input, $tag));

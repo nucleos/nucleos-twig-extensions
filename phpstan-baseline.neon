@@ -19,24 +19,6 @@ parameters:
 			path: tests/Bridge/Symfony/App/AppKernel.php
 
 		-
-			message: '#^Call to method getResponse\(\) on an unknown class Symfony\\Component\\HttpKernel\\Client\.$#'
-			identifier: class.notFound
-			count: 1
-			path: tests/Bridge/Symfony/App/TwigExtensionIntegrationTest.php
-
-		-
-			message: '#^Call to method request\(\) on an unknown class Symfony\\Component\\HttpKernel\\Client\.$#'
-			identifier: class.notFound
-			count: 1
-			path: tests/Bridge/Symfony/App/TwigExtensionIntegrationTest.php
-
-		-
-			message: '#^Instantiated class Symfony\\Component\\HttpKernel\\Client not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: tests/Bridge/Symfony/App/TwigExtensionIntegrationTest.php
-
-		-
 			message: '#^Method Nucleos\\Twig\\Tests\\Runtime\\RouterRuntimeTest\:\:provideSplitTagCases\(\) return type has no value type specified in iterable type iterable\.$#'
 			identifier: missingType.iterableValue
 			count: 1
