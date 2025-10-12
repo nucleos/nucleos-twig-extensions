@@ -2,27 +2,29 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 3.5.0 - TBD
+## 3.5.0 - 2025-10-12
 
-### Added
 
-- Nothing.
+-----
 
-### Changed
+### Release Notes for [3.5.0](https://github.com/nucleos/nucleos-twig-extensions/milestone/21)
 
-- Nothing.
+Feature release (minor)
 
-### Deprecated
+### 3.5.0
 
-- Nothing.
+- Total issues resolved: **0**
+- Total pull requests resolved: **3**
+- Total contributors: **1**
 
-### Removed
+#### dependency
 
-- Nothing.
+ - [472: Update to phpunit v12](https://github.com/nucleos/nucleos-twig-extensions/pull/472) thanks to @core23
+ - [471: Drop support for PHP 8.2](https://github.com/nucleos/nucleos-twig-extensions/pull/471) thanks to @core23
 
-### Fixed
+#### Enhancement
 
-- Nothing.
+ - [470: Remove ci pipeline overrides ](https://github.com/nucleos/nucleos-twig-extensions/pull/470) thanks to @core23
 
 ## 3.4.0 - 2025-02-09
 
