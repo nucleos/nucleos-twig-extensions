@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Nucleos\Twig\Tests\Runtime;
 
 use Nucleos\Twig\Runtime\UrlAutoConverterRuntime;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 final class UrlAutoConverterRuntimeTest extends TestCase
@@ -23,34 +24,12 @@ final class UrlAutoConverterRuntimeTest extends TestCase
         self::assertSame('Lorem Ipsum test.de Sit Amet', $extension->convertLinks('Lorem Ipsum test.de Sit Amet'));
     }
 
-    /**
-     * @dataProvider provideConvertLinksWithLinksCases
-     */
+    #[DataProvider('provideConvertLinksWithLinksCases')]
     public function testConvertLinksWithLinks(string $input, string $output): void
     {
         $extension = new UrlAutoConverterRuntime();
 
         self::assertSame($output, $extension->convertLinks($input));
-    }
-
-    /**
-     * @dataProvider provideConvertLinksWithMailsCases
-     */
-    public function testConvertLinksWithMails(string $input, string $output): void
-    {
-        $extension = new UrlAutoConverterRuntime();
-
-        self::assertSame($output, $extension->convertLinks($input));
-    }
-
-    /**
-     * @dataProvider provideConvertLinksWithOptionsCases
-     */
-    public function testConvertLinksWithOptions(string $input, string $output): void
-    {
-        $extension = new UrlAutoConverterRuntime();
-
-        self::assertSame($output, $extension->convertLinks($input, ['target' => '_blank']));
     }
 
     public static function provideConvertLinksWithLinksCases(): iterable
@@ -84,26 +63,12 @@ final class UrlAutoConverterRuntimeTest extends TestCase
         ];
     }
 
-    /**
-     * @return string[][]
-     */
-    public static function provideConvertLinksWithOptionsCases(): iterable
+    #[DataProvider('provideConvertLinksWithMailsCases')]
+    public function testConvertLinksWithMails(string $input, string $output): void
     {
-        // @noinspection JSUnusedLocalSymbols
-        return [
-            [
-                'Lorem Ipsum http://test.de Sit Amet',
-                'Lorem Ipsum <a href="http://test.de" target="_blank">http://test.de</a> Sit Amet',
-            ],
-            [
-                'Lorem Ipsum www.test.de/foo Sit Amet',
-                'Lorem Ipsum <a href="http://www.test.de/foo" target="_blank">www.test.de/foo</a> Sit Amet',
-            ],
-            [
-                'Lorem Ipsum www.test.de/foo/bar.html Sit Amet',
-                'Lorem Ipsum <a href="http://www.test.de/foo/bar.html" target="_blank">www.test.de/foo/bar.html</a> Sit Amet',
-            ],
-        ];
+        $extension = new UrlAutoConverterRuntime();
+
+        self::assertSame($output, $extension->convertLinks($input));
     }
 
     /**
@@ -124,6 +89,36 @@ final class UrlAutoConverterRuntimeTest extends TestCase
             [
                 'Lorem Ipsum <script>const link = "foo@bar.baz"; </script> Sit Amet',
                 'Lorem Ipsum <script>const link = "foo@bar.baz"; </script> Sit Amet',
+            ],
+        ];
+    }
+
+    #[DataProvider('provideConvertLinksWithOptionsCases')]
+    public function testConvertLinksWithOptions(string $input, string $output): void
+    {
+        $extension = new UrlAutoConverterRuntime();
+
+        self::assertSame($output, $extension->convertLinks($input, ['target' => '_blank']));
+    }
+
+    /**
+     * @return string[][]
+     */
+    public static function provideConvertLinksWithOptionsCases(): iterable
+    {
+        // @noinspection JSUnusedLocalSymbols
+        return [
+            [
+                'Lorem Ipsum http://test.de Sit Amet',
+                'Lorem Ipsum <a href="http://test.de" target="_blank">http://test.de</a> Sit Amet',
+            ],
+            [
+                'Lorem Ipsum www.test.de/foo Sit Amet',
+                'Lorem Ipsum <a href="http://www.test.de/foo" target="_blank">www.test.de/foo</a> Sit Amet',
+            ],
+            [
+                'Lorem Ipsum www.test.de/foo/bar.html Sit Amet',
+                'Lorem Ipsum <a href="http://www.test.de/foo/bar.html" target="_blank">www.test.de/foo/bar.html</a> Sit Amet',
             ],
         ];
     }
