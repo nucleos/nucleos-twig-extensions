@@ -38,7 +38,7 @@
         "php": "^8.3",
         "ext-pcre": "*",
         "symfony/routing": "^6.4 || ^7.0",
-        "symfony/translation-contracts": "^2.0 || ^3.0",
+        "symfony/translation-contracts": "^6.0",
         "twig/twig": "^3.3"
     },
     "require-dev": {
